@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 
 import { PageLoad } from "@/components/page-load";
+import { NavBar } from "@/components/navbar";
 
 export default function RootLayout({
     children,
@@ -10,7 +11,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <PageLoad />
+                <NavBar />
+                {/* <PageLoad /> */}
                 {children}
             </body>
         </html>
