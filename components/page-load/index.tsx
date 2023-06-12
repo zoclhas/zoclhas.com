@@ -31,13 +31,15 @@ export const PageLoad = () => {
             className="bg-primary fixed w-full h-full grid place-items-center"
         >
             <div>
-                <div className="select-none flex gap-4">
+                <div className="select-none flex gap-4 items-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, type: "spring" }}
                     >
-                        <h1 className="text-7xl">zoclhas.com</h1>
+                        <h1 className="text-7xl max-xs:text-4xl">
+                            zoclhas.com
+                        </h1>
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -53,7 +55,7 @@ export const PageLoad = () => {
                                 rotate: [0, 90, 180, 270, 360],
                             }}
                             transition={{
-                                duration: 1,
+                                duration: 0.3,
                                 type: "spring",
                                 times: [0, 0.2, 0.5, 0.8, 1],
                                 repeat: Infinity,
@@ -61,7 +63,7 @@ export const PageLoad = () => {
                             }}
                         >
                             <div
-                                className="w-12 h-12 rounded-full border-8 border-solid border-secondary border-t-transparent mt-4 mx-auto opacity-50 rotate-45"
+                                className="w-12 h-12 rounded-full border-8 border-solid border-secondary border-t-transparent mx-auto opacity-50 rotate-45 max-sm:w-8 max-sm:h-8 max-sm:border-4"
                                 aria-labelledby="Loading Spinner"
                             ></div>
                         </motion.div>
