@@ -30,18 +30,22 @@
 
 html[data-color="maroon"] {
     --primary: #412c31;
+    --secondary: #ab8e96;
 }
 
 html[data-color="pink"] {
     --primary: #412c40;
+    --secondary: #a98eab;
 }
 
 html[data-color="blue"] {
     --primary: #2c2f41;
+    --secondary: #8e94ab;
 }
 
 html[data-color="yellow"] {
     --primary: #413f2c;
+    --secondary: #aaab8e;
 }
 
 body {
@@ -49,21 +53,8 @@ body {
     font-family: BG, sans-serif;
     font-weight: 400;
     color: var(--secondary);
-}
 
-body::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    position: fixed;
-
-    background-image: radial-gradient(var(--secondary) 1px, transparent 0);
-    background-size: 100px 100px;
-    background-position: -19px -19px;
-
-    opacity: 0.2;
+    min-height: 200vh;
 }
 
 h1,
