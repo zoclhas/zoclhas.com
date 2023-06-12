@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: BG;
+    src: url(BasisGrotesqueArabicPro-Light.ttf);
+    font-weight: 200; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: BG;
+    src: url(BasisGrotesqueArabicPro-Regular.ttf);
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: BG;
+    src: url(BasisGrotesqueArabicPro-Bold.ttf);
+    font-weight: 800; /* Bold */
+    font-style: normal;
+}
+
+:root {
+    --primary: #2c4141;
+    --secondary: #8eabab;
+}
+
+html[data-color="maroon"] {
+    --primary: #412c31;
+}
+
+html[data-color="pink"] {
+    --primary: #412c40;
+}
+
+html[data-color="blue"] {
+    --primary: #2c2f41;
+}
+
+html[data-color="yellow"] {
+    --primary: #413f2c;
+}
+
+body {
+    background: var(--primary);
+    font-family: BG, sans-serif;
+    font-weight: 400;
+    color: var(--secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 800;
+}

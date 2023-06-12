@@ -1,4 +1,6 @@
-import "./globals.scss";
+import "@/styles/globals.scss";
+
+import { PageLoad } from "@/components/page-load";
 
 export default function RootLayout({
     children,
@@ -7,7 +9,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <PageLoad />
+                {children}
+            </body>
         </html>
     );
 }
