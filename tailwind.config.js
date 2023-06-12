@@ -11,6 +11,9 @@ module.exports = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
             },
+            screens: {
+                xs: "450px",
+            },
         },
     },
     plugins: [],
