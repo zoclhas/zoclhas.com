@@ -1,7 +1,11 @@
+"use client";
+
 import "@/styles/globals.scss";
 
 import { PageLoad } from "@/components/page-load";
 import { NavBar } from "@/components/navbar";
+
+import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({
     children,
@@ -11,9 +15,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <NavBar />
-                {/* <PageLoad /> */}
-                {children}
+                <ThemeProvider defaultTheme="green" attribute="data-color">
+                    <NavBar />
+                    <PageLoad />
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );
