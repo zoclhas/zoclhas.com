@@ -1,20 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useState } from "react";
+import { useTheme } from "next-themes";
 
 export const ThemeSwitch = () => {
-    const currentTheme = useLocalStorage("theme")[0] as string;
-
-    const [theme, setTheme] = useState<string>("green");
-    useEffect(() => {
-        if (currentTheme !== undefined || currentTheme !== "undefined")
-            setTheme(currentTheme ? currentTheme : "green");
-    }, [currentTheme]);
-    console.log(currentTheme, theme);
-
+    const { theme, setTheme } = useTheme();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const themes = [
@@ -31,21 +22,9 @@ export const ThemeSwitch = () => {
     };
 
     const changeTheme = (color: string) => {
-        setIsOpen(false);
         setTheme(color);
-        useLocalStorage("theme", color);
+        setIsOpen(false);
     };
-
-    useEffect(() => {
-        if (typeof document !== "undefined") {
-            document
-                .querySelector("html")!
-                .setAttribute(
-                    "data-color",
-                    currentTheme ? currentTheme : theme
-                );
-        }
-    }, [currentTheme]);
 
     return (
         <div className="relative">

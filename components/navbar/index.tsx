@@ -3,8 +3,20 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
+import { useEffect, useState } from "react";
 
 export const NavBar = () => {
+    const [isLoaded, setIsLoaded] = useState<boolean>(false);
+    useEffect(() => {
+        if (!isLoaded) {
+            setTimeout(() => setIsLoaded(true), 1500);
+        }
+    }, [isLoaded]);
+
+    if (!isLoaded) {
+        return null;
+    }
+
     return (
         <nav className="h-[80px] fixed w-full p-4 flex gap-4 justify-between items-center px-12 bg-primary bg-opacity-30 backdrop-blur-lg max-xs:px-4">
             <motion.div
