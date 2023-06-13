@@ -24,19 +24,17 @@ export const Hero = () => {
                     float
                 />
             </div>
-            <motion.h2 className="">
-                <WavyText
-                    text="Web Dev | Material Artist"
-                    replay
-                    className="text-lg font-normal max-sm:text-base"
-                    delay={1.6}
-                    duration={0.005}
-                />
-            </motion.h2>
-            <div className="flex gap-4">
+            <WavyText
+                text="Web Dev | Material Artist"
+                replay
+                className="text-lg font-normal max-sm:text-base"
+                delay={1.6}
+                duration={0.005}
+            />
+            <div className="flex gap-4 max-xs:gap-2">
                 <motion.div
-                    initial={{ opacity: 0, translateX: -40 }}
-                    animate={{ opacity: 1, translateX: 0 }}
+                    initial={{ opacity: 0, translateX: -40, rotate: 45 }}
+                    animate={{ opacity: 1, translateX: 0, rotate: 0 }}
                     transition={{ type: "spring", delay: 1.8 }}
                 >
                     <IconButton
@@ -65,8 +63,8 @@ export const Hero = () => {
                     </IconButton>
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0, translateX: 40 }}
-                    animate={{ opacity: 1, translateX: 0 }}
+                    initial={{ opacity: 0, translateX: 40, rotate: -45 }}
+                    animate={{ opacity: 1, translateX: 0, rotate: 0 }}
                     transition={{ type: "spring", delay: 1.8 }}
                 >
                     <IconButton
