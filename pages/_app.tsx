@@ -29,11 +29,7 @@ export default function App({ Component, pageProps, ...rest }: AppProps) {
             >
                 <NavBar />
                 <PageLoad />
-                <main
-                    data-scroll-container
-                    ref={containerRef}
-                    className="overflow-y-hidden p-0"
-                >
+                <main data-scroll-container ref={containerRef}>
                     <Component {...pageProps} />
                 </main>
             </RLSProvider>
