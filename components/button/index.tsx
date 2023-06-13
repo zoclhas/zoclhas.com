@@ -13,7 +13,7 @@ export const Button: FC<ButtonProps> = ({
     const buttonProps = {
         whileHover: { scale: 1.1 },
         whileTap: { scale: 0.9 },
-        className: `px-6 py-x ${
+        className: `px-6 py-x font-bold ${
             fill ? "bg-[rgb(var(--secondary-rgb),0.2)]" : ""
         } rounded-2xl cursor-pointer block text-center`,
         ...props,
