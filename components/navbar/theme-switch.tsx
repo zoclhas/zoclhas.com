@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export const ThemeSwitch = () => {
@@ -56,49 +56,52 @@ export const ThemeSwitch = () => {
                     onClick={() => setIsOpen((isOpen) => !isOpen)}
                 ></motion.button>
 
-                <motion.ul
-                    className={`w-[200px] p-2 absolute right-1 mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002] ${
-                        isOpen ? "visible" : "invisible"
-                    }`}
-                    variants={variants}
-                    initial={{
-                        translateY: 30,
-                        opacity: 0,
-                    }}
-                    animate={isOpen ? "open" : "close"}
-                >
-                    {themes.map((th, i) => (
-                        <motion.li
-                            className={`cursor-pointer flex items-center gap-2 p-2 rounded-xl transition-colors hover:bg-white/5 ${
-                                theme === th.color ? "bg-white/10" : null
-                            }`}
-                            variants={variants}
-                            key={th.hex}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.95 }}
-                            transition={{
-                                translateY: { delay: i * 0.05 },
-                                opacity: { delay: i * 0.05 },
-                            }}
-                            onClick={() => changeTheme(th.color)}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.ul
+                            className="w-[200px] p-2 absolute right-1 mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002]"
+                            initial={{ translateY: 20, opacity: 0 }}
+                            animate={{ translateY: 0, opacity: 1 }}
+                            exit={{ translateY: 20, opacity: 0 }}
                         >
-                            <div
-                                className="w-8 h-8 border-2 border-secondary border-opacity-30 rounded-full"
-                                style={{
-                                    background: th.prim,
-                                    borderColor: th.hex,
-                                }}
-                            ></div>
-                            <span>{th.color}</span>
-                        </motion.li>
-                    ))}
-                </motion.ul>
+                            {themes.map((th, i) => (
+                                <motion.li
+                                    className={`cursor-pointer flex items-center gap-2 p-2 rounded-xl transition-colors hover:bg-white/5 ${
+                                        theme === th.color
+                                            ? "bg-white/10"
+                                            : null
+                                    }`}
+                                    initial={variants.close}
+                                    animate={variants.open}
+                                    exit={variants.close}
+                                    key={th.hex}
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    transition={{
+                                        translateY: { delay: i * 0.05 },
+                                        opacity: { delay: i * 0.05 },
+                                    }}
+                                    onClick={() => changeTheme(th.color)}
+                                >
+                                    <div
+                                        className="w-8 h-8 border-2 border-secondary border-opacity-30 rounded-full"
+                                        style={{
+                                            background: th.prim,
+                                            borderColor: th.hex,
+                                        }}
+                                    ></div>
+                                    <span>{th.color}</span>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                    )}
+                </AnimatePresence>
             </div>
 
             {isOpen &&
                 createPortal(
                     <div
-                        className="z-[900] w-full h-full fixed top-0"
+                        className="z-[100] w-full h-full fixed top-0"
                         onClick={() => setIsOpen(false)}
                     ></div>,
                     document.body

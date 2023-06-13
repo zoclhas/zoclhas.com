@@ -1,10 +1,18 @@
-import { WavyText } from "../wavy-text";
+import { motion } from "framer-motion";
+
+import { WavyText } from "@/components/wavy-text";
 
 export const Hero = () => {
     return (
         <>
             <div>
-                <p>Hi, I'm</p>
+                <motion.p
+                    initial={{ opacity: 0, translateY: 40 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    transition={{ type: "spring", delay: 1.5 }}
+                >
+                    Hi, I'm
+                </motion.p>
                 <WavyText
                     text="zoclhas"
                     replay={true}
