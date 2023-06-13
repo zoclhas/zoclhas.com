@@ -69,8 +69,6 @@ body {
     font-family: BG, sans-serif;
     font-weight: 400;
     color: var(--secondary);
-
-    min-height: 200vh;
 }
 
 h1,
@@ -81,4 +79,8 @@ h5,
 h6,
 strong {
     font-weight: 800;
+}
+
+main {
+    min-height: 200vh;
 }
