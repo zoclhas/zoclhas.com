@@ -13,7 +13,7 @@ export const PageLoad = () => {
     }, [isLoaded]);
 
     if (isLoaded) {
-        document.body.style.overflowY = "scroll";
+        document.querySelector("main")!.style.overflowY = "scroll";
         return null;
     }
 
@@ -23,7 +23,7 @@ export const PageLoad = () => {
     };
 
     if (typeof document !== "undefined") {
-        document.body.style.overflowY = "hidden";
+        document.querySelector("main")!.style.overflowY = "hidden";
     }
 
     return (

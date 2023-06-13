@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
 
 export const NavBar = () => {
+    const { scroll } = useLocomotiveScroll();
+
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     useEffect(() => {
         if (!isLoaded) {
@@ -25,7 +28,17 @@ export const NavBar = () => {
                     whileHover={{ scale: 1.1, opacity: 0.7 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <Link href="/" className="font-bold text-2xl">
+                    <Link
+                        href="/"
+                        className="font-bold text-2xl"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            scroll.scrollTo("top", {
+                                duration: 1000,
+                                disableLerp: true,
+                            });
+                        }}
+                    >
                         zoclhas.com
                     </Link>
                 </motion.div>
