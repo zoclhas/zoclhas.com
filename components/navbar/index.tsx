@@ -20,7 +20,7 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className="h-[80px] fixed w-full p-4 flex gap-4 justify-between items-center px-12 bg-primary bg-opacity-30 backdrop-blur-lg max-xs:px-4 z-[1000]">
+            <nav className="h-[80px] fixed w-full p-4 flex gap-4 justify-between items-center px-12 bg-[rgb(var(--primary-rgb),0.7)] backdrop-blur-lg max-xs:px-4 z-[1000]">
                 <motion.div
                     initial={{ opacity: 0, translateY: 20 }}
                     animate={{ type: "spring", opacity: 1, translateY: 0 }}
