@@ -5,32 +5,19 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
     fill?: boolean;
 }
 
-interface LinkProps extends HTMLMotionProps<"a"> {
-    href: string;
-}
-
-export const IconButton: FC<ButtonProps & LinkProps> = ({
+export const Button: FC<ButtonProps> = ({
     children,
     fill,
-    href,
     ...props
-}: ButtonProps & LinkProps) => {
+}: ButtonProps) => {
     const buttonProps = {
         whileHover: { scale: 1.1 },
         whileTap: { scale: 0.9 },
-        className: `p-3 ${
+        className: `px-6 py-x ${
             fill ? "bg-[rgb(var(--secondary-rgb),0.2)]" : ""
-        } rounded-2xl cursor-pointer block`,
+        } rounded-2xl cursor-pointer block text-center`,
         ...props,
     };
-
-    if (href) {
-        return (
-            <motion.a href={href} {...buttonProps}>
-                {children}
-            </motion.a>
-        );
-    }
 
     return <motion.button {...buttonProps}>{children}</motion.button>;
 };

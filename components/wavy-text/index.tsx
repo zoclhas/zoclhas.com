@@ -8,6 +8,7 @@ interface Props extends HTMLMotionProps<"h1"> {
     delay?: number;
     replay: boolean;
     duration?: number;
+    float?: boolean;
 }
 
 export const WavyText: FC<Props> = ({
@@ -15,6 +16,7 @@ export const WavyText: FC<Props> = ({
     delay = 0,
     duration = 0.05,
     replay,
+    float,
     ...props
 }: Props) => {
     const letters = Array.from(text);
@@ -59,7 +61,12 @@ export const WavyText: FC<Props> = ({
             {...props}
         >
             {letters.map((letter, index) => (
-                <motion.span key={index} variants={child}>
+                <motion.span
+                    key={index}
+                    variants={child}
+                    data-scroll={float}
+                    data-scroll-speed={float ? index * 0.5 : "0"}
+                >
                     {letter === " " ? "\u00A0" : letter}
                 </motion.span>
             ))}
