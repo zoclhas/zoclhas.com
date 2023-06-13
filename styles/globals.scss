@@ -41,6 +41,10 @@
     --secondary-rgb: 142, 171, 171;
 }
 
+*::selection {
+    background: rgb(var(--secondary-rgb), 0.15);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -92,4 +96,22 @@ strong {
 
 .c-scrollbar {
     z-index: 2000;
+}
+
+.dlink {
+    @apply relative w-max font-bold inline-block;
+}
+
+.dlink::after {
+    content: "";
+    display: block;
+    background: var(--secondary);
+
+    height: 2px;
+    width: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    border-radius: 9999px;
 }

@@ -45,13 +45,7 @@ export const ThemeSwitch = () => {
                     animate={{ type: "spring", opacity: 1, translateY: 0 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="cursor-pointer w-12 h-12 border-4 border-secondary border-opacity-30 rounded-full"
-                    style={{
-                        background: themes.filter((e) => e.color === theme)[0]
-                            .prim,
-                        borderColor: themes.filter((e) => e.color === theme)[0]
-                            .hex,
-                    }}
+                    className="cursor-pointer w-12 h-12 border-4 border-secondary border-opacity-30 rounded-full bg-gradient-to-tr from-primary  to-secondary"
                     aria-labelledby="theme-switch-dropdown"
                     aria-label="theme-switch-dropdown"
                     title="theme-switch-dropdown"
@@ -61,7 +55,7 @@ export const ThemeSwitch = () => {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.ul
-                            className="w-[200px] p-2 absolute right-1 mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002]"
+                            className="w-[200px] p-2 absolute mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002] -right-[75px]"
                             initial={{ translateY: 20, opacity: 0 }}
                             animate={{ translateY: 0, opacity: 1 }}
                             exit={{ translateY: 20, opacity: 0 }}
@@ -88,7 +82,7 @@ export const ThemeSwitch = () => {
                                     <div
                                         className="w-8 h-8 border-2 border-secondary border-opacity-30 rounded-full"
                                         style={{
-                                            background: th.prim,
+                                            background: `linear-gradient(45deg, ${th.prim}, ${th.hex})`,
                                             borderColor: th.hex,
                                         }}
                                     ></div>

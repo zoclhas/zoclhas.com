@@ -23,6 +23,13 @@
             "@/*": ["./*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "components/spotify/index.jsx",
+        "components/spotify/api.js"
+    ],
     "exclude": ["node_modules"]
 }
