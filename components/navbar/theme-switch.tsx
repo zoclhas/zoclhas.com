@@ -28,9 +28,9 @@ export const ThemeSwitch = () => {
 
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflowY = "hidden";
+            document.querySelector("main")!.style.overflowY = "hidden";
         } else {
-            document.body.style.overflowY = "scroll";
+            document.querySelector("main")!.style.overflowY = "scroll";
         }
     }, [isOpen]);
 
