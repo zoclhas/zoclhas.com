@@ -84,3 +84,7 @@ strong {
 .c-scrollbar {
     z-index: 2000;
 }
+
+* {
+    transition: color 150ms ease, background 150ms ease;
+}
