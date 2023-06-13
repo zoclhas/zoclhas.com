@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Projects } from "@/components/sections/projects";
 
 import { Spotify } from "@/components/spotify";
 
@@ -23,9 +24,11 @@ export default function Home() {
             </section>
             <section
                 id="projects"
-                className="min-h-screen flex flex-col gap-2 justify-center px-4 items-center max-w-[40rem] mx-auto relative"
+                className="py-20 px-4 relative"
                 data-scroll-section
-            ></section>
+            >
+                <Projects />
+            </section>
         </>
     );
 }

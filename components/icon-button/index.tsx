@@ -13,6 +13,7 @@ export const IconButton: FC<ButtonProps & LinkProps> = ({
     children,
     fill,
     href,
+    className,
     ...props
 }: ButtonProps & LinkProps) => {
     const buttonProps = {
@@ -20,7 +21,7 @@ export const IconButton: FC<ButtonProps & LinkProps> = ({
         whileTap: { scale: 0.9 },
         className: `p-3 ${
             fill ? "bg-[rgb(var(--secondary-rgb),0.2)]" : ""
-        } rounded-2xl cursor-pointer block`,
+        } rounded-2xl cursor-pointer block w-max`,
         ...props,
     };
 

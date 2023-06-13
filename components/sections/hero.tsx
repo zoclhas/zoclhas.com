@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { WavyText } from "@/components/wavy-text";
 import { Discord, GitHub, Twitter } from "@/components/icons";
 import { IconButton } from "@/components/icon-button";
-import { InpageScroll } from "../button/InpageScroll";
+import { InpageScroll } from "@/components/button/InpageScroll";
 
 export const Hero = () => {
     return (

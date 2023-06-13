@@ -86,7 +86,9 @@ export const ThemeSwitch = () => {
                                             borderColor: th.hex,
                                         }}
                                     ></div>
-                                    <span>{th.color}</span>
+                                    <span className="drop-shadow-lg">
+                                        {th.color}
+                                    </span>
                                 </motion.li>
                             ))}
                         </motion.ul>
