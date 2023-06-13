@@ -5,7 +5,7 @@ export default function Home() {
         <>
             <section
                 id="hero"
-                className="h-screen flex flex-col gap-4 justify-center px-4 items-center"
+                className="h-screen flex flex-col gap-2 justify-center px-4 items-center max-w-[40rem] mx-auto"
                 data-scroll-section
             >
                 <Hero />
