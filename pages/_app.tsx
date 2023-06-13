@@ -15,7 +15,11 @@ export default function App({ Component, pageProps, ...rest }: AppProps) {
     const containerRef = useRef(null);
 
     return (
-        <ThemeProvider defaultTheme="green" attribute="data-color">
+        <ThemeProvider
+            defaultTheme="green"
+            attribute="data-color"
+            storageKey="color"
+        >
             <RLSProvider
                 options={{
                     smooth: true,
