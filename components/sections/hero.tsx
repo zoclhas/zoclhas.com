@@ -11,7 +11,7 @@ export const Hero = () => {
                     animate={{ opacity: 1, translateY: 0 }}
                     transition={{ type: "spring", delay: 1.5 }}
                 >
-                    Hi, I'm
+                    Hi, I&apos;m
                 </motion.p>
                 <WavyText
                     text="zoclhas"
