@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export const ThemeSwitch = () => {
+    const { scroll } = useLocomotiveScroll();
+
     const { theme, setTheme } = useTheme();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -28,9 +31,9 @@ export const ThemeSwitch = () => {
 
     useEffect(() => {
         if (isOpen) {
-            document.querySelector("main")!.style.overflowY = "hidden";
+            scroll.stop();
         } else {
-            document.querySelector("main")!.style.overflowY = "scroll";
+            scroll.start();
         }
     }, [isOpen]);
 
@@ -95,7 +98,7 @@ export const ThemeSwitch = () => {
             {isOpen &&
                 createPortal(
                     <div
-                        className="z-[100] w-full h-full fixed"
+                        className="z-[900] w-full h-full fixed top-0"
                         onClick={() => setIsOpen(false)}
                     ></div>,
                     document.body

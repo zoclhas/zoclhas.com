@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { motion } from "framer-motion";
 
 export const PageLoad = () => {
+    const { scroll } = useLocomotiveScroll();
+
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
@@ -13,7 +16,7 @@ export const PageLoad = () => {
     }, [isLoaded]);
 
     if (isLoaded) {
-        document.querySelector("main")!.style.overflowY = "scroll";
+        scroll.start();
         return null;
     }
 
@@ -23,7 +26,7 @@ export const PageLoad = () => {
     };
 
     if (typeof document !== "undefined") {
-        document.querySelector("main")!.style.overflowY = "hidden";
+        scroll && scroll.stop();
     }
 
     return (
@@ -31,7 +34,7 @@ export const PageLoad = () => {
             initial={{ scale: 1 }}
             animate={isOpen ? "open" : "close"}
             variants={variants}
-            className="bg-primary fixed w-full h-full grid place-items-center"
+            className="bg-primary fixed w-full h-full grid place-items-center z-[3000]"
         >
             <div>
                 <div className="select-none flex gap-4 items-center">
