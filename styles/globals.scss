@@ -23,29 +23,45 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: RR;
+    src: url(Roboto-Regular.ttf);
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
 :root {
     --primary: #2c4141;
     --secondary: #8eabab;
+    --primary-rgb: 44, 65, 65;
+    --secondary-rgb: 142, 171, 171;
 }
 
 html[data-color="maroon"] {
     --primary: #412c31;
     --secondary: #ab8e96;
+    --primary-rgb: 65, 44, 49;
+    --secondary-rgb: 171, 142, 150;
 }
 
 html[data-color="pink"] {
     --primary: #412c40;
     --secondary: #a98eab;
+    --primary-rgb: 65, 44, 64;
+    --secondary-rgb: 169, 142, 171;
 }
 
 html[data-color="blue"] {
     --primary: #2c2f41;
     --secondary: #8e94ab;
+    --primary-rgb: 44, 47, 65;
+    --secondary-rgb: 142, 148, 171;
 }
 
 html[data-color="yellow"] {
     --primary: #413f2c;
     --secondary: #aaab8e;
+    --primary-rgb: 65, 63, 44;
+    --secondary-rgb: 170, 171, 142;
 }
 
 body {
