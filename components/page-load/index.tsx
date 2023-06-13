@@ -15,6 +15,7 @@ export const PageLoad = () => {
     }, [isLoaded]);
 
     if (isLoaded) {
+        document.body.style.overflowY = "scroll";
         return null;
     }
 
@@ -22,6 +23,10 @@ export const PageLoad = () => {
         open: { scale: 1 },
         close: { scale: 0 },
     };
+
+    if (typeof document !== "undefined") {
+        document.body.style.overflowY = "hidden";
+    }
 
     return (
         <motion.div
