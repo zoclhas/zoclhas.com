@@ -24,7 +24,7 @@ export const Spotify = ({ ...props }) => {
                 <div
                     href={result.songUrl}
                     target="_blank"
-                    className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md max-md:w-full"
+                    className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md w-full"
                 >
                     <img
                         src={result.albumImageUrl}
@@ -47,7 +47,7 @@ export const Spotify = ({ ...props }) => {
                     </div>
                 </div>
             ) : (
-                <div className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl">
+                <div className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md max-md:w-full ">
                     <div className="grow overflow-hidden flex flex-col justify-center">
                         <p style={{ fontSize: "9pt" }}>Spotify</p>
                         <h2 className="text-2xl">Currently Offline :(</h2>
