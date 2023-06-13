@@ -29,6 +29,11 @@
     font-weight: 400; /* Regular */
     font-style: normal;
 }
+
+* {
+    @apply transition-colors duration-150 ease-in;
+}
+
 :root {
     --primary: #2c4141;
     --secondary: #8eabab;
@@ -83,8 +88,4 @@ strong {
 
 .c-scrollbar {
     z-index: 2000;
-}
-
-* {
-    transition: color 150ms ease, background 150ms ease;
 }

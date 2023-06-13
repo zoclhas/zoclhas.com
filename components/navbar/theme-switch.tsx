@@ -53,6 +53,8 @@ export const ThemeSwitch = () => {
                             .hex,
                     }}
                     aria-labelledby="theme-switch-dropdown"
+                    aria-label="theme-switch-dropdown"
+                    title="theme-switch-dropdown"
                     onClick={() => setIsOpen((isOpen) => !isOpen)}
                 ></motion.button>
 
