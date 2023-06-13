@@ -41,6 +41,10 @@
     --secondary-rgb: 142, 171, 171;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html[data-color="maroon"] {
     --primary: #412c31;
     --secondary: #ab8e96;
