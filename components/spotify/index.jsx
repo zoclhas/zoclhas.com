@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import getNowPlayingItem from "./api";
-import { motion } from "framer-motion";
 
 export const Spotify = ({ ...props }) => {
     const [result, setResult] = useState({});
@@ -18,11 +17,7 @@ export const Spotify = ({ ...props }) => {
     });
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-        >
+        <div data-scroll data-scroll-speed="2">
             {result.title !== undefined &&
             result.isPlaying &&
             result.albumImageUrl ? (
@@ -30,8 +25,6 @@ export const Spotify = ({ ...props }) => {
                     href={result.songUrl}
                     target="_blank"
                     className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md max-md:w-full"
-                    data-scroll
-                    data-scroll-speed="2"
                 >
                     <img
                         src={result.albumImageUrl}
@@ -62,6 +55,6 @@ export const Spotify = ({ ...props }) => {
                     </div>
                 </div>
             )}
-        </motion.div>
+        </div>
     );
 };
