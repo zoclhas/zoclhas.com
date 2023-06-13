@@ -56,7 +56,9 @@ export const ThemeSwitch = () => {
                 ></motion.button>
 
                 <motion.ul
-                    className="w-[200px] p-2 absolute right-1 mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002]"
+                    className={`w-[200px] p-2 absolute right-1 mt-4 bg-white/10 rounded-2xl backdrop-blur-lg flex flex-col gap-2 z-[1002] ${
+                        isOpen ? "visible" : "invisible"
+                    }`}
                     variants={variants}
                     initial={{
                         translateY: 30,
