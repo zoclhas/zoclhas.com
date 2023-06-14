@@ -29,8 +29,10 @@ export const InpageScroll: FC<ButtonProps> = ({
             href={href}
             {...buttonProps}
             onClick={(e) => {
-                if (window.screenX > 768) {
-                    e.preventDefault();
+                e.preventDefault();
+                if (window.innerWidth <= 768) {
+                    document.querySelector(href)!.scrollIntoView();
+                } else {
                     scroll.scrollTo(href, { duration: 350 });
                 }
             }}

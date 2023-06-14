@@ -55,7 +55,7 @@ export const Hero = () => {
                     <IconButton
                         fill
                         href="https://twitter.com/zoclhas"
-                        title="GitHub"
+                        title="Twitter"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -70,7 +70,7 @@ export const Hero = () => {
                     <IconButton
                         fill
                         href="https://discord.com/users/301347642682900481"
-                        title="GitHub"
+                        title="Discord"
                         target="_blank"
                         rel="noreferrer"
                     >

@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
+import { Contact } from "@/components/sections/contact";
 
 import { Spotify } from "@/components/spotify";
 
@@ -28,6 +29,13 @@ export default function Home() {
                 data-scroll-section
             >
                 <Projects />
+            </section>
+            <section
+                id="contact"
+                className="h-[80vh] flex flex-col gap-2 justify-center px-4 items-center max-w-[40rem] mx-auto relative"
+                data-scroll-section
+            >
+                <Contact />
             </section>
         </>
     );

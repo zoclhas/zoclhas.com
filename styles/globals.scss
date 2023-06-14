@@ -23,13 +23,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: RR;
-    src: url(Roboto-Regular.ttf);
-    font-weight: 400; /* Regular */
-    font-style: normal;
-}
-
 * {
     @apply transition-colors duration-150 ease-in;
 }
