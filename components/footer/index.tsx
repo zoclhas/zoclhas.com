@@ -10,7 +10,7 @@ export default function Footer() {
     if (shouldRenderFooter) {
         return (
             <motion.footer
-                className="my-2 mx-4 max-w-[40rem] bg-[rgb(var(--secondary-rgb),0.2)] p-4 absolute bottom-0 rounded-3xl backdrop-blur-lg overflow-hidden flex gap-5 items-center w-full max-h-[56px]"
+                className="max-w-[40rem] bg-[rgb(var(--secondary-rgb),0.2)] p-4 absolute bottom-4 left-4 rounded-3xl backdrop-blur-lg overflow-hidden flex gap-5 items-center w-full max-h-[56px]"
                 initial={{ maxWidth: "56px", opacity: 0, translateY: 200 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 whileHover={{
@@ -43,7 +43,7 @@ export default function Footer() {
         );
     } else {
         return (
-            <motion.footer className="my-2 mx-4 max-w-[40rem] bg-[rgb(var(--secondary-rgb),0.2)] p-4 rounded-3xl backdrop-blur-lg overflow-hidden flex gap-5 items-center max-h-[56px] justify-center">
+            <motion.footer className="my-2 mx-4 bg-[rgb(var(--secondary-rgb),0.2)] p-4 rounded-3xl backdrop-blur-lg overflow-hidden flex gap-5 items-center max-h-[56px] justify-center">
                 <div className="w-max">
                     <GitHub height={1.4} />
                 </div>
