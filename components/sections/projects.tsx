@@ -3,7 +3,7 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 
-import { GitHub, ExternalLink } from "@/components/icons";
+import { GitHub, ExternalLink, Cross } from "@/components/icons";
 import { IconButton } from "@/components/icon-button";
 import { Button } from "../button";
 
@@ -178,6 +178,17 @@ export const Projects = () => {
                                                     height={0.9}
                                                 />
                                             </motion.a>
+                                            <motion.button
+                                                className="absolute top-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                onClick={handleClose}
+                                            >
+                                                <Cross
+                                                    fill="#fff"
+                                                    height={0.9}
+                                                />
+                                            </motion.button>
                                         </div>
                                         <div>
                                             <h1 className="text-5xl">

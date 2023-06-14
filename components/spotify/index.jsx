@@ -24,7 +24,7 @@ export const Spotify = ({ ...props }) => {
                 <div
                     href={result.songUrl}
                     target="_blank"
-                    className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md w-full"
+                    className="p-4 bg-white/20 rounded-2xl flex gap-4 w-[400px] select-none shadow-xl backdrop-blur-md max-md:w-full"
                 >
                     <img
                         src={result.albumImageUrl}
