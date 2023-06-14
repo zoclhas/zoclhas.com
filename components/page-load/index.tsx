@@ -17,6 +17,9 @@ export const PageLoad = () => {
 
     if (isLoaded) {
         scroll.start();
+        if (window.innerWidth <= 768) {
+            document.body.style.overflowY = "scroll";
+        }
         return null;
     }
 
@@ -27,6 +30,9 @@ export const PageLoad = () => {
 
     if (typeof document !== "undefined") {
         scroll && scroll.stop();
+        if (window.innerWidth <= 768) {
+            document.body.style.overflowY = "hidden";
+        }
     }
 
     return (
