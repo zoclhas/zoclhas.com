@@ -134,7 +134,7 @@ export const Projects = () => {
                         {createPortal(
                             <motion.div
                                 key="modal"
-                                className="z-[3000] w-full h-full grid place-items-center absolute top-0 left-0 bg-[rgb(var(--primary-rgb),0.7)] backdrop-blur-xl p-4 max-md:fixed"
+                                className="z-[3000] w-full h-full grid place-items-center absolute top-0 left-0 bg-[rgb(var(--primary-rgb),0.7)] backdrop-blur-xl p-4 max-md:fixed overflow-scroll"
                                 onClick={(e) => {
                                     if (e.target === e.currentTarget) {
                                         handleClose();
@@ -161,17 +161,17 @@ export const Projects = () => {
                             >
                                 <motion.div
                                     layoutId={`${index}`}
-                                    className="max-w-[800px]"
+                                    className="max-w-[800px] overflow-y-scroll"
                                 >
                                     <motion.article className="p-4 bg-[rgb(var(--secondary-rgb),0.2)] rounded-3xl flex gap-4 items-center h-max backdrop-blur-3xl max-sm:flex-col">
-                                        <div className="relative w-full">
+                                        <div className="relative md:h-[312px] md:aspect-square">
                                             <img
                                                 src={
                                                     projects[index - 1]
                                                         .coverImage
                                                 }
                                                 alt="Projects[index] Cover Image"
-                                                className="rounded-2xl max-h-[400px] shadow-lg w-full object-cover object-center"
+                                                className="rounded-2xl  shadow-lg "
                                             />
                                             <motion.a
                                                 className="absolute bottom-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center"
@@ -189,7 +189,7 @@ export const Projects = () => {
                                                 />
                                             </motion.a>
                                             <motion.button
-                                                className="absolute top-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center"
+                                                className="absolute top-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center md:hidden"
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.9 }}
                                                 onClick={handleClose}
@@ -231,6 +231,18 @@ export const Projects = () => {
                                                         .description
                                                 }
                                             </ReactMarkdown>
+                                            <div className="flex max-w-[500px] flex-wrap gap-2 mt-2">
+                                                {projects[index - 1].stack.map(
+                                                    (s) => (
+                                                        <div
+                                                            key={s}
+                                                            className="px-2 py-1 bg-[rgb(var(--primary-rgb),0.2)] rounded-xl max-h-8 overflow-hidden grow text-center"
+                                                        >
+                                                            {s}
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
 
                                             <div className="mt-4 flex justify-end gap-2">
                                                 {projects[index - 1].links
