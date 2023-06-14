@@ -113,6 +113,7 @@ export const Projects = () => {
                                         {project.links.github && (
                                             <IconButton
                                                 href={project.links.github}
+                                                target="_blank"
                                                 fill
                                             >
                                                 <GitHub />
@@ -121,6 +122,7 @@ export const Projects = () => {
                                         {project.links.site && (
                                             <IconButton
                                                 href={project.links.site}
+                                                target="_blank"
                                                 fill
                                             >
                                                 <ExternalLink />
@@ -254,7 +256,7 @@ export const Projects = () => {
                                                 {projects[index - 1].links
                                                     .github && (
                                                     <IconButton
-                                                        target="blank"
+                                                        target="_blank"
                                                         href={
                                                             projects[index - 1]
                                                                 .links.github ||
@@ -268,7 +270,7 @@ export const Projects = () => {
                                                 {projects[index - 1].links
                                                     .site && (
                                                     <IconButton
-                                                        target="blank"
+                                                        target="_blank"
                                                         href={
                                                             projects[index - 1]
                                                                 .links.site ||

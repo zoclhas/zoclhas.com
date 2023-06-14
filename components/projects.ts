@@ -84,8 +84,8 @@ export const projects = [
         description:
             "Well my official portfolio site (remade for the 6th time). Includes a tiny about me, Spotify now playing, projects and **Contact** me. And *obv* a multi-colour theme switch.",
         links: {
-            site: "https://zoclas.com",
-            github: "https://github.com/zoclhas/zochy.com",
+            site: "https://zoclhas.com",
+            github: "https://github.com/zoclhas/zoclhas.com",
         },
         stack: [
             "TypeScript",
