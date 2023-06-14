@@ -12,6 +12,7 @@ import { LocomotiveScrollProvider as RLSProvider } from "react-locomotive-scroll
 
 import { PageLoad } from "@/components/page-load";
 import { NavBar } from "@/components/navbar";
+import Head from "next/head";
 
 const Footer = dynamic(() => import("@/components/footer"), {
     ssr: false,
@@ -32,6 +33,49 @@ export default function App({ Component, pageProps, ...rest }: AppProps) {
                 }}
                 containerRef={containerRef}
             >
+                <Head>
+                    <title>Zoclhas</title>
+                    <link
+                        rel="shortcut icon"
+                        href="fav.ico"
+                        type="image/x-icon"
+                    />
+                    <meta name="title" content="Zoclhas" />
+                    <meta
+                        name="description"
+                        content="Web Dev | Material Artist - Heya! This is my portfolio site, checkout my projects and so on!"
+                    />
+
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content="https://zoclhas.com/" />
+                    <meta property="og:title" content="Zoclhas" />
+                    <meta
+                        property="og:description"
+                        content="Web Dev | Material Artist - Heya! This is my portfolio site, checkout my projects and so on!"
+                    />
+                    <meta
+                        property="og:image"
+                        content="https://zoclhas.com/meta-img.png"
+                    />
+
+                    <meta
+                        property="twitter:card"
+                        content="summary_large_image"
+                    />
+                    <meta
+                        property="twitter:url"
+                        content="https://zoclhas.com/"
+                    />
+                    <meta property="twitter:title" content="Zoclhas" />
+                    <meta
+                        property="twitter:description"
+                        content="Web Dev | Material Artist - Heya! This is my portfolio site, checkout my projects and so on!"
+                    />
+                    <meta
+                        property="twitter:image"
+                        content="https://zoclhas.com/meta-img.png"
+                    />
+                </Head>
                 <NavBar />
                 <PageLoad />
                 <main data-scroll-container ref={containerRef}>
