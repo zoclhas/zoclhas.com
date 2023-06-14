@@ -21,12 +21,12 @@ export const Projects = () => {
     if (typeof document !== "undefined" && scroll) {
         if (index > 0) {
             scroll.stop();
-            if (window.screenX <= 768) {
+            if (window.innerWidth <= 768) {
                 document.body.style.overflowY = "hidden";
             }
         } else {
             scroll.start();
-            if (window.screenX <= 768) {
+            if (window.innerWidth <= 768) {
                 document.body.style.overflowY = "scroll";
             }
         }
