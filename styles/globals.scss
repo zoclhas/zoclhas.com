@@ -261,3 +261,11 @@ strong {
         }
     }
 }
+
+.card-content > ul {
+    margin-left: 2rem;
+
+    li {
+        list-style-type: disc;
+    }
+}

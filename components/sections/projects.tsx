@@ -72,6 +72,7 @@ export const Projects = () => {
                             <div>
                                 <h1 className="text-5xl">{project.title}</h1>
                                 <ReactMarkdown
+                                    className="max-h-[50px] overflow-hidden relative after:block after:absolute after:w-full after:h-full after:bg-gradient-to-t after:from-[var(--s)] after:bottom-0 after:left-0 max-lg:max-h-[80px]"
                                     components={{
                                         a({ children, ...props }) {
                                             return (
@@ -89,7 +90,7 @@ export const Projects = () => {
                                         },
                                         p({ children }) {
                                             return (
-                                                <p className="text-lg leading-5 max-h-[50px] overflow-hidden relative after:block after:absolute after:w-full after:h-full after:bg-gradient-to-t after:from-[var(--s)] after:bottom-0 after:left-0 max-lg:max-h-[80px]">
+                                                <p className="text-lg leading-5">
                                                     {children}
                                                 </p>
                                             );
@@ -209,6 +210,7 @@ export const Projects = () => {
                                                 {projects[index - 1].title}
                                             </h1>
                                             <ReactMarkdown
+                                                className="card-content"
                                                 components={{
                                                     a({ children, ...props }) {
                                                         return (
