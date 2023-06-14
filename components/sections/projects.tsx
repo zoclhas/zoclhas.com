@@ -30,6 +30,12 @@ export const Projects = () => {
                 document.body.style.overflowY = "scroll";
             }
         }
+
+        window.addEventListener("keyup", (e) => {
+            if (e.key === "Escape" && index) {
+                handleClose();
+            }
+        });
     }
 
     return (
@@ -105,20 +111,20 @@ export const Projects = () => {
                                         More Info
                                     </Button>
                                     <div className="flex gap-2">
-                                        {project.links.site && (
-                                            <IconButton
-                                                href={project.links.site}
-                                                fill
-                                            >
-                                                <ExternalLink />
-                                            </IconButton>
-                                        )}
                                         {project.links.github && (
                                             <IconButton
                                                 href={project.links.github}
                                                 fill
                                             >
                                                 <GitHub />
+                                            </IconButton>
+                                        )}
+                                        {project.links.site && (
+                                            <IconButton
+                                                href={project.links.site}
+                                                fill
+                                            >
+                                                <ExternalLink />
                                             </IconButton>
                                         )}
                                     </div>
@@ -246,20 +252,6 @@ export const Projects = () => {
 
                                             <div className="mt-4 flex justify-end gap-2">
                                                 {projects[index - 1].links
-                                                    .site && (
-                                                    <IconButton
-                                                        target="blank"
-                                                        href={
-                                                            projects[index - 1]
-                                                                .links.site ||
-                                                            ""
-                                                        }
-                                                        fill
-                                                    >
-                                                        <ExternalLink />
-                                                    </IconButton>
-                                                )}
-                                                {projects[index - 1].links
                                                     .github && (
                                                     <IconButton
                                                         target="blank"
@@ -271,6 +263,20 @@ export const Projects = () => {
                                                         fill
                                                     >
                                                         <GitHub />
+                                                    </IconButton>
+                                                )}
+                                                {projects[index - 1].links
+                                                    .site && (
+                                                    <IconButton
+                                                        target="blank"
+                                                        href={
+                                                            projects[index - 1]
+                                                                .links.site ||
+                                                            ""
+                                                        }
+                                                        fill
+                                                    >
+                                                        <ExternalLink />
                                                     </IconButton>
                                                 )}
                                             </div>
