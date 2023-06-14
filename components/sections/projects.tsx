@@ -48,18 +48,16 @@ export const Projects = () => {
                         onClick={() => index === false && setIndex(i + 1)}
                     >
                         <motion.article
-                            className="p-4 bg-[rgb(var(--secondary-rgb),0.2)] rounded-3xl flex gap-4 items-center h-full backdrop-blur-xl max-lg:flex-col cursor-pointer"
+                            className="p-4 bg-[rgb(var(--secondary-rgb),0.2)] rounded-3xl grid grid-cols-[0.5fr,1.5fr] max-lg:flex gap-4 items-center h-full backdrop-blur-xl max-lg:flex-col cursor-pointer lg:max-h-[300px]"
                             whileHover={{ scale: 1.01 }}
                             whileTap={{ scale: 0.99 }}
                         >
-                            <div className="relative grow">
+                            <div className="relative">
                                 <img
                                     src={project.coverImage}
                                     alt="Project Cover Image"
-                                    className="rounded-2xl shadow-lg w-full"
+                                    className="rounded-2xl shadow-lg max-w-[350px] w-full"
                                     loading="lazy"
-                                    width={150}
-                                    height={250}
                                 />
                                 <motion.a
                                     className="absolute bottom-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center"

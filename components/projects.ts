@@ -21,7 +21,7 @@ export const projects = [
         coverImage: "/zochy-bio.png",
         title: "zochy.xyz",
         description:
-            "Amulet is a high-res __stylized__ POM/PBR resourcepack for Minecraft. Textures are made procedurally. And all parts of the pack is made [LabPBR](https://wiki.shaderlabs.org/wiki/LabPBR_Material_Standard) compliant so it has all the fancy SSS, porosity, AO and more!",
+            "You know those bio-link/bio-card websites? Yeah that but with more customised UI, easy to share link and nicer visuals!",
         links: {
             site: "https://zochy.xyz",
             github: "https://github.com/zoclhas/zochy-bio",
