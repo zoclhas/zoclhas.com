@@ -21,7 +21,7 @@ export const Contact = () => {
                     whileInView={{ opacity: 1, translateY: 0 }}
                     transition={{ type: "spring" }}
                     viewport={{ once: true }}
-                    className="text-lg text-center max-sm:text-5xl"
+                    className="text-lg text-center max-sm:text-base"
                 >
                     Contact me? Hire me? or just wanna say Hi?!
                 </motion.p>

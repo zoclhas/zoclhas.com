@@ -4,6 +4,7 @@ import "../styles/globals.scss";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
 import type { AppProps } from "next/app";
+import dynamic from "next/dynamic";
 
 import { ThemeProvider } from "next-themes";
 import { useRef } from "react";
@@ -11,6 +12,10 @@ import { LocomotiveScrollProvider as RLSProvider } from "react-locomotive-scroll
 
 import { PageLoad } from "@/components/page-load";
 import { NavBar } from "@/components/navbar";
+
+const Footer = dynamic(() => import("@/components/footer"), {
+    ssr: false,
+});
 
 export default function App({ Component, pageProps, ...rest }: AppProps) {
     const containerRef = useRef(null);
@@ -32,6 +37,7 @@ export default function App({ Component, pageProps, ...rest }: AppProps) {
                 <main data-scroll-container ref={containerRef}>
                     <Component {...pageProps} />
                 </main>
+                <Footer />
             </RLSProvider>
         </ThemeProvider>
     );
