@@ -93,7 +93,7 @@ export const About = () => {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-4 right-4 max-md:relative max-md:bottom-0 max-md:right-0 md:hidden">
+            <div className="absolute bottom-4 right-4 max-md:relative max-md:bottom-0 max-md:right-0 md:hidden mt-4">
                 <Spotify />
             </div>
         </>

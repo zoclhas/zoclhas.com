@@ -29,8 +29,10 @@ export const InpageScroll: FC<ButtonProps> = ({
             href={href}
             {...buttonProps}
             onClick={(e) => {
-                e.preventDefault();
-                scroll.scrollTo(href, { duration: 350 });
+                if (window.screenX > 768) {
+                    e.preventDefault();
+                    scroll.scrollTo(href, { duration: 350 });
+                }
             }}
         >
             {children}

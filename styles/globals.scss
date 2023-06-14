@@ -40,6 +40,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 :root {
@@ -55,7 +56,7 @@ html[data-color="maroon"] {
     --secondary: #ab8e96;
     --primary-rgb: 65, 44, 49;
     --secondary-rgb: 171, 142, 150;
-    --: #563f45;
+    --s: #563f45;
 }
 
 html[data-color="pink"] {

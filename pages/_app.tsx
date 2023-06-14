@@ -24,16 +24,6 @@ export default function App({ Component, pageProps, ...rest }: AppProps) {
             <RLSProvider
                 options={{
                     smooth: true,
-                    mobile: {
-                        breakpoint: 0,
-                        smooth: true,
-                        scrollFromAnywhere: true,
-                    },
-                    touchMultiplier: 4.5,
-                    tablet: {
-                        breakpoint: 0,
-                        smooth: true,
-                    },
                 }}
                 containerRef={containerRef}
             >

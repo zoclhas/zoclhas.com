@@ -24,7 +24,7 @@ export default function Home() {
             </section>
             <section
                 id="projects"
-                className="py-20 px-4 relative"
+                className="py-20 px-4 relative max-md:py-6"
                 data-scroll-section
             >
                 <Projects />
