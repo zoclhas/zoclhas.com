@@ -21,8 +21,14 @@ export const Projects = () => {
     if (typeof document !== "undefined" && scroll) {
         if (index > 0) {
             scroll.stop();
+            if (window.screenX <= 768) {
+                document.body.style.overflowY = "hidden";
+            }
         } else {
             scroll.start();
+            if (window.screenX <= 768) {
+                document.body.style.overflowY = "scroll";
+            }
         }
     }
 
@@ -36,15 +42,18 @@ export const Projects = () => {
                         onClick={() => index === false && setIndex(i + 1)}
                     >
                         <motion.article
-                            className="p-4 bg-[rgb(var(--secondary-rgb),0.2)] rounded-3xl flex gap-4 items-center h-max backdrop-blur-xl max-lg:flex-col cursor-pointer"
+                            className="p-4 bg-[rgb(var(--secondary-rgb),0.2)] rounded-3xl flex gap-4 items-center h-full backdrop-blur-xl max-lg:flex-col cursor-pointer"
                             whileHover={{ scale: 1.01 }}
                             whileTap={{ scale: 0.99 }}
                         >
-                            <div className="relative">
+                            <div className="relative grow">
                                 <img
                                     src={project.coverImage}
                                     alt="Project Cover Image"
-                                    className="rounded-2xl max-h-[600px] shadow-lg w-full object-cover object-center"
+                                    className="rounded-2xl shadow-lg w-full"
+                                    loading="lazy"
+                                    width={150}
+                                    height={250}
                                 />
                                 <motion.a
                                     className="absolute bottom-2 right-2 bg-[rgb(var(--secondary-rgb),0.2)] backdrop-blur-md p-2 rounded-full grid items-center"
@@ -107,6 +116,7 @@ export const Projects = () => {
                                         {project.links.github && (
                                             <IconButton
                                                 href={project.links.github}
+                                                fill
                                             >
                                                 <GitHub />
                                             </IconButton>
@@ -124,7 +134,7 @@ export const Projects = () => {
                         {createPortal(
                             <motion.div
                                 key="modal"
-                                className="z-[3000] w-full h-full grid place-items-center absolute top-0 left-0 bg-[rgb(var(--primary-rgb),0.7)] backdrop-blur-xl p-4"
+                                className="z-[3000] w-full h-full grid place-items-center absolute top-0 left-0 bg-[rgb(var(--primary-rgb),0.7)] backdrop-blur-xl p-4 max-md:fixed"
                                 onClick={(e) => {
                                     if (e.target === e.currentTarget) {
                                         handleClose();
@@ -209,7 +219,7 @@ export const Projects = () => {
                                                     },
                                                     p({ children }) {
                                                         return (
-                                                            <p className="text-lg">
+                                                            <p className="text-base">
                                                                 {children}
                                                             </p>
                                                         );
@@ -246,6 +256,7 @@ export const Projects = () => {
                                                                 .links.github ||
                                                             ""
                                                         }
+                                                        fill
                                                     >
                                                         <GitHub />
                                                     </IconButton>
