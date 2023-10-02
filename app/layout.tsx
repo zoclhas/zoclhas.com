@@ -2,9 +2,6 @@ import "./globals.scss";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
 import Providers from "./providers";
-import { NavBar } from "@/components/navbar";
-import { PageLoad } from "@/components/page-load";
-import Footer from "@/components/footer";
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {
@@ -27,12 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>
-          <PageLoad />
-          <NavBar />
-          {children}
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
