@@ -24,19 +24,19 @@ export default async function Writings({
 
   return (
     <Reveal className="flex flex-col gap-4">
-      <h1 className="text-4xl mb-4">Writings</h1>
+      <h1 className="mb-4 text-4xl">Writings</h1>
       {posts.docs.map((post) => {
         if (!post.is_draft) {
           return (
             <div key={post.id} className="flex flex-col">
-              <span className="ml-4 text-sm text-[rgb(var(--secondary-rgb),0.8)] font-bold">
-                {post.createdAt.slice(0, 10)}
+              <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
+                {post.updatedAt.slice(0, 10)}
               </span>
               <Link
                 href={`/writings/${post.slug}`}
-                className="rounded-2xl relative bg-[rgb(var(--secondary-rgb),0.1)] p-4 hover:bg-[rgb(var(--secondary-rgb),0.15)] transition-colors ease-in group"
+                className="group relative rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
               >
-                <h2 className="flex text-2xl justify-between gap-2">
+                <h2 className="flex justify-between gap-2 text-2xl">
                   {post.title}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ export default async function Writings({
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="group-hover:translate-x-1 transition-transform ease-in"
+                    className="transition-transform ease-in group-hover:translate-x-1"
                   >
                     <path d="m9 18 6-6-6-6" />
                   </svg>
