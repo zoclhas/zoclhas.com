@@ -1,10 +1,11 @@
-import {Block} from 'payload/types';
+import { Block } from "payload/types";
 
 export type ContentType = {
   blockType: "content";
   blockName?: string;
   content: unknown;
 };
+
 export const Content: Block = {
   slug: "content",
   labels: {
@@ -19,7 +20,7 @@ export const Content: Block = {
         elements: [
           "h1",
           "h2",
-          'h3',
+          "h3",
           "h4",
           "h5",
           "h6",
@@ -44,7 +45,7 @@ export const Content: Block = {
             {
               name: "target",
               label: "Target",
-                type: "checkbox",
+              type: "checkbox",
               defaultValue: false,
             },
           ],
