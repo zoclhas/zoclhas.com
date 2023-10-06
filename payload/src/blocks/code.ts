@@ -13,7 +13,7 @@ const LANGUAGES = {
   css: "CSS",
   python: "Python",
   rust: "Rust",
-  mysql: "mysql",
+  bash: "Bash",
 };
 
 export const Code: Block = {
