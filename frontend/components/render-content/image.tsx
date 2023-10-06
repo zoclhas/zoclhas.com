@@ -69,7 +69,7 @@ export const ImageLightbox = ({ node }: { node: Root }) => {
             src={rootUrl + node.value.url}
             alt={node.value.alt}
             layoutId={id}
-            className="max-w-[1200px] w-full aspect-video rounded-xl object-cover object-center shadow-[0px_16px_32px_8px_rgb(0,0,0,0.1)] z-[1]"
+            className="max-w-[1200px] w-full rounded-xl object-cover object-center shadow-[0px_16px_32px_8px_rgb(0,0,0,0.1)] z-[1]"
           />
           <motion.h3
             initial={{ opacity: 0, translateY: 200 }}

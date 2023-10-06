@@ -26,9 +26,16 @@ export default async function PostPage({
   const postDetails = post.docs[0];
 
   return (
-    <Reveal as="article" className="prose">
-      <h1>{postDetails.title}</h1>
-      <RenderBlocks layout={postDetails.layout} />
+    <Reveal as="article">
+      <div className="flex flex-col mt-4">
+        <h1 className="md:text-6xl text-5xl">{postDetails.title}</h1>
+        <span className="text-[rgb(var(--secondary-rgb),0.8)] font-bold">
+          {postDetails.createdAt.slice(0, 10)}
+        </span>
+      </div>
+      <div className="prose md:prose-lg">
+        <RenderBlocks layout={postDetails.layout} />
+      </div>
     </Reveal>
   );
 }

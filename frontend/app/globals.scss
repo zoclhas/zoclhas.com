@@ -290,4 +290,26 @@ strong {
   a {
     color: rgb(var(--secondary-rgb)) !important;
   }
+
+  li::marker,
+  blockquote {
+    color: var(--secondary) !important;
+  }
+
+  blockquote {
+    border: none;
+    position: relative;
+  }
+
+  blockquote ::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    border-radius: 12px;
+    background: var(--secondary);
+    inset: 0;
+  }
 }
