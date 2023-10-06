@@ -1,14 +1,15 @@
 import { buildConfig } from 'payload/config';
 import path from 'path';
-import Users from './collections/Users';
-import { payloadCloud } from '@payloadcms/plugin-cloud';
+
+import collections from './collections'; 
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: collections.Users.slug,
   },
   collections: [
-    Users,
+    collections.Users,
+    collections.NewsletterEmails
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
@@ -16,7 +17,4 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
-  plugins: [
-    payloadCloud()
-  ]
 });
