@@ -5,8 +5,6 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { motion } from "framer-motion";
 
 export const PageLoad = () => {
-  const { scroll } = useLocomotiveScroll();
-
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
@@ -18,7 +16,6 @@ export const PageLoad = () => {
   }, [isLoaded]);
 
   if (isLoaded) {
-    scroll.start();
     if (window.innerWidth <= 768) {
       document.body.style.overflowY = "scroll";
     }
@@ -31,7 +28,6 @@ export const PageLoad = () => {
   };
 
   if (typeof document !== "undefined") {
-    scroll && scroll.stop();
     if (window.innerWidth <= 768) {
       document.body.style.overflowY = "hidden";
     }
@@ -42,7 +38,7 @@ export const PageLoad = () => {
       initial={{ scale: 1 }}
       animate={isOpen ? "open" : "close"}
       variants={variants}
-      className="fixed z-[3000] grid h-full w-full place-items-center bg-primary"
+      className="bg-primary fixed z-[3000] grid h-full w-full place-items-center"
     >
       <div>
         <div className="flex select-none items-center gap-4">
@@ -51,7 +47,7 @@ export const PageLoad = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, type: "spring" }}
           >
-            <h1 className="text-7xl max-xs:text-4xl">zoclhas.com</h1>
+            <h1 className="max-xs:text-4xl text-7xl">zoclhas.com</h1>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -75,7 +71,7 @@ export const PageLoad = () => {
               }}
             >
               <div
-                className="mx-auto h-12 w-12 rotate-45 rounded-full border-8 border-solid border-secondary border-t-transparent opacity-50 max-sm:h-8 max-sm:w-8 max-sm:border-4"
+                className="border-secondary mx-auto h-12 w-12 rotate-45 rounded-full border-8 border-solid border-t-transparent opacity-50 max-sm:h-8 max-sm:w-8 max-sm:border-4"
                 aria-labelledby="Loading Spinner"
               ></div>
             </motion.div>

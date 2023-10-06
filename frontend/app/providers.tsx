@@ -16,20 +16,20 @@ function Providers({ children }: { children: React.ReactNode }) {
       attribute="data-color"
       storageKey="color"
     >
-      <RLSProvider
+      <PageLoad />
+      <NavBar />
+      <main data-scroll-container ref={containerRef}>
+        {children}
+      </main>
+      <Footer />
+      {/* <RLSProvider
         options={{
-          // smooth: true,
+          smooth: true,
           multiplier: 0.9,
         }}
         containerRef={containerRef}
-      >
-        <PageLoad />
-        <NavBar />
-        <main data-scroll-container ref={containerRef}>
-          {children}
-        </main>
-        <Footer />
-      </RLSProvider>
+      > */}
+      {/* </RLSProvider> */}
     </ThemeProvider>
   );
 }
