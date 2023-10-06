@@ -16,7 +16,7 @@ function Providers({ children }: { children: React.ReactNode }) {
       attribute="data-color"
       storageKey="color"
     >
-      <PageLoad />
+      {/* <PageLoad /> */}
       <NavBar />
       {children}
       <Footer />
