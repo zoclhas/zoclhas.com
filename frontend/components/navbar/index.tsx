@@ -1,27 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
 import { InpageScroll } from "@/components/button/inpage-scroll";
 
 export const NavBar = () => {
-  const { scroll } = useLocomotiveScroll();
-
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  useEffect(() => {
-    if (!isLoaded) {
-      setTimeout(() => setIsLoaded(true), 1500);
-    }
-  }, [isLoaded]);
-
-  if (!isLoaded) {
-    return null;
-  }
-
   return (
     <>
       <nav className="max-xs:px-4 sticky top-0 z-[1000] flex h-[80px] w-full items-center justify-between gap-4 bg-[rgb(var(--primary-rgb),0.7)] p-4 px-12 backdrop-blur-lg">
