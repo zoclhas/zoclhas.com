@@ -51,7 +51,7 @@ export const Projects = () => {
             onClick={() => handleSetIndex(i + 1)}
           >
             <motion.article
-              className="grid h-full cursor-pointer grid-cols-[0.5fr,1.5fr] items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-xl max-lg:flex max-lg:flex-col lg:max-h-[300px]"
+              className="group grid h-full cursor-pointer grid-cols-[0.5fr,1.5fr] items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-xl max-lg:flex max-lg:flex-col lg:max-h-[300px]"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
             >
@@ -59,9 +59,10 @@ export const Projects = () => {
                 <img
                   src={project.coverImage}
                   alt="Project Cover Image"
-                  className="w-full max-w-[350px] rounded-2xl shadow-lg"
+                  className="w-full max-w-[350px] rounded-2xl shadow-lg saturate-0 transition-[filter] ease-in group-hover:saturate-100"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 h-full w-full rounded-2xl bg-[rgb(var(--primary-rgb),0.6)] opacity-100 transition-opacity transition-shadow ease-in group-hover:opacity-0"></div>
                 <motion.a
                   className="absolute bottom-2 right-2 grid items-center rounded-full bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
                   whileHover={{ scale: 1.1 }}
