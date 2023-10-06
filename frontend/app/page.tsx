@@ -7,7 +7,7 @@ import { Spotify } from "@/components/spotify";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <section
         id="hero"
         className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[40rem] flex-col items-center justify-center gap-2 px-4"
@@ -37,6 +37,6 @@ export default function Home() {
       >
         <Contact />
       </section>
-    </>
+    </main>
   );
 }

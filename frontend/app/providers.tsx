@@ -18,9 +18,7 @@ function Providers({ children }: { children: React.ReactNode }) {
     >
       <PageLoad />
       <NavBar />
-      <main data-scroll-container ref={containerRef}>
-        {children}
-      </main>
+      {children}
       <Footer />
       {/* <RLSProvider
         options={{

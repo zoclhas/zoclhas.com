@@ -12,5 +12,5 @@ export default async function Writings({
 }: {
   searchParams: { page: number };
 }) {
-  return <div>ff</div>;
+  return <div className="">ff</div>;
 }
