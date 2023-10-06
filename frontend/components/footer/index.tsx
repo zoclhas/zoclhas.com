@@ -10,7 +10,7 @@ export default function Footer() {
   if (shouldRenderFooter) {
     return (
       <motion.footer
-        className="absolute bottom-4 left-4 flex max-h-[56px] w-full max-w-[40rem] items-center gap-5 overflow-hidden rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-lg"
+        className="group fixed bottom-4 left-4 flex max-h-[56px] w-full items-center gap-5 overflow-hidden rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-lg"
         initial={{ maxWidth: "56px", opacity: 0, translateY: 200 }}
         animate={{ opacity: 1, translateY: 0 }}
         whileHover={{
@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="ml-1 w-max">
           <GitHub />
         </div>
-        <p>
+        <motion.p className="!max-w-[0px] overflow-hidden transition-transform ease-in group-hover:!max-w-[300px]">
           View source on{" "}
           <a
             href="https://github.com/zoclhas/zoclhas.com"
@@ -38,7 +38,7 @@ export default function Footer() {
           >
             GitHub
           </a>
-        </p>
+        </motion.p>
       </motion.footer>
     );
   } else {
