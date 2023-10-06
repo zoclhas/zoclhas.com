@@ -81,7 +81,14 @@ export const Hero = () => {
           </IconButton>
         </motion.div>
       </div>
-      <LinkButton href="/writings" fill className="mt-4">
+      <LinkButton
+        href="/writings"
+        fill
+        className="mt-4"
+        initial={{ opacity: 0, translateY: 100 }}
+        animate={{ opacity: 1, translateY: 0 }}
+        transition={{ type: "spring", delay: 2 }}
+      >
         Writings
       </LinkButton>
 
