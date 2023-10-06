@@ -269,3 +269,25 @@ strong {
     list-style-type: disc;
   }
 }
+
+.prose {
+  color: var(--secondary) !important;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--secondary) !important;
+  }
+
+  p,
+  li {
+    color: rgb(255, 255, 255, 0.7);
+  }
+
+  a {
+    color: rgb(var(--secondary-rgb)) !important;
+  }
+}
