@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 
 const getPosts = async (page: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=10&page=${page}`,
+    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=100&page=${page}`,
     { method: "GET", next: { revalidate: 60 } },
   );
 
