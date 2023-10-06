@@ -1,5 +1,6 @@
 import React from "react";
 import { Component as content } from "./rich-text";
+import { CodeBlock } from "./code";
 
 const components = { content };
 
@@ -11,19 +12,15 @@ type Props = {
 const RenderBlocks: React.FC<Props> = ({ layout, className }) => (
   <div>
     {layout.map((block: any, i: number) => {
+      if (block.blockType === "code_block") {
+        return <CodeBlock {...block} key={i} />;
+      }
+
       // @ts-ignore
       const Block: React.FC<any> = components[block.blockType];
 
-      if (block.blockType === "dl") {
-        return null;
-      }
-
       if (Block) {
-        return (
-          <section key={i}>
-            <Block {...block} />
-          </section>
-        );
+        return <Block {...block} key={i} />;
       }
 
       return null;
