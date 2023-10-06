@@ -1,14 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { GitHub } from "@/components/icons";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const [hidden, setHidden] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    if (pathname.split("/").includes("writings")) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  }, [pathname]);
+
   return (
-    <motion.footer
-      initial={{ opacity: 0, translateY: 200 }}
-      animate={{ opacity: 1, translateY: 0 }}
-      className="max-xs:mx-4 mx-auto my-2 flex max-h-[56px] max-w-[450px] items-center justify-center gap-5 overflow-hidden rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-lg"
+    <footer
+      className={`max-xs:mx-4 mx-auto my-2 flex max-h-[56px] max-w-[450px] items-center justify-center gap-5 overflow-hidden rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-lg md:mt-8 ${
+        hidden ? "!hidden" : ""
+      }`}
     >
       <div className="w-max">
         <GitHub height={1.4} />
@@ -23,6 +34,6 @@ export default function Footer() {
           GitHub
         </a>
       </p>
-    </motion.footer>
+    </footer>
   );
 }

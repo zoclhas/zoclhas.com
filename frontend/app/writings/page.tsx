@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { Posts } from "./types";
+import { Reveal } from "@/components/reveal";
 
 const getPosts = async (page: number) => {
-  console.log(`${process.env.NEXT_PUBLIC_API}/api/posts?limit=10&page=${page}`);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/api/posts?limit=10&page=${page}`,
     { method: "GET", next: { revalidate: 60 } },
@@ -20,11 +21,40 @@ export default async function Writings({
     page = 1;
   }
   const posts: Posts = await getPosts(Number(page));
-  console.log(posts);
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)]"></div>
-    </div>
+    <Reveal className="flex flex-col gap-4">
+      <h1 className="text-4xl mb-4">Writings</h1>
+      {posts.docs.map((post) => {
+        if (!post.is_draft) {
+          return (
+            <Link
+              href={`/writing/${post.slug}`}
+              key={post.id}
+              className="rounded-2xl relative bg-[rgb(var(--secondary-rgb),0.1)] p-4 hover:bg-[rgb(var(--secondary-rgb),0.15)] transition-colors ease-in group"
+            >
+              <h2 className="flex text-2xl justify-between gap-2">
+                {post.title}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="group-hover:translate-x-1 transition-transform ease-in"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </h2>
+              <p>{post.subtitle}</p>
+            </Link>
+          );
+        }
+      })}
+    </Reveal>
   );
 }
