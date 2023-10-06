@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/spotify/index.jsx",
-    "components/spotify/api.js"
+    "components/spotify/api.js",
+    "utils/serialize-post.js"
   ],
   "exclude": ["node_modules"]
 }
