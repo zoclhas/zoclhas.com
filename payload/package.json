@@ -19,7 +19,8 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "payload": "latest"
+    "payload": "latest",
+    "type-fest": "^4.3.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
