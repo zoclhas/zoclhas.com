@@ -76,3 +76,11 @@ export default async function PostPage({
     </Reveal>
   );
 }
+
+export async function generateStaticParams() {
+  const posts: Posts = await fetch(`${process.env.NEXT_PUBLIC_API}/api/posts`, {
+    next: { revalidate: 60 },
+  }).then((res) => res.json());
+
+  return posts.docs.map((post) => ({ title: post.title }));
+}
