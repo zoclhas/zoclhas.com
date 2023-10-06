@@ -9,7 +9,10 @@ export default buildConfig({
   },
   collections: [
     collections.Users,
-    collections.NewsletterEmails
+    collections.NewsletterEmails,
+    collections.Posts,
+    collections.Media,
+
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
