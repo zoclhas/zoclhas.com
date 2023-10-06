@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { WavyText } from "@/components/wavy-text";
 import { Discord, GitHub, Twitter } from "@/components/icons";
 import { IconButton } from "@/components/icon-button";
-import { InpageScroll } from "@/components/button/InpageScroll";
+import { InpageScroll } from "@/components/button/inpage-scroll";
+import { LinkButton } from "../button/link-button";
 
 export const Hero = () => {
   return (
@@ -80,6 +81,9 @@ export const Hero = () => {
           </IconButton>
         </motion.div>
       </div>
+      <LinkButton href="/writings" fill className="mt-4">
+        Writings
+      </LinkButton>
 
       <motion.div
         initial={{ opacity: 0, translateY: 100 }}

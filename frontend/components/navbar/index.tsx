@@ -6,7 +6,7 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
-import { InpageScroll } from "@/components/button/InpageScroll";
+import { InpageScroll } from "@/components/button/inpage-scroll";
 
 export const NavBar = () => {
   const { scroll } = useLocomotiveScroll();
@@ -24,7 +24,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="fixed z-[1000] flex h-[80px] w-full items-center justify-between gap-4 bg-[rgb(var(--primary-rgb),0.7)] p-4 px-12 backdrop-blur-lg max-xs:px-4">
+      <nav className="max-xs:px-4 fixed z-[1000] flex h-[80px] w-full items-center justify-between gap-4 bg-[rgb(var(--primary-rgb),0.7)] p-4 px-12 backdrop-blur-lg">
         <div className="flex items-center gap-4">
           <motion.div
             initial={{ opacity: 0, translateY: 20 }}
