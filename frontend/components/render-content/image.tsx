@@ -105,11 +105,16 @@ const AnimatePresenceWrapper = ({
 }: {
   children: ReactNode;
   isOpen: boolean;
-}) =>
-  createPortal(
-    <AnimatePresence>{isOpen && children}</AnimatePresence>,
-    document.body,
-  );
+}) => {
+  if (typeof window !== "undefined" && document.body) {
+    return createPortal(
+      <AnimatePresence>{isOpen && children}</AnimatePresence>,
+      document.body,
+    );
+  } else {
+    return null;
+  }
+};
 
 interface Root {
   children: Children[];

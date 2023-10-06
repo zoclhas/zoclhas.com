@@ -1,6 +1,8 @@
 import { CollectionConfig } from "payload/types";
 import { formatSlug } from "../utils/format";
+
 import { Content } from "../blocks/content";
+import { Code } from "../blocks/code";
 
 const Posts: CollectionConfig = {
   access: { read: () => true },
@@ -33,7 +35,7 @@ const Posts: CollectionConfig = {
       label: "Content",
       type: "blocks",
       minRows: 1,
-      blocks: [Content],
+      blocks: [Content, Code],
     },
 
     {
