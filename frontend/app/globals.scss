@@ -312,4 +312,21 @@ strong {
     background: var(--secondary);
     inset: 0;
   }
+
+  p {
+    code {
+      border-radius: 8px;
+      background-color: rgb(var(--secondary-rgb), 0.15);
+      color: white;
+      padding: 0.2rem;
+      font-weight: 400;
+    }
+
+    code::after {
+      display: none;
+    }
+    code::before {
+      display: none;
+    }
+  }
 }
