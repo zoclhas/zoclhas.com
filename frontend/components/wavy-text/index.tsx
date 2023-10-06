@@ -3,7 +3,7 @@
 // https://dev.to/harshhhdev/create-a-satisfying-wavy-text-animation-with-framer-motion-3hb5
 
 import { FC } from "react";
-import { motion, Variants, HTMLMotionProps } from "framer-motion";
+import { motion, Variants, HTMLMotionProps, useScroll } from "framer-motion";
 
 interface Props extends HTMLMotionProps<"h1"> {
   text: string;
@@ -21,6 +21,7 @@ export const WavyText: FC<Props> = ({
   float,
   ...props
 }: Props) => {
+  const { scrollYProgress } = useScroll();
   const letters = Array.from(text);
 
   const container: Variants = {
@@ -68,6 +69,7 @@ export const WavyText: FC<Props> = ({
           variants={child}
           data-scroll={float}
           data-scroll-speed={float ? index * 0.5 : "0"}
+          style={{ translateY: float ? scrollYProgress : 1 }}
         >
           {letter === " " ? "\u00A0" : letter}
         </motion.span>

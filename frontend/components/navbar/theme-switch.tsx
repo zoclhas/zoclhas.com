@@ -8,8 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export const ThemeSwitch = () => {
-  const { scroll } = useLocomotiveScroll();
-
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -32,10 +30,12 @@ export const ThemeSwitch = () => {
   };
 
   useEffect(() => {
-    if (isOpen) {
-      scroll.stop();
-    } else {
-      scroll.start();
+    if (typeof document !== "undefined") {
+      if (isOpen) {
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.body.style.overflowY = "scroll";
+      }
     }
   }, [isOpen]);
 
@@ -47,7 +47,7 @@ export const ThemeSwitch = () => {
           animate={{ type: "spring", opacity: 1, translateY: 0 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="h-12 w-12 cursor-pointer rounded-full border-4 border-secondary border-opacity-30 bg-gradient-to-tr from-primary  to-secondary"
+          className="border-secondary from-primary to-secondary h-12 w-12 cursor-pointer rounded-full border-4 border-opacity-30  bg-gradient-to-tr"
           aria-labelledby="theme-switch-dropdown"
           aria-label="theme-switch-dropdown"
           title="theme-switch-dropdown"
@@ -80,7 +80,7 @@ export const ThemeSwitch = () => {
                   onClick={() => changeTheme(th.color)}
                 >
                   <div
-                    className="h-8 w-8 rounded-full border-2 border-secondary border-opacity-30"
+                    className="border-secondary h-8 w-8 rounded-full border-2 border-opacity-30"
                     style={{
                       background: `linear-gradient(45deg, ${th.prim}, ${th.hex})`,
                       borderColor: th.hex,

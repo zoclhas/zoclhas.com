@@ -13,7 +13,6 @@ import { projects } from "@/components/projects";
 import { createPortal } from "react-dom";
 
 export const Projects = () => {
-  const { scroll } = useLocomotiveScroll();
   const [index, setIndex] = useState<any>(false);
 
   const handleClose = useCallback(() => {
@@ -25,14 +24,12 @@ export const Projects = () => {
     }
   }, []);
 
-  if (typeof document !== "undefined" && scroll) {
+  if (typeof document !== "undefined") {
     if (index > 0) {
-      scroll.stop();
       if (window.innerWidth <= 768) {
         document.body.style.overflowY = "hidden";
       }
     } else {
-      scroll.start();
       if (window.innerWidth <= 768) {
         document.body.style.overflowY = "scroll";
       }
