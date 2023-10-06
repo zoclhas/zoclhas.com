@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <section
         id="hero"
-        className="relative mx-auto flex h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4"
+        className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[40rem] flex-col items-center justify-center gap-2 px-4"
         data-scroll-section
       >
         <Hero />

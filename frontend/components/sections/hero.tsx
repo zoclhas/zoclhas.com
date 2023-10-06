@@ -95,7 +95,7 @@ export const Hero = () => {
       <motion.div
         initial={{ opacity: 0, translateY: 100 }}
         animate={{ opacity: 1, translateY: 0 }}
-        transition={{ type: "spring", delay: 2 }}
+        transition={{ type: "spring", delay: 2.5 }}
         className="max-xs:gap-2 absolute bottom-8 flex w-full flex-wrap justify-center gap-4"
       >
         <InpageScroll href="#about" fill>
