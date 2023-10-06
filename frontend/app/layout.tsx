@@ -1,5 +1,4 @@
 import "./globals.scss";
-import "locomotive-scroll/dist/locomotive-scroll.css";
 
 import Providers from "./providers";
 

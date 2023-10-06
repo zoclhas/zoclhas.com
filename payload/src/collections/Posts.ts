@@ -3,11 +3,12 @@ import { formatSlug } from "../utils/format";
 import { Content } from "../blocks/content";
 
 const Posts: CollectionConfig = {
+  access: { read: () => true },
   slug: "posts",
   admin: {
     useAsTitle: "title",
   },
-   fields: [
+  fields: [
     {
       name: "title",
       label: "Title",
@@ -34,7 +35,7 @@ const Posts: CollectionConfig = {
       minRows: 1,
       blocks: [Content],
     },
-    
+
     {
       name: "slug",
       label: "Post Slug",
@@ -56,6 +57,6 @@ const Posts: CollectionConfig = {
       },
     },
   ],
-}
+};
 
 export default Posts;

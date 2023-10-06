@@ -21,9 +21,7 @@ export type MediaType = {
 
 const Media: CollectionConfig = {
   slug: "media",
-  access: {
-    read: (): boolean => true, // Everyone can read Media
-  },
+  access: { read: () => true },
   upload: {
     adminThumbnail: "card",
     imageSizes: [
