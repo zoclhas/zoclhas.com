@@ -75,6 +75,8 @@ export const Projects = () => {
               </div>
               <div>
                 <h1 className="text-5xl">{project.title}</h1>
+
+                {/* @ts-ignore */}
                 <ReactMarkdown
                   className="relative max-h-[50px] overflow-hidden after:absolute after:bottom-0 after:left-0 after:block after:h-full after:w-full after:bg-gradient-to-t after:from-[var(--s)] max-lg:max-h-[80px]"
                   components={{
@@ -191,6 +193,7 @@ export const Projects = () => {
                     </div>
                     <div>
                       <h1 className="text-5xl">{projects[index - 1].title}</h1>
+                      {/* @ts-ignore */}
                       <ReactMarkdown
                         className="card-content"
                         components={{

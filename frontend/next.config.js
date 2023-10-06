@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: [
+    "http://localhost:3001",
+    "https://zoclhas.com",
+    "http://payload.zoclhas.com",
+  ],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

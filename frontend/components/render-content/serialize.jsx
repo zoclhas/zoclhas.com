@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
 import Link from "next/link";
+import { ImageLightbox } from "./image";
 
 // eslint-disable-next-line no-use-before-define
 
@@ -48,6 +49,12 @@ const serialize = (children) =>
     }
 
     switch (node.type) {
+      case "upload":
+        if (node.value) {
+          return <ImageLightbox key={i} node={node} />;
+        } else {
+          return null;
+        }
       case "h1":
         return <h1 key={i}>{serialize(node.children)}</h1>;
       case "h2":
