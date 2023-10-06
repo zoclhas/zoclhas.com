@@ -18,7 +18,7 @@ function Providers({ children }: { children: React.ReactNode }) {
     >
       <RLSProvider
         options={{
-          smooth: true,
+          // smooth: true,
           multiplier: 0.9,
         }}
         containerRef={containerRef}

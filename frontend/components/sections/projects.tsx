@@ -19,6 +19,11 @@ export const Projects = () => {
   const handleClose = useCallback(() => {
     setIndex(false);
   }, []);
+  const handleSetIndex = useCallback((i: number) => {
+    if (index === false) {
+      setIndex(i);
+    }
+  }, []);
 
   if (typeof document !== "undefined" && scroll) {
     if (index > 0) {
@@ -47,7 +52,7 @@ export const Projects = () => {
           <motion.li
             key={i + 1}
             layoutId={`${i + 1}`}
-            onClick={() => index === false && setIndex(i + 1)}
+            onClick={() => handleSetIndex(i + 1)}
           >
             <motion.article
               className="grid h-full cursor-pointer grid-cols-[0.5fr,1.5fr] items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-xl max-lg:flex max-lg:flex-col lg:max-h-[300px]"
@@ -136,7 +141,7 @@ export const Projects = () => {
               // @ts-ignore
               <motion.div
                 key="modal"
-                className="absolute left-0 top-0 z-[3000] grid h-full w-full place-items-center overflow-scroll bg-[rgb(var(--primary-rgb),0.7)] p-4 backdrop-blur-xl max-md:fixed"
+                className="fixed left-0 top-0 z-[3000] grid h-full w-full place-items-center overflow-y-scroll bg-[rgb(var(--primary-rgb),0.7)] p-4 backdrop-blur-xl max-md:fixed"
                 onClick={(e) => {
                   if (e.target === e.currentTarget) {
                     handleClose();
@@ -161,10 +166,7 @@ export const Projects = () => {
                 exit="hidden"
                 animate="visible"
               >
-                <motion.div
-                  layoutId={`${index}`}
-                  className="max-w-[800px] overflow-y-scroll"
-                >
+                <motion.div layoutId={`${index}`} className="max-w-[800px]">
                   <motion.article className="flex h-max items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-3xl max-sm:flex-col">
                     <div className="relative md:aspect-square md:h-[312px]">
                       <img
