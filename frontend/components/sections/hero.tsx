@@ -88,6 +88,8 @@ export const Hero = () => {
         initial={{ opacity: 0, translateY: 100 }}
         animate={{ opacity: 1, translateY: 0 }}
         transition={{ type: "spring", delay: 2 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         Writings
       </LinkButton>
