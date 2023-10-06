@@ -18,9 +18,9 @@ export const LinkButton: FC<ButtonProps> = ({
   ...props
 }: ButtonProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} className="flex">
       <motion.button
-        // {...props}
+        {...props}
         className={`flex items-center justify-center gap-2 px-6 py-2 ${
           fill ? "bg-[rgb(var(--secondary-rgb),0.2)]" : ""
         } cursor-pointer rounded-xl text-center ${className}`}
