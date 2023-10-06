@@ -33,7 +33,7 @@ export const Hero = () => {
         delay={1.6}
         duration={0.005}
       />
-      <div className="flex gap-4 max-xs:gap-2">
+      <div className="max-xs:gap-2 flex gap-4">
         <motion.div
           initial={{ opacity: 0, translateX: -40, rotate: 45 }}
           animate={{ opacity: 1, translateX: 0, rotate: 0 }}
@@ -85,7 +85,7 @@ export const Hero = () => {
         initial={{ opacity: 0, translateY: 100 }}
         animate={{ opacity: 1, translateY: 0 }}
         transition={{ type: "spring", delay: 2 }}
-        className="absolute bottom-8 flex w-full flex-wrap justify-center gap-4 max-xs:gap-2"
+        className="max-xs:gap-2 absolute bottom-8 flex w-full flex-wrap justify-center gap-4"
       >
         <InpageScroll href="#about" fill>
           About
