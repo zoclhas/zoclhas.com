@@ -20,7 +20,7 @@ const RenderBlocks: React.FC<Props> = ({ layout, className }) => (
 
       if (Block) {
         return (
-          <section>
+          <section key={i}>
             <Block {...block} />
           </section>
         );
