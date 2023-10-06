@@ -2,7 +2,6 @@
 
 import { FC } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 interface ButtonProps extends HTMLMotionProps<"a"> {
   fill?: boolean;
@@ -15,8 +14,6 @@ export const InpageScroll: FC<ButtonProps> = ({
   href,
   ...props
 }: ButtonProps) => {
-  const { scroll } = useLocomotiveScroll();
-
   const buttonProps = {
     whileHover: { scale: 1.1 },
     whileTap: { scale: 0.9 },
@@ -32,11 +29,7 @@ export const InpageScroll: FC<ButtonProps> = ({
       {...buttonProps}
       onClick={(e) => {
         e.preventDefault();
-        if (window.innerWidth <= 768) {
-          document.querySelector(href)!.scrollIntoView();
-        } else {
-          scroll.scrollTo(href, { duration: 350 });
-        }
+        document.querySelector(href)!.scrollIntoView();
       }}
     >
       {children}

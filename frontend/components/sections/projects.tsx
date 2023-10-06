@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 import { GitHub, ExternalLink, Cross } from "@/components/icons";
 import { IconButton } from "@/components/icon-button";

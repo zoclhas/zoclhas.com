@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
