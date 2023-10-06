@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://zoclhas.com"),
   title: "Zoclhas - Writings",
-  description: "Just a few things I write. Enter into my head :)",
+  description: "Just a few things I write.",
   themeColor: "#2c4141",
 };
 
