@@ -56,7 +56,7 @@ export const ThemeSwitch = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.ul
-              className="absolute -right-[75px] z-[1002] mt-4 flex w-[200px] flex-col gap-2 rounded-2xl bg-white/10 p-2 backdrop-blur-lg"
+              className="absolute right-0 z-[1002] mt-4 flex w-[200px] flex-col gap-2 rounded-2xl bg-white/10 p-2 backdrop-blur-lg"
               initial={{ translateY: 20, opacity: 0 }}
               animate={{ translateY: 0, opacity: 1 }}
               exit={{ translateY: 20, opacity: 0 }}
