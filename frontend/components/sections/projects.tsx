@@ -43,7 +43,7 @@ export const Projects = () => {
 
   return (
     <LayoutGroup>
-      <ul className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
+      <ul className="grid grid-cols-3 grid-rows-1 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
         {projects.map((project, i) => (
           <motion.li
             key={i + 1}
@@ -51,20 +51,19 @@ export const Projects = () => {
             onClick={() => handleSetIndex(i + 1)}
           >
             <motion.article
-              className="group grid h-full cursor-pointer grid-cols-[0.5fr,1.5fr] items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-xl max-lg:flex max-lg:flex-col lg:max-h-[300px]"
-              whileHover={{ scale: 1.01 }}
+              className="group grid h-full cursor-pointer grid-cols-[0.5fr,1.5fr] items-center gap-4 rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 backdrop-blur-xl transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)] max-lg:flex max-lg:flex-col lg:max-h-[300px]"
               whileTap={{ scale: 0.99 }}
             >
               <div className="relative">
                 <img
                   src={project.coverImage}
                   alt="Project Cover Image"
-                  className="w-full max-w-[350px] rounded-2xl shadow-lg saturate-0 transition-[filter] ease-in group-hover:saturate-100"
+                  className="w-full max-w-[350px] rounded-xl shadow-lg saturate-0 transition-[filter] ease-in group-hover:saturate-100"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 h-full w-full rounded-2xl bg-[rgb(var(--primary-rgb),0.6)] opacity-100 transition-opacity transition-shadow ease-in group-hover:opacity-0"></div>
+                <div className="absolute inset-0 h-full w-full rounded-xl bg-[rgb(var(--primary-rgb),0.6)] opacity-100 transition-opacity ease-in group-hover:opacity-0"></div>
                 <motion.a
-                  className="absolute bottom-2 right-2 grid items-center rounded-full bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
+                  className="absolute bottom-1 right-1 grid items-center rounded-lg bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   href={project.links.site}
@@ -74,11 +73,10 @@ export const Projects = () => {
                 </motion.a>
               </div>
               <div>
-                <h1 className="text-5xl">{project.title}</h1>
+                <h1 className="text-4xl">{project.title}</h1>
 
                 {/* @ts-ignore */}
                 <ReactMarkdown
-                  className="relative max-h-[50px] overflow-hidden after:absolute after:bottom-0 after:left-0 after:block after:h-full after:w-full after:bg-gradient-to-t after:from-[var(--s)] max-lg:max-h-[80px]"
                   components={{
                     a({ children, ...props }) {
                       return (
@@ -97,10 +95,11 @@ export const Projects = () => {
                     },
                   }}
                 >
-                  {project.description}
+                  {project.description.split(" ").slice(0, 12).join(" ") +
+                    "..."}
                 </ReactMarkdown>
 
-                <div className="mt-4 flex justify-between">
+                <div className="mt-4 flex flex-row-reverse items-end justify-between">
                   <Button
                     fill
                     onClick={() => index === false && setIndex(i + 1)}
@@ -115,15 +114,6 @@ export const Projects = () => {
                         fill
                       >
                         <GitHub />
-                      </IconButton>
-                    )}
-                    {project.links.site && (
-                      <IconButton
-                        href={project.links.site}
-                        target="_blank"
-                        fill
-                      >
-                        <ExternalLink />
                       </IconButton>
                     )}
                   </div>
@@ -166,15 +156,15 @@ export const Projects = () => {
                 animate="visible"
               >
                 <motion.div layoutId={`${index}`} className="max-w-[800px]">
-                  <motion.article className="flex h-max items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-3xl max-sm:flex-col">
+                  <motion.article className="flex h-max items-center gap-4 rounded-3xl bg-[rgb(var(--secondary-rgb),0.2)] p-4 backdrop-blur-2xl max-sm:flex-col">
                     <div className="relative md:aspect-square md:h-[312px]">
                       <img
                         src={projects[index - 1].coverImage}
                         alt="Projects[index] Cover Image"
-                        className="rounded-2xl  shadow-lg "
+                        className="rounded-xl  shadow-lg "
                       />
                       <motion.a
-                        className="absolute bottom-2 right-2 grid items-center rounded-full bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
+                        className="absolute bottom-1 right-1 grid items-center rounded-lg bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         href={projects[index - 1].links.site}
@@ -234,15 +224,6 @@ export const Projects = () => {
                             fill
                           >
                             <GitHub />
-                          </IconButton>
-                        )}
-                        {projects[index - 1].links.site && (
-                          <IconButton
-                            target="_blank"
-                            href={projects[index - 1].links.site || ""}
-                            fill
-                          >
-                            <ExternalLink />
                           </IconButton>
                         )}
                       </div>

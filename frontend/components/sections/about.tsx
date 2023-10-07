@@ -7,7 +7,7 @@ export const About = () => {
   const stacks = [
     "JavaScript",
     "TypeScript",
-    "Next.js",
+    "NextJS",
     "React",
     "TailwindCSS",
     "CSS",
