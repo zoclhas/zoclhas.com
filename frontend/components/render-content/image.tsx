@@ -40,19 +40,25 @@ export const ImageLightbox = ({ node }: { node: Root }) => {
 
   return (
     <LayoutGroup>
-      <motion.img
-        width={node.value.sizes.feature.width}
-        height={node.value.sizes.feature.height}
-        src={rootUrl + node.value.sizes.feature.url}
-        alt={node.value.alt}
+      <button
+        className="my-8 h-max rounded-xl focus:shadow-[0px_0px_0px_4px_rgb(var(--secondary-rgb),1)] focus:outline-none"
         onClick={() => handleOpen(node.value.id)}
-        layoutId={node.value.id}
-        className="aspect-video rounded-xl object-cover object-center cursor-pointer"
-      />
+        aria-label="Maximise image"
+      >
+        <motion.img
+          width={node.value.sizes.feature.width}
+          height={node.value.sizes.feature.height}
+          src={rootUrl + node.value.sizes.feature.url}
+          alt={node.value.alt}
+          onClick={() => handleOpen(node.value.id)}
+          layoutId={node.value.id}
+          className="!my-0 aspect-video cursor-pointer rounded-xl object-cover object-center"
+        />
+      </button>
 
       <AnimatePresenceWrapper isOpen={open && id.length > 5}>
         <motion.div
-          className="fixed inset-0 h-full w-full z-[3000] bg-[rgb(var(--primary-rgb),0.7)] flex flex-col justify-center items-center backdrop-blur-sm p-4 isolate gap-2"
+          className="fixed inset-0 isolate z-[3000] flex h-full w-full flex-col items-center justify-center gap-2 bg-[rgb(var(--primary-rgb),0.7)] p-4 backdrop-blur-sm"
           onClick={(e) => {
             if (e.currentTarget === e.target) {
               handleClose();
@@ -69,7 +75,7 @@ export const ImageLightbox = ({ node }: { node: Root }) => {
             src={rootUrl + node.value.url}
             alt={node.value.alt}
             layoutId={id}
-            className="max-w-[1200px] w-full rounded-xl object-cover object-center shadow-[0px_16px_32px_8px_rgb(0,0,0,0.1)] z-[1]"
+            className="z-[1] w-full max-w-[1200px] rounded-xl object-cover object-center shadow-[0px_16px_32px_8px_rgb(0,0,0,0.1)]"
           />
           <motion.h3
             initial={{ opacity: 0, translateY: 200 }}
