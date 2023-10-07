@@ -13,7 +13,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+const getPosts = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=2&page=1&sort=-updatedAt&where[or][0][and][0][is_draft][equals]=false`,
+    { method: "GET", next: { revalidate: 60 } },
+  );
+
+  return res.json();
+};
+
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
     <main>
       <section
@@ -24,8 +35,8 @@ export default function Home() {
         <Hero />
       </section>
       <section id="about" className=" relative" data-scroll-section>
-        <div className="mx-auto flex h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4">
-          <About />
+        <div className="mx-auto flex min-h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4">
+          <About posts={posts} />
         </div>
         <div className="absolute bottom-4 right-4 max-md:relative max-md:bottom-0 max-md:right-0 max-md:hidden">
           <Spotify />
