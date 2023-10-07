@@ -82,5 +82,5 @@ export async function generateStaticParams() {
     next: { revalidate: 60 },
   }).then((res) => res.json());
 
-  return posts.docs.map((post) => ({ title: post.title }));
+  return posts.docs.map((post) => ({ slug: post.title }));
 }
