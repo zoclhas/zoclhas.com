@@ -35,6 +35,12 @@ export const Code: Block = {
       type: "select",
     },
     {
+      name: "show_line_numbers",
+      label: "Show line numbers",
+      type: "checkbox",
+      defaultValue: true,
+    },
+    {
       name: "code",
       required: true,
       type: "code",
