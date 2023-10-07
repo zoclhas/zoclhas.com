@@ -5,6 +5,14 @@ import { Contact } from "@/components/sections/contact";
 
 import { Spotify } from "@/components/spotify";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  metadataBase: new URL("https://zoclhas.com"),
+  openGraph: {
+    images: "/meta-img.png",
+  },
+};
+
 export default function Home() {
   return (
     <main>
