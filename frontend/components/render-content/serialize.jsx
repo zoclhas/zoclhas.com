@@ -91,7 +91,7 @@ const serialize = (children) =>
             <Link
               href={escapeHTML(node.url)}
               key={i}
-              target={node.newtab ? "_blank" : ""}
+              target="_blank"
               rel={node.fields.rel.join(" ")}
             >
               {serialize(node.children)}
@@ -100,11 +100,7 @@ const serialize = (children) =>
         }
 
         return (
-          <Link
-            href={escapeHTML(node.url)}
-            key={i}
-            target={node.newtab ? "_blank" : ""}
-          >
+          <Link href={escapeHTML(node.url)} key={i} target="_blank">
             {serialize(node.children)}
           </Link>
         );
