@@ -45,6 +45,7 @@ export const LayoutSwitch = ({}) => {
         String(layoutFromStorage) === "max"
       ) {
         setLayout(layoutFromStorage as unknown as "min" | "max");
+        setPrevLayout(layoutFromStorage as unknown as "min" | "max");
       }
     }
 
