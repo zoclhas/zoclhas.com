@@ -23,6 +23,7 @@ export const MotionDivWrapper = ({
 export const LayoutSwitch = ({}) => {
   const [layout, setLayout] = useState<"min" | "max">("max");
   const [prevLayout, setPrevLayout] = useState<"min" | "max">("max");
+  const [mounted, setMounted] = useState(false);
 
   const handleSetLayout = (layout: "min" | "max") => {
     setLayout(layout);
@@ -38,7 +39,6 @@ export const LayoutSwitch = ({}) => {
 
   useEffect(() => {
     const layoutFromStorage = localStorage.getItem("layout");
-
     if (layoutFromStorage) {
       if (
         String(layoutFromStorage) === "min" ||
@@ -47,48 +47,52 @@ export const LayoutSwitch = ({}) => {
         setLayout(layoutFromStorage as unknown as "min" | "max");
       }
     }
+
+    setMounted(true);
   }, []);
 
-  return (
-    <div className="flex gap-1 rounded-xl bg-[rgb(var(--secondary-rgb),0.1)] p-1">
-      <button
-        className="relative aspect-square rounded-lg p-2"
-        aria-label="Switch to maximum size post show"
-        onClick={() => {
-          handleSetLayout("max");
-          setPrevLayout(layout);
-        }}
-        onPointerOver={() => setLayout("max")}
-        onPointerOut={() => setLayout(prevLayout)}
-      >
-        <Maximize />
+  if (mounted) {
+    return (
+      <div className="flex gap-1 rounded-xl bg-[rgb(var(--secondary-rgb),0.1)] p-1">
+        <button
+          className="relative aspect-square rounded-lg p-2"
+          aria-label="Switch to maximum size post show"
+          onClick={() => {
+            handleSetLayout("max");
+            setPrevLayout(layout);
+          }}
+          onPointerOver={() => setLayout("max")}
+          onPointerOut={() => setLayout(prevLayout)}
+        >
+          <Maximize />
 
-        {layout === "max" && (
-          <motion.div
-            layoutId="min-max-bg"
-            className="absolute inset-0 h-full w-full rounded-lg bg-[rgb(var(--secondary-rgb),0.2)]"
-          />
-        )}
-      </button>
-      <button
-        className="relative aspect-square rounded-lg p-2"
-        aria-label="Switch to minimum size post show"
-        onClick={() => {
-          handleSetLayout("min");
-          setPrevLayout(layout);
-        }}
-        onPointerOver={() => setLayout("min")}
-        onPointerOut={() => setLayout(prevLayout)}
-      >
-        <Minimize />
+          {layout === "max" && (
+            <motion.div
+              layoutId="min-max-bg"
+              className="absolute inset-0 h-full w-full rounded-lg bg-[rgb(var(--secondary-rgb),0.2)]"
+            />
+          )}
+        </button>
+        <button
+          className="relative aspect-square rounded-lg p-2"
+          aria-label="Switch to minimum size post show"
+          onClick={() => {
+            handleSetLayout("min");
+            setPrevLayout(layout);
+          }}
+          onPointerOver={() => setLayout("min")}
+          onPointerOut={() => setLayout(prevLayout)}
+        >
+          <Minimize />
 
-        {layout === "min" && (
-          <motion.div
-            layoutId="min-max-bg"
-            className="absolute inset-0 h-full w-full rounded-lg bg-[rgb(var(--secondary-rgb),0.2)]"
-          />
-        )}
-      </button>
-    </div>
-  );
+          {layout === "min" && (
+            <motion.div
+              layoutId="min-max-bg"
+              className="absolute inset-0 h-full w-full rounded-lg bg-[rgb(var(--secondary-rgb),0.2)]"
+            />
+          )}
+        </button>
+      </div>
+    );
+  }
 };
