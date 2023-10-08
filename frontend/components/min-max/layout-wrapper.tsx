@@ -76,7 +76,7 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
               <MotionDivWrapper
                 key={post.id}
                 id={post.id}
-                className="flex items-center gap-4"
+                className="flex max-sm:flex-col sm:items-center sm:gap-4"
               >
                 <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
                   {post.updatedAt.slice(0, 10)}
