@@ -1,9 +1,9 @@
 import { CollectionConfig } from 'payload/types';
 
 const NewsletterEmails: CollectionConfig = {
-  slug: 'newsletter-emails',
+  slug: "newsletter-emails",
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "email",
   },
   fields: [
     {
@@ -11,7 +11,9 @@ const NewsletterEmails: CollectionConfig = {
       label: "Email",
       type: "email",
       required: true,
-    }
+      unique: true,
+      index: true,
+    },
   ],
 };
 
