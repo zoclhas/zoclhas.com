@@ -1,7 +1,15 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types";
+
+export const admins = ({ req: { user } }) => user.canAccessAdmin;
 
 const NewsletterEmails: CollectionConfig = {
   slug: "newsletter-emails",
+  access: {
+    admin: admins,
+    create: () => true,
+    read: ({ req: { user } }) => Boolean(user),
+    update: () => true,
+  },
   admin: {
     useAsTitle: "email",
   },
@@ -13,6 +21,12 @@ const NewsletterEmails: CollectionConfig = {
       required: true,
       unique: true,
       index: true,
+    },
+    {
+      name: "unsub",
+      label: "Unsubbed",
+      type: "checkbox",
+      defaultValue: false,
     },
   ],
 };
