@@ -7,6 +7,9 @@ const nextConfig = {
       "http://payload.zoclhas.com",
     ],
   },
+  experimental: {
+    serverActions: true,
+  },
 };
 
 module.exports = nextConfig;
