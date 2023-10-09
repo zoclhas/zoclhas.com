@@ -19,6 +19,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "nodemailer": "^6.9.6",
     "payload": "latest",
     "type-fest": "^4.3.3"
   },
