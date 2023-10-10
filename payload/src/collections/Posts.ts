@@ -4,6 +4,7 @@ import { formatSlug } from "../utils/format";
 
 import { Content } from "../blocks/content";
 import { Code } from "../blocks/code";
+import { EmailHtml } from "../email";
 
 const Posts: CollectionConfig = {
   access: { read: () => true },
@@ -64,6 +65,8 @@ const Posts: CollectionConfig = {
     afterChange: [
       async ({ doc }) => {
         if (!doc.is_draft) {
+          const { slug, title, subtitle } = doc;
+
           const emails = await payload
             .find({
               collection: "newsletter-emails",
@@ -78,16 +81,23 @@ const Posts: CollectionConfig = {
               },
               limit: 9999,
             })
-            .then((res) => res.docs.map((mail) => mail.email));
+            .then((res) => res.docs);
 
-          emails.forEach((email) =>
+          emails.forEach((email) => {
+            const html = EmailHtml({
+              slug: slug,
+              title: title,
+              subtitle: subtitle,
+              email: email.email,
+              id: email.id,
+            });
             payload.sendEmail({
               from: `${process.env.FROM_NAME} <${process.env.FROM_ADDRESS}>`,
-              to: email,
-              subject: "Message subject title",
-              html: "<h1>HTML based message</h1>",
-            }),
-          );
+              to: email.email,
+              subject: `Out now: ${title}`,
+              html: html,
+            });
+          });
         }
       },
     ],
