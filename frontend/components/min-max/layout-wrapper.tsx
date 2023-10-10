@@ -4,11 +4,9 @@ import { useEffect, useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
 import { Posts } from "@/app/writings/types";
 import { MotionDivWrapper } from "@/components/min-max/index";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
-  const router = useRouter();
-
   const [layout, setLayout] = useState<"min" | "max">("max");
   const [mounted, setMounted] = useState(false);
 
@@ -49,40 +47,35 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
                 >
                   {post.createdAt.slice(0, 10)}
                 </motion.span>
-                <motion.a
-                  layoutId={post.id + "a"}
-                  href={`/writings/${post.slug}`}
-                  onClick={(e) => {
-                    if (!e.ctrlKey) {
-                      e.preventDefault();
-                      router.push(`/writings/${post.slug}`);
-                    }
-                  }}
-                  className="group relative rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
-                >
-                  <motion.h2
-                    layoutId={post.id + "h2"}
-                    className="flex justify-between gap-2 text-2xl"
+                <Link href={`/writings/${post.slug}`} className="block">
+                  <motion.div
+                    layoutId={post.id + "div"}
+                    className="group relative rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
                   >
-                    {post.title}
-                    <motion.svg
-                      layoutId={post.id + "svg"}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-transform ease-in group-hover:translate-x-1"
+                    <motion.h2
+                      layoutId={post.id + "h2"}
+                      className="flex justify-between gap-2 text-2xl"
                     >
-                      <path d="m9 18 6-6-6-6" />
-                    </motion.svg>
-                  </motion.h2>
-                  <p>{post.subtitle}</p>
-                </motion.a>
+                      {post.title}
+                      <motion.svg
+                        layoutId={post.id + "svg"}
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform ease-in group-hover:translate-x-1"
+                      >
+                        <path d="m9 18 6-6-6-6" />
+                      </motion.svg>
+                    </motion.h2>
+                    <p>{post.subtitle}</p>
+                  </motion.div>
+                </Link>
               </MotionDivWrapper>
             ))}
           </>
@@ -100,39 +93,34 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
                 >
                   {post.createdAt.slice(0, 10)}
                 </motion.span>
-                <motion.a
-                  layoutId={post.id + "a"}
-                  href={`/writings/${post.slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (!e.ctrlKey || !e.shiftKey || !e.altKey) {
-                      router;
-                    }
-                  }}
-                  className="group relative flex items-center rounded-xl px-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
-                >
-                  <motion.h2
-                    layoutId={post.id + "h2"}
-                    className="flex items-center justify-between gap-2 text-2xl"
+                <Link href={`/writings/${post.slug}`} className="block">
+                  <motion.div
+                    layoutId={post.id + "div"}
+                    className="group relative rounded-xl bg-[rgb(var(--secondary-rgb),0)] px-2 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
                   >
-                    {post.title}
-                    <motion.svg
-                      layoutId={post.id + "svg"}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-transform ease-in group-hover:translate-x-1"
+                    <motion.h2
+                      layoutId={post.id + "h2"}
+                      className="flex items-center justify-between gap-2 text-2xl"
                     >
-                      <path d="m9 18 6-6-6-6" />
-                    </motion.svg>
-                  </motion.h2>
-                </motion.a>
+                      {post.title}
+                      <motion.svg
+                        layoutId={post.id + "svg"}
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform ease-in group-hover:translate-x-1"
+                      >
+                        <path d="m9 18 6-6-6-6" />
+                      </motion.svg>
+                    </motion.h2>
+                  </motion.div>
+                </Link>
               </MotionDivWrapper>
             ))}
           </>
