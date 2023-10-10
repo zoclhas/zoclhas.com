@@ -62,31 +62,33 @@ const Posts: CollectionConfig = {
   ],
   hooks: {
     afterChange: [
-      async (args) => {
-        const emails = await payload
-          .find({
-            collection: "newsletter-emails",
-            where: {
-              and: [
-                {
-                  unsub: {
-                    equals: false,
+      async ({ doc }) => {
+        if (!doc.is_draft) {
+          const emails = await payload
+            .find({
+              collection: "newsletter-emails",
+              where: {
+                and: [
+                  {
+                    unsub: {
+                      equals: false,
+                    },
                   },
-                },
-              ],
-            },
-            limit: 9999,
-          })
-          .then((res) => res.docs.map((mail) => mail.email));
+                ],
+              },
+              limit: 9999,
+            })
+            .then((res) => res.docs.map((mail) => mail.email));
 
-        emails.forEach((email) =>
-          payload.sendEmail({
-            from: `${process.env.FROM_NAME} <${process.env.FROM_ADDRESS}>`,
-            to: email,
-            subject: "Message subject title",
-            html: "<h1>HTML based message</h1>",
-          }),
-        );
+          emails.forEach((email) =>
+            payload.sendEmail({
+              from: `${process.env.FROM_NAME} <${process.env.FROM_ADDRESS}>`,
+              to: email,
+              subject: "Message subject title",
+              html: "<h1>HTML based message</h1>",
+            }),
+          );
+        }
       },
     ],
   },
