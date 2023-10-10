@@ -60,11 +60,20 @@ const Posts: CollectionConfig = {
         position: "sidebar",
       },
     },
+    {
+      name: "send_mail",
+      label: "Draft",
+      type: "checkbox",
+      defaultValue: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
   hooks: {
     afterChange: [
       async ({ doc }) => {
-        if (!doc.is_draft) {
+        if (!doc.is_draft && doc.send_mail) {
           const { slug, title, subtitle } = doc;
 
           const emails = await payload
