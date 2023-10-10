@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
 import { Posts } from "@/app/writings/types";
-import Link from "next/link";
 import { MotionDivWrapper } from "@/components/min-max/index";
+import { useRouter } from "next/navigation";
 
 export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
+  const router = useRouter();
+
   const [layout, setLayout] = useState<"min" | "max">("max");
   const [mounted, setMounted] = useState(false);
 
@@ -41,16 +43,30 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
           <>
             {posts.docs.map((post) => (
               <MotionDivWrapper key={post.id} id={post.id}>
-                <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
+                <motion.span
+                  layoutId={post.id + "span"}
+                  className="ml-4 w-max text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]"
+                >
                   {post.createdAt.slice(0, 10)}
-                </span>
-                <Link
+                </motion.span>
+                <motion.a
+                  layoutId={post.id + "a"}
                   href={`/writings/${post.slug}`}
+                  onClick={(e) => {
+                    if (!e.ctrlKey) {
+                      e.preventDefault();
+                      router.push(`/writings/${post.slug}`);
+                    }
+                  }}
                   className="group relative rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
                 >
-                  <h2 className="flex justify-between gap-2 text-2xl">
+                  <motion.h2
+                    layoutId={post.id + "h2"}
+                    className="flex justify-between gap-2 text-2xl"
+                  >
                     {post.title}
-                    <svg
+                    <motion.svg
+                      layoutId={post.id + "svg"}
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -63,10 +79,10 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
                       className="transition-transform ease-in group-hover:translate-x-1"
                     >
                       <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </h2>
+                    </motion.svg>
+                  </motion.h2>
                   <p>{post.subtitle}</p>
-                </Link>
+                </motion.a>
               </MotionDivWrapper>
             ))}
           </>
@@ -78,16 +94,30 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
                 id={post.id}
                 className="flex max-sm:flex-col sm:items-center sm:gap-4"
               >
-                <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
+                <motion.span
+                  layoutId={post.id + "span"}
+                  className="ml-4 w-max text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]"
+                >
                   {post.createdAt.slice(0, 10)}
-                </span>
-                <Link
+                </motion.span>
+                <motion.a
+                  layoutId={post.id + "a"}
                   href={`/writings/${post.slug}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (!e.ctrlKey || !e.shiftKey || !e.altKey) {
+                      router;
+                    }
+                  }}
                   className="group relative flex items-center rounded-xl px-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
                 >
-                  <h2 className="flex items-center justify-between gap-2 text-2xl">
+                  <motion.h2
+                    layoutId={post.id + "h2"}
+                    className="flex items-center justify-between gap-2 text-2xl"
+                  >
                     {post.title}
-                    <svg
+                    <motion.svg
+                      layoutId={post.id + "svg"}
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -100,9 +130,9 @@ export const LayoutWrapper = ({ posts }: { posts: Posts }) => {
                       className="transition-transform ease-in group-hover:translate-x-1"
                     >
                       <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </h2>
-                </Link>
+                    </motion.svg>
+                  </motion.h2>
+                </motion.a>
               </MotionDivWrapper>
             ))}
           </>
