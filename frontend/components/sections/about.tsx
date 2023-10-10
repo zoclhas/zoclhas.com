@@ -126,7 +126,7 @@ export const About = ({ posts }: { posts: Posts }) => {
         {posts.docs.map((post) => (
           <motion.div key={post.id} className="flex flex-col" variants={child}>
             <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
-              {post.updatedAt.slice(0, 10)}
+              {post.createdAt.slice(0, 10)}
             </span>
             <Link
               href={`/writings/${post.slug}`}

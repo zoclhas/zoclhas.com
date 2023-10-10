@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const getPosts = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=2&page=1&sort=-updatedAt&where[or][0][and][0][is_draft][equals]=false`,
+    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=2&page=1&sort=-createdAt&where[or][0][and][0][is_draft][equals]=false`,
     { method: "GET", next: { revalidate: 60 } },
   );
 
