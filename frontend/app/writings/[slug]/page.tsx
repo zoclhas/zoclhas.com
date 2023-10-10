@@ -66,12 +66,12 @@ export default async function PostPage({
           Back to Writings
         </LinkButton>
         <h1 className="text-5xl md:text-6xl">{postDetails.title}</h1>
-        <span className="font-bold text-[rgb(var(--secondary-rgb),0.8)]">
-          {postDetails.updatedAt.slice(0, 10)}
-        </span>
       </div>
       <div className="prose md:prose-lg">
-        <RenderBlocks layout={postDetails.layout} />
+        <RenderBlocks
+          layout={postDetails.layout}
+          date={postDetails.createdAt}
+        />
       </div>
     </Reveal>
   );
