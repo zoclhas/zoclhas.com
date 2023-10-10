@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { Component as content } from "./rich-text";
 import { CodeBlock } from "./code";
 
