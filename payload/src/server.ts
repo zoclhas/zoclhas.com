@@ -9,6 +9,8 @@ app.get("/", (_, res) => {
   res.redirect("/admin");
 });
 
+// console.log(process.env.STMP_HOST);
+
 const start = async () => {
   // Initialize Payload
   await payload.init({
@@ -18,21 +20,22 @@ const start = async () => {
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
+
     email: {
+      fromName: process.env.FROM_NAME,
+      fromAddress: process.env.FROM_ADDRESS,
       transportOptions: {
-        host: process.env.SMTP_HOST,
+        host: process.env.STMP_HOST,
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: process.env.STMP_USER,
+          pass: process.env.STMP_PASS,
         },
-        port: 587,
+        port: 465,
         secure: true,
         tls: {
           rejectUnauthorized: false,
         },
       },
-      fromName: process.env.FROM_NAME,
-      fromAddress: process.env.FROM_ADDRESS,
     },
   });
 
