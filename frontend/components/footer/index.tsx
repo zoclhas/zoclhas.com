@@ -8,7 +8,7 @@ export default function Footer() {
   const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
   useEffect(() => {
-    if (pathname.split("/").includes("writings")) {
+    if (pathname.split("/").includes("writings") || pathname === "/unsub") {
       setHidden(true);
     } else {
       setHidden(false);

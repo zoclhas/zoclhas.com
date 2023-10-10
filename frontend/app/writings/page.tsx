@@ -35,6 +35,7 @@ export default async function Writings({
       {
         method: "POST",
         body: bodyFormData,
+        cache: "no-store",
       },
     );
 
