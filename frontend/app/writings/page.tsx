@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 
 const getPosts = async (page: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=100&page=${page}&sort=-updatedAt&where[or][0][and][0][is_draft][equals]=false`,
+    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=100&page=${page}&sort=-createdAt&where[or][0][and][0][is_draft][equals]=false`,
     { method: "GET", next: { revalidate: 60 } },
   );
 
