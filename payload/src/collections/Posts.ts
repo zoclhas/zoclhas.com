@@ -62,7 +62,7 @@ const Posts: CollectionConfig = {
     },
     {
       name: "send_mail",
-      label: "Draft",
+      label: "Send mail after save",
       type: "checkbox",
       defaultValue: true,
       admin: {
