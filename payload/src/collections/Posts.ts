@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import payload from "payload";
 import { formatSlug } from "../utils/format";
 
 import { Content } from "../blocks/content";
@@ -59,6 +60,36 @@ const Posts: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [
+      async (args) => {
+        const emails = await payload
+          .find({
+            collection: "newsletter-emails",
+            where: {
+              and: [
+                {
+                  unsub: {
+                    equals: false,
+                  },
+                },
+              ],
+            },
+            limit: 9999,
+          })
+          .then((res) => res.docs.map((mail) => mail.email));
+
+        emails.forEach((email) =>
+          payload.sendEmail({
+            from: `${process.env.FROM_NAME} <${process.env.FROM_ADDRESS}>`,
+            to: email,
+            subject: "Message subject title",
+            html: "<h1>HTML based message</h1>",
+          }),
+        );
+      },
+    ],
+  },
 };
 
 export default Posts;

@@ -1,7 +1,7 @@
-import { buildConfig } from 'payload/config';
-import path from 'path';
+import { buildConfig } from "payload/config";
+import path from "path";
 
-import collections from './collections'; 
+import collections from "./collections";
 
 export default buildConfig({
   admin: {
@@ -12,12 +12,11 @@ export default buildConfig({
     collections.NewsletterEmails,
     collections.Posts,
     collections.Media,
-
   ],
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+    schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
 });

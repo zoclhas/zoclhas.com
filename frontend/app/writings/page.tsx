@@ -28,6 +28,7 @@ export default async function Writings({
     "use server";
 
     const email = formData.get("email");
+    const bodyFormData = new FormData();
     bodyFormData.append("email", String(email));
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API}/api/newsletter-emails`,
