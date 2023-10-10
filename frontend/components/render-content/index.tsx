@@ -15,7 +15,7 @@ type Props = {
 
 const RenderBlocks: React.FC<Props> = ({ layout, className, date }) => {
   const post = useRef(null);
-  const { readingTime, wordsCount } = useReadingTime(post);
+  const { readingTime } = useReadingTime(post, 220);
 
   return (
     <div ref={post}>
