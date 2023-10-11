@@ -21,6 +21,7 @@ const RenderBlocks: React.FC<Props> = ({ layout, className, date }) => {
     <div ref={post}>
       <div className="flex justify-between font-bold text-[rgb(var(--secondary-rgb),0.8)]">
         {date.slice(0, 10)}
+
         <span>{readingTime} minutes</span>
       </div>
 
