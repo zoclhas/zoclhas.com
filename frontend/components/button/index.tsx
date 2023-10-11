@@ -17,7 +17,7 @@ export const Button: FC<ButtonProps> = ({
     whileTap: { scale: 0.9 },
     className: `px-6 py-x font-bold ${
       fill ? "bg-[rgb(var(--secondary-rgb),0.2)]" : ""
-    } rounded-2xl cursor-pointer block text-center`,
+    } rounded-2xl cursor-pointer block text-center h-full`,
     ...props,
   };
 

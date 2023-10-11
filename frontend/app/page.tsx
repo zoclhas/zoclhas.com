@@ -5,19 +5,38 @@ import { Contact } from "@/components/sections/contact";
 
 import { Spotify } from "@/components/spotify";
 
-export default function Home() {
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  metadataBase: new URL("https://zoclhas.com"),
+  openGraph: {
+    images: "/meta-img.png",
+  },
+};
+
+const getPosts = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=2&page=1&sort=-createdAt&where[or][0][and][0][is_draft][equals]=false`,
+    { method: "GET", next: { revalidate: 60 } },
+  );
+
+  return res.json();
+};
+
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
-    <>
+    <main>
       <section
         id="hero"
-        className="relative mx-auto flex h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4"
+        className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[40rem] flex-col items-center justify-center gap-2 px-4"
         data-scroll-section
       >
         <Hero />
       </section>
       <section id="about" className=" relative" data-scroll-section>
-        <div className="mx-auto flex h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4">
-          <About />
+        <div className="mx-auto flex min-h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4">
+          <About posts={posts} />
         </div>
         <div className="absolute bottom-4 right-4 max-md:relative max-md:bottom-0 max-md:right-0 max-md:hidden">
           <Spotify />
@@ -37,6 +56,6 @@ export default function Home() {
       >
         <Contact />
       </section>
-    </>
+    </main>
   );
 }
