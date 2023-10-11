@@ -29,24 +29,39 @@ const getViews = async (slug: string) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({
+  const authBody = JSON.stringify({
     username: process.env.UMAMI_USER,
     password: process.env.UMAMI_PASS,
   });
-
   const authRes = await fetch(
     `${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/api/auth/login`,
     {
       method: "POST",
       headers: myHeaders,
-      body: raw,
+      body: authBody,
       next: {
         revalidate: 3600,
       },
     },
   );
+  const auth: AuthParams = await authRes.json();
 
-  return authRes.json();
+  const viewBody = JSON.stringify({
+    startAt: 1697021355558,
+    endAt: Date.now(),
+    type: "url",
+    url: `/${slug}`,
+  });
+  const slugViews = await fetch(
+    `${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/api/websites/${process.env.NEXT_PUBLIC_UMAMI_KEY}/metrics`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    },
+  );
+
+  return slugViews;
 };
 
 const getPostDetail = async (slug: string) => {
