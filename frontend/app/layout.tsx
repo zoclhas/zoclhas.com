@@ -21,7 +21,7 @@ export default function RootLayout({
         <script
           async
           src={`${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/script.js`}
-          data-website-id={process.env.NEXT_PUBLIC_UMAMI_DOMAIN}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_KEY}
         />
       </head>
       <body style={{ overflowY: "hidden" }}>
