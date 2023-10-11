@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Spotify } from "@/components/spotify";
+import { Posts } from "@/app/writings/types";
+import Link from "next/link";
 
-export const About = () => {
+export const About = ({ posts }: { posts: Posts }) => {
   const stacks = [
     "JavaScript",
     "TypeScript",
-    "Next.js",
+    "NextJS",
     "React",
     "TailwindCSS",
     "CSS",
@@ -93,6 +95,65 @@ export const About = () => {
           ))}
         </motion.div>
       </div>
+
+      <motion.div
+        className="mt-12 flex w-full flex-col gap-4"
+        variants={container}
+        initial="hidden"
+        whileInView={"visible"}
+        viewport={{ once: true }}
+      >
+        <Link href="/writings" className="group flex items-center gap-3">
+          <motion.h1 className="text-4xl" variants={child}>
+            Latest Writings
+          </motion.h1>
+          <motion.svg
+            variants={child}
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform ease-in group-hover:translate-x-1"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </motion.svg>
+        </Link>
+        {posts.docs.map((post) => (
+          <motion.div key={post.id} className="flex flex-col" variants={child}>
+            <span className="ml-4 text-sm font-bold text-[rgb(var(--secondary-rgb),0.8)]">
+              {post.createdAt.slice(0, 10)}
+            </span>
+            <Link
+              href={`/writings/${post.slug}`}
+              className="group relative rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] p-4 transition-colors ease-in hover:bg-[rgb(var(--secondary-rgb),0.15)]"
+            >
+              <h2 className="flex justify-between gap-2 text-2xl">
+                {post.title}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform ease-in group-hover:translate-x-1"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </h2>
+              <p>{post.subtitle}</p>
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
 
       <div className="absolute bottom-4 right-4 mt-4 max-md:relative max-md:bottom-0 max-md:right-0 md:hidden">
         <Spotify />
