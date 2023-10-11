@@ -17,6 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-color="green">
+      <head>
+        <script
+          async
+          src={`${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/script.js`}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_DOMAIN}
+        />
+      </head>
       <body style={{ overflowY: "hidden" }}>
         <Providers>{children}</Providers>
       </body>
