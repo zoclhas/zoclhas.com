@@ -23,6 +23,32 @@ export async function generateMetadata(
   };
 }
 
+const getViews = async (slug: string) => {
+  "use server";
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    username: process.env.UMAMI_USER,
+    password: process.env.UMAMI_PASS,
+  });
+
+  const authRes = await fetch(
+    `${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/api/auth/login`,
+    {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  return authRes.json();
+};
+
 const getPostDetail = async (slug: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/api/posts?where[or][0][and][0][slug][equals]=${slug}`,
@@ -43,6 +69,7 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const post = await getPostDetail(params.slug);
+  const views = await getViews(params.slug);
   const postDetails = post.docs[0];
 
   return (
@@ -83,4 +110,14 @@ export async function generateStaticParams() {
   }).then((res) => res.json());
 
   return posts.docs.map((post) => ({ slug: post.slug }));
+}
+
+interface AuthParams {
+  token: string;
+  user: {
+    id: string;
+    username: string;
+    role: string;
+    createdAt: string;
+  };
 }
