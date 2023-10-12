@@ -11,6 +11,7 @@ export default buildConfig({
     collections.Users,
     collections.NewsletterEmails,
     collections.Posts,
+    collections.Projects,
     collections.Media,
   ],
   typescript: {
