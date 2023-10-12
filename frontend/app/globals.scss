@@ -291,8 +291,8 @@ strong {
     color: rgb(var(--secondary-rgb)) !important;
   }
 
-  b {
-    color: rgb(var(--secondary-rgb));
+  strong {
+    color: rgb(var(--secondary-rgb)) !important;
   }
 
   li::marker,
