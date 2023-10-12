@@ -32,6 +32,22 @@ const Projects: CollectionConfig = {
     },
 
     {
+      name: "stacks",
+      label: "Stacks",
+      type: "array",
+      minRows: 1,
+      fields: [
+        {
+          name: "stack",
+          label: "Stack",
+          type: "text",
+          required: true,
+        },
+      ],
+      required: true,
+    },
+
+    {
       name: "layout",
       label: "Content",
       type: "blocks",
