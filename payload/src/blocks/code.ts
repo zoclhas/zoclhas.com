@@ -14,6 +14,7 @@ const LANGUAGES = {
   python: "Python",
   rust: "Rust",
   bash: "Bash",
+  env: "env",
 };
 
 export const Code: Block = {
