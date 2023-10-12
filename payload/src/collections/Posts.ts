@@ -1,10 +1,10 @@
 import { CollectionConfig } from "payload/types";
-import payload from "payload";
 import { formatSlug } from "../utils/format";
 
 import { Content } from "../blocks/content";
 import { Code } from "../blocks/code";
 import { EmailHtml } from "../email";
+import payload from "payload";
 
 const Posts: CollectionConfig = {
   access: { read: () => true },
@@ -76,7 +76,7 @@ const Posts: CollectionConfig = {
         if (!doc.is_draft && doc.send_mail) {
           const { slug, title, subtitle } = doc;
 
-          const emails = await payload
+          const emails: NewsletterEmail[] = await payload
             .find({
               collection: "newsletter-emails",
               where: {
@@ -114,3 +114,11 @@ const Posts: CollectionConfig = {
 };
 
 export default Posts;
+
+interface NewsletterEmail {
+  id: string;
+  email: string;
+  unsub?: boolean;
+  updatedAt: string;
+  createdAt: string;
+}

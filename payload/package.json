@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
+    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
@@ -15,13 +16,17 @@
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema"
   },
   "dependencies": {
+    "@payloadcms/bundler-webpack": "^1.0.3",
+    "@payloadcms/db-mongodb": "^1.0.3",
     "@payloadcms/plugin-cloud": "^0.0.10",
+    "@payloadcms/richtext-lexical": "^0.1.5",
+    "@payloadcms/richtext-slate": "^1.0.2",
     "@react-email/components": "^0.0.7",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemailer": "^6.9.6",
-    "payload": "latest",
+    "payload": "2.0.4",
     "type-fest": "^4.3.3"
   },
   "devDependencies": {
