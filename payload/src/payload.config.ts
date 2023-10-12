@@ -1,10 +1,17 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
+import {
+  BlocksFeature,
+  LinkFeature,
+  UploadFeature,
+  lexicalEditor,
+} from "@payloadcms/richtext-lexical";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { buildConfig } from "payload/config";
 import path from "path";
 
 import collections from "./collections";
+import { Code } from "./blocks/code";
 
 export default buildConfig({
   admin: {
@@ -26,25 +33,11 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI,
   }),
-  editor: slateEditor({
-    admin: {
-      elements: [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "textAlign",
-        "upload",
-        "ol",
-        "ul",
-        "link",
-        "relationship",
-        "blockquote",
-        "indent",
-      ],
-      link: {
+
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      LinkFeature({
         fields: [
           {
             name: "rel",
@@ -60,7 +53,23 @@ export default buildConfig({
             defaultValue: false,
           },
         ],
-      },
-    },
+      }),
+      UploadFeature({
+        collections: {
+          uploads: {
+            fields: [
+              {
+                name: "alt",
+                label: "Caption",
+                type: "text",
+              },
+            ],
+          },
+        },
+      }),
+      BlocksFeature({
+        blocks: [Code],
+      }),
+    ],
   }),
 });
