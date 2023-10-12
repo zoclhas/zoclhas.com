@@ -34,10 +34,25 @@ export default buildConfig({
     url: process.env.MONGODB_URI,
   }),
 
-  editor: lexicalEditor({
-    features: ({ defaultFeatures }) => [
-      ...defaultFeatures,
-      LinkFeature({
+  editor: slateEditor({
+    admin: {
+      elements: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "textAlign",
+        "upload",
+        "ol",
+        "ul",
+        "link",
+        "relationship",
+        "blockquote",
+        "indent",
+      ],
+      link: {
         fields: [
           {
             name: "rel",
@@ -53,23 +68,7 @@ export default buildConfig({
             defaultValue: false,
           },
         ],
-      }),
-      UploadFeature({
-        collections: {
-          uploads: {
-            fields: [
-              {
-                name: "alt",
-                label: "Caption",
-                type: "text",
-              },
-            ],
-          },
-        },
-      }),
-      BlocksFeature({
-        blocks: [Code],
-      }),
-    ],
+      },
+    },
   }),
 });
