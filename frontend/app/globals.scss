@@ -291,6 +291,10 @@ strong {
     color: rgb(var(--secondary-rgb)) !important;
   }
 
+  b {
+    color: rgb(var(--secondary-rgb));
+  }
+
   li::marker,
   blockquote {
     color: var(--secondary) !important;
