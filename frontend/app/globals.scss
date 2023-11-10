@@ -97,6 +97,26 @@ strong {
   z-index: 2000;
 }
 
+.about-p {
+  a {
+    @apply relative inline-block w-max font-bold;
+  }
+
+  a::after {
+    content: "";
+    display: block;
+    background: var(--secondary);
+
+    height: 2px;
+    width: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    border-radius: 9999px;
+  }
+}
+
 .dlink {
   @apply relative inline-block w-max font-bold;
 }
