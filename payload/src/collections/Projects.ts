@@ -34,16 +34,7 @@ const Projects: CollectionConfig = {
     {
       name: "stacks",
       label: "Stacks",
-      type: "array",
-      minRows: 1,
-      fields: [
-        {
-          name: "stack",
-          label: "Stack",
-          type: "text",
-          required: true,
-        },
-      ],
+      type: "json",
       required: true,
     },
 
@@ -74,6 +65,30 @@ const Projects: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+    },
+
+    {
+      name: "meta",
+      label: "Meta",
+      type: "group",
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "desc",
+          type: "textarea",
+          required: true,
+        },
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+      ],
     },
   ],
 };
