@@ -19,7 +19,7 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
       </Link>
       <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
         {projects.docs.map((project) => (
-          <div
+          <li
             key={project.id}
             className="group grid w-full grid-cols-1 grid-rows-1 overflow-hidden rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] shadow-xl transition-all ease-in hover:-translate-y-1 hover:bg-[rgb(var(--secondary-rgb),0.15)] hover:shadow-2xl md:grid-cols-2"
           >
@@ -87,7 +87,7 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
                 </button>
               </div>
             </Link>
-          </div>
+          </li>
         ))}
         <li>
           <div className="rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] px-4 py-4 text-xl">
