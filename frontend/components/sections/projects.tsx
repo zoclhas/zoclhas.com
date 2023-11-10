@@ -12,7 +12,7 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
     <>
       <Link
         href="/projects"
-        className="group flex items-center gap-4 transition-opacity ease-in hover:opacity-80"
+        className="group flex w-max items-center gap-4 transition-opacity ease-in hover:opacity-80"
       >
         <h1 className="text-6xl max-sm:text-4xl">Projects</h1>
         <ChevronRight />
@@ -43,13 +43,25 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
                   className="rounded-lg object-cover object-center"
                 />
               </Link>
-              <Link
-                className="absolute bottom-1 right-1 grid items-center rounded-lg bg-[rgb(var(--secondary-rgb),0.2)] p-3 backdrop-blur-md transition-colors hover:bg-[rgb(var(--secondary-rgb),0.1)]"
-                href={project.link}
-                target="_blank"
-              >
-                <ExternalLink fill="#fff" height={0.9} />
-              </Link>
+
+              <div className="absolute bottom-1 right-1 flex gap-1">
+                {project.git_link && (
+                  <Link
+                    className="grid h-[42px] w-[42px] items-center justify-center rounded-lg bg-[rgb(var(--secondary-rgb),0.2)] p-3 backdrop-blur-md transition-colors hover:bg-[rgb(var(--secondary-rgb),0.1)]"
+                    href={project.git_link}
+                    target="_blank"
+                  >
+                    <GitHub fill="#fff" height={1.1} />
+                  </Link>
+                )}
+                <Link
+                  className="grid h-[42px] w-[42px] items-center justify-center rounded-lg bg-[rgb(var(--secondary-rgb),0.2)] p-3 backdrop-blur-md transition-colors hover:bg-[rgb(var(--secondary-rgb),0.1)]"
+                  href={project.link}
+                  target="_blank"
+                >
+                  <ExternalLink fill="#fff" height={0.9} />
+                </Link>
+              </div>
             </div>
 
             <Link
@@ -77,6 +89,19 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
             </Link>
           </div>
         ))}
+        <li>
+          <div className="rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] px-4 py-4 text-xl">
+            &nbsp;
+          </div>
+        </li>
+        <li>
+          <Link
+            href="/projects"
+            className="flex items-center justify-center rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] px-4 py-4 text-center text-xl shadow-xl transition-all ease-in hover:-translate-y-1 hover:bg-[rgb(var(--secondary-rgb),0.15)] hover:shadow-2xl"
+          >
+            View More
+          </Link>
+        </li>
       </ul>
     </>
   );

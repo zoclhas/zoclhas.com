@@ -85,6 +85,7 @@ export interface Project {
   title: string;
   subtitle: string;
   link: string;
+  git_link?: string;
   stacks: string[];
   layout?:
     | (

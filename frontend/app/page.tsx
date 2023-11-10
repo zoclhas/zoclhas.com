@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const getPosts = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/home`, {
     method: "GET",
-    // next: { revalidate: 60 },
+    next: { revalidate: 1 },
   });
 
   return res.json();
