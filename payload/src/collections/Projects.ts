@@ -24,7 +24,7 @@ const Projects: CollectionConfig = {
     {
       name: "subtitle",
       label: "Subtitle",
-      type: "text",
+      type: "textarea",
       required: true,
       admin: {
         position: "sidebar",
