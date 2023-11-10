@@ -37,19 +37,22 @@ export default buildConfig({
       method: "get",
       handler: async (req, res, next) => {
         try {
-          const posts = payload.find({
+          const posts = await payload.find({
             collection: "posts",
             limit: 2,
             page: 1,
             sort: "-createdAt",
             where: {
-              draft: {
+              is_draft: {
                 equals: false,
               },
             },
           });
-          const about = payload.findGlobal({
+          const about = await payload.findGlobal({
             slug: "about",
+            draft: false,
+            depth: 1,
+            locale: undefined,
           });
 
           res.status(200).json({
