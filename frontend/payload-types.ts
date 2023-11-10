@@ -84,15 +84,8 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  stacks:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  link: string;
+  stacks: string[];
   layout?:
     | (
         | {
@@ -123,12 +116,12 @@ export interface Project {
           }
       )[]
     | null;
-  slug?: string | null;
+  slug?: string;
   is_draft?: boolean | null;
   meta: {
     title: string;
     desc: string;
-    image: string | Media;
+    image: Media;
   };
   updatedAt: string;
   createdAt: string;
@@ -138,12 +131,12 @@ export interface Media {
   alt: string;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
+  url?: string;
   filename?: string | null;
   mimeType?: string | null;
   filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
+  width: number;
+  height: number;
   sizes?: {
     card?: {
       url?: string | null;
@@ -203,5 +196,8 @@ export interface HomeProps {
   about: About;
   posts: {
     docs: Post[];
+  };
+  projects: {
+    docs: Project[];
   };
 }

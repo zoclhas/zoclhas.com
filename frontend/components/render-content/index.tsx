@@ -50,7 +50,6 @@ export const NormalRenderBlocks = ({
     [k: string]: unknown;
   }[];
 }) => {
-  console.log(layout.map((block) => console.log(block)));
   return (
     <div>
       {layout.map((block: any, i: number) => {

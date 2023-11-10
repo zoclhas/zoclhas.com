@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 const getPosts = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/home`, {
     method: "GET",
-    next: { revalidate: 60 },
+    // next: { revalidate: 60 },
   });
 
   return res.json();
 };
 
 export default async function Home() {
-  const { about, posts }: HomeProps = await getPosts();
+  const { about, posts, projects }: HomeProps = await getPosts();
 
   return (
     <main>
@@ -48,7 +48,7 @@ export default async function Home() {
         className="relative px-4 py-20 max-md:py-6"
         data-scroll-section
       >
-        <Projects />
+        <Projects projects={projects} />
       </section>
       <section
         id="contact"
