@@ -5,6 +5,8 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 
 import collections from "./collections";
+import About from "./globals/About";
+import payload from "payload";
 
 export default buildConfig({
   admin: {
@@ -18,6 +20,7 @@ export default buildConfig({
     collections.Projects,
     collections.Media,
   ],
+  globals: [About],
   editor: slateEditor({}),
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
@@ -28,4 +31,38 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI,
   }),
+  endpoints: [
+    {
+      path: "/home",
+      method: "get",
+      handler: async (req, res, next) => {
+        try {
+          const posts = payload.find({
+            collection: "posts",
+            limit: 2,
+            page: 1,
+            sort: "-createdAt",
+            where: {
+              draft: {
+                equals: false,
+              },
+            },
+          });
+          const about = payload.findGlobal({
+            slug: "about",
+          });
+
+          res.status(200).json({
+            posts,
+            about,
+          });
+        } catch (err) {
+          console.error(err);
+          res
+            .status(500)
+            .json("Failed to fetch latest posts and about details.");
+        }
+      },
+    },
+  ],
 });

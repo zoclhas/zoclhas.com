@@ -16,3 +16,5 @@ const About: GlobalConfig = {
     },
   ],
 };
+
+export default About;
