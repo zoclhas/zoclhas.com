@@ -56,7 +56,7 @@ export default buildConfig({
           });
           const projects = await payload.find({
             collection: "projects",
-            limit: 3,
+            limit: 4,
             page: 1,
             sort: "-createdAt",
           });

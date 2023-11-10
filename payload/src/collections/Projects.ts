@@ -39,6 +39,14 @@ const Projects: CollectionConfig = {
         position: "sidebar",
       },
     },
+    {
+      name: "git_link",
+      label: "GitHub Repo",
+      type: "text",
+      admin: {
+        position: "sidebar",
+      },
+    },
 
     {
       name: "layout",
