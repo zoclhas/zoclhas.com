@@ -1,4 +1,5 @@
 import { GlobalConfig } from "payload/types";
+import { Content } from "../blocks/content";
 
 const About: GlobalConfig = {
   access: { read: () => true },
@@ -6,7 +7,8 @@ const About: GlobalConfig = {
   fields: [
     {
       name: "content",
-      type: "richText",
+      type: "blocks",
+      blocks: [Content],
       required: true,
     },
     {

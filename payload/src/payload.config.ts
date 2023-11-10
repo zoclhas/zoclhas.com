@@ -54,10 +54,17 @@ export default buildConfig({
             depth: 1,
             locale: undefined,
           });
+          const projects = await payload.find({
+            collection: "projects",
+            limit: 3,
+            page: 1,
+            sort: "-createdAt",
+          });
 
           res.status(200).json({
             posts,
             about,
+            projects,
           });
         } catch (err) {
           console.error(err);

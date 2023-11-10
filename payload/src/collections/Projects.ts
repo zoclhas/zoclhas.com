@@ -30,12 +30,14 @@ const Projects: CollectionConfig = {
         position: "sidebar",
       },
     },
-
     {
-      name: "stacks",
-      label: "Stacks",
-      type: "json",
+      name: "link",
+      label: "Link",
+      type: "text",
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
 
     {
@@ -44,6 +46,12 @@ const Projects: CollectionConfig = {
       type: "blocks",
       minRows: 1,
       blocks: [Content, Code],
+    },
+    {
+      name: "stacks",
+      label: "Stacks",
+      type: "json",
+      required: true,
     },
 
     {
