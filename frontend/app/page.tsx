@@ -6,6 +6,7 @@ import { Contact } from "@/components/sections/contact";
 import { Spotify } from "@/components/spotify";
 
 import type { Metadata } from "next";
+import { HomeProps } from "@/payload-types";
 export const metadata: Metadata = {
   metadataBase: new URL("https://zoclhas.com"),
   openGraph: {
@@ -14,16 +15,16 @@ export const metadata: Metadata = {
 };
 
 const getPosts = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/posts?limit=2&page=1&sort=-createdAt&where[or][0][and][0][is_draft][equals]=false`,
-    { method: "GET", next: { revalidate: 60 } },
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/home`, {
+    method: "GET",
+    next: { revalidate: 60 },
+  });
 
   return res.json();
 };
 
 export default async function Home() {
-  const posts = await getPosts();
+  const { about, posts, projects }: HomeProps = await getPosts();
 
   return (
     <main>
@@ -36,7 +37,7 @@ export default async function Home() {
       </section>
       <section id="about" className=" relative" data-scroll-section>
         <div className="mx-auto flex min-h-screen max-w-[40rem] flex-col items-center justify-center gap-2 px-4">
-          <About posts={posts} />
+          <About about={about} posts={posts} />
         </div>
         <div className="absolute bottom-4 right-4 max-md:relative max-md:bottom-0 max-md:right-0 max-md:hidden">
           <Spotify />
@@ -47,7 +48,7 @@ export default async function Home() {
         className="relative px-4 py-20 max-md:py-6"
         data-scroll-section
       >
-        <Projects />
+        <Projects projects={projects} />
       </section>
       <section
         id="contact"

@@ -24,27 +24,28 @@ const Projects: CollectionConfig = {
     {
       name: "subtitle",
       label: "Subtitle",
+      type: "textarea",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "link",
+      label: "Link",
       type: "text",
       required: true,
       admin: {
         position: "sidebar",
       },
     },
-
     {
-      name: "stacks",
-      label: "Stacks",
-      type: "array",
-      minRows: 1,
-      fields: [
-        {
-          name: "stack",
-          label: "Stack",
-          type: "text",
-          required: true,
-        },
-      ],
-      required: true,
+      name: "git_link",
+      label: "GitHub Repo",
+      type: "text",
+      admin: {
+        position: "sidebar",
+      },
     },
 
     {
@@ -53,6 +54,12 @@ const Projects: CollectionConfig = {
       type: "blocks",
       minRows: 1,
       blocks: [Content, Code],
+    },
+    {
+      name: "stacks",
+      label: "Stacks",
+      type: "json",
+      required: true,
     },
 
     {
@@ -74,6 +81,30 @@ const Projects: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+    },
+
+    {
+      name: "meta",
+      label: "Meta",
+      type: "group",
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "desc",
+          type: "textarea",
+          required: true,
+        },
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+      ],
     },
   ],
 };

@@ -2,22 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Spotify } from "@/components/spotify";
-import { Posts } from "@/app/writings/types";
 import Link from "next/link";
+import { About as AboutGlobalProps, Post } from "@/payload-types";
+import { NormalRenderBlocks } from "../render-content";
 
-export const About = ({ posts }: { posts: Posts }) => {
-  const stacks = [
-    "JavaScript",
-    "TypeScript",
-    "NextJS",
-    "React",
-    "TailwindCSS",
-    "CSS",
-    "SCSS",
-    "Python",
-    "Django",
-    "Flutter",
-  ];
+export const About = ({
+  posts,
+  about,
+}: {
+  posts: { docs: Post[] };
+  about: AboutGlobalProps;
+}) => {
+  const stacks = about.tech;
 
   const container = {
     hidden: {
@@ -55,26 +51,15 @@ export const About = ({ posts }: { posts: Posts }) => {
 
   return (
     <>
-      <motion.p
-        className="my-4 text-3xl max-sm:text-2xl"
+      <motion.div
+        className="about-p my-4 text-3xl max-sm:text-2xl"
         initial={{ opacity: 0, translateY: 100 }}
         whileInView={{ opacity: 1, translateY: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        Hello! I&apos;m Zoclhas. I&apos;m primary a webdev, but occasionally
-        work on the BE with Django. I also do textures from time to time for{" "}
-        <motion.a
-          className="dlink"
-          href="https://zaura.net"
-          target="_blank"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          zaura.net
-        </motion.a>
-        . I try to deliver HQ stuff :D (and a swifte &lt;3)
-      </motion.p>
+        <NormalRenderBlocks layout={about.content} />
+      </motion.div>
       <div className="mt-4 flex flex-col">
         <h3>Technologies:</h3>
         <motion.div

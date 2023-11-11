@@ -1,24 +1,26 @@
-import { GitHub, ExternalLink, Cross } from "@/components/icons";
-import { IconButton } from "@/components/icon-button";
-import { Button } from "../button";
-
+import { Reveal } from "@/components/reveal";
+import { Project } from "@/payload-types";
+import { GitHub, ExternalLink } from "@/components/icons";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
-import { Project } from "@/payload-types";
 
-export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
+const getProjects = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/projects?limit=100&page=1`,
+    { method: "GET", next: { revalidate: 60 } },
+  );
+
+  return res.json();
+};
+
+export default async function Projects() {
+  const projects: { docs: Project[] } = await getProjects();
+
   return (
-    <>
-      <Link
-        href="/projects"
-        className="group flex w-max items-center gap-4 transition-opacity ease-in hover:opacity-80"
-      >
-        <h1 className="text-6xl max-sm:text-4xl">Projects</h1>
-        <ChevronRight />
-      </Link>
-      <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {projects.docs.map((project) => (
+    <Reveal>
+      <h1 className="mb-4 text-4xl">Projects</h1>
+      <ul className="mt-8 flex flex-col gap-4">
+        {projects.docs.map((project, i) => (
           <li
             key={project.id}
             className="group grid w-full grid-cols-1 grid-rows-1 overflow-hidden rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] shadow-xl transition-all ease-in hover:-translate-y-1 hover:bg-[rgb(var(--secondary-rgb),0.15)] hover:shadow-2xl md:grid-cols-2"
@@ -41,6 +43,7 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
                     project.meta.image.width
                   }
                   className="rounded-lg object-cover object-center"
+                  loading={i < 3 ? "eager" : "lazy"}
                 />
               </Link>
 
@@ -89,20 +92,7 @@ export const Projects = ({ projects }: { projects: { docs: Project[] } }) => {
             </Link>
           </li>
         ))}
-        <li>
-          <div className="rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] px-4 py-4 text-xl">
-            &nbsp;
-          </div>
-        </li>
-        <li>
-          <Link
-            href="/projects"
-            className="flex items-center justify-center rounded-2xl bg-[rgb(var(--secondary-rgb),0.1)] px-4 py-4 text-center text-xl shadow-xl transition-all ease-in hover:-translate-y-1 hover:bg-[rgb(var(--secondary-rgb),0.15)] hover:shadow-2xl"
-          >
-            View More
-          </Link>
-        </li>
       </ul>
-    </>
+    </Reveal>
   );
-};
+}
