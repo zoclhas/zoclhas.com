@@ -86,7 +86,7 @@ const serialize = (children) =>
       case "li":
         return <li key={i}>{serialize(node.children)}</li>;
       case "link":
-        if (node.fields.rel) {
+        if (node.fields && node.fields.rel) {
           return (
             <Link
               href={escapeHTML(node.url)}
@@ -99,8 +99,10 @@ const serialize = (children) =>
           );
         }
 
+        const target = !node.newTab ? undefined : "_blank";
+
         return (
-          <Link href={escapeHTML(node.url)} key={i} target="_blank">
+          <Link href={escapeHTML(node.url)} key={i} target={target}>
             {serialize(node.children)}
           </Link>
         );
