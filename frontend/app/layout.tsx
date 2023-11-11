@@ -3,6 +3,7 @@ import "./globals.scss";
 import Providers from "./providers";
 
 import type { Metadata, Viewport } from "next";
+import { Wrapper } from "./wrapper";
 export const metadata: Metadata = {
   title: "Zoclhas",
   description:
@@ -14,8 +15,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en" data-color="green" suppressHydrationWarning>
@@ -28,6 +31,7 @@ export default function RootLayout({
       </head>
       <body style={{ overflowY: "hidden" }}>
         <Providers>{children}</Providers>
+        <Wrapper modal={modal} />
       </body>
     </html>
   );
