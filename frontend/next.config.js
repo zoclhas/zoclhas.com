@@ -3,25 +3,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3001",
+        hostname: "localhost:3001",
       },
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3010",
-      },
-      {
-        protocol: "https",
-        hostname: "zoclhas.com",
-      },
-      {
-        protocol: "https",
-        hostname: "payload.zoclhas.com",
-      },
-    ],
-  },
-};
+        hostname: "payload.zoclhas.com"
+      }
+    ]
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
