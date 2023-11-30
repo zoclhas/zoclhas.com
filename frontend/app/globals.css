@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer {
+  body {
+    @apply bg-dough;
+  }
+
+  html.dark body {
+    @apply bg-rock;
+  }
+}
