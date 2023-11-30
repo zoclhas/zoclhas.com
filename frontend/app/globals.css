@@ -8,10 +8,35 @@ html {
 
 @layer {
   body {
-    @apply bg-dough;
+    @apply text-sand12 dark:text-sand1 bg-gray-50 dark:bg-gray-950;
   }
+}
 
-  html.dark body {
-    @apply bg-rock;
-  }
+.button {
+  @apply relative isolate mx-[2px] inline-flex items-center justify-center gap-1 rounded-[14px] bg-gradient-to-t px-4 py-2;
+}
+
+.button::before {
+  --wh: calc(100% + 4px);
+  --offset: -2px;
+  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[2] block h-[var(--wh)] w-[var(--wh)] translate-x-[var(--offset)] translate-y-[var(--offset)] rounded-2xl bg-gradient-to-b stroke-gray-950 shadow-sm content-[''];
+}
+
+.button::after {
+  --wh: calc(100%);
+  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[1] block h-[var(--wh)] w-[var(--wh)] rounded-[14px] bg-gradient-to-t content-[''];
+}
+
+.button:active::before,
+.button:active::after {
+  @apply from-priamry-400 to-priamry-300 dark:from-priamry-800 dark:to-priamry-700;
+}
+
+.button.icon {
+  @apply aspect-square p-2;
+}
+
+.github-button,
+html.dark .github-button {
+  @apply before:from-[#1f1f1f] before:to-[#333] after:from-[#1f1f1f] after:to-[#333] active:before:from-[#141414] active:before:to-[#292929] active:after:from-[#141414] active:after:to-[#292929];
 }

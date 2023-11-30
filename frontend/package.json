@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
     "escape-html": "^1.0.3",
     "framer-motion": "^10.16.9",
     "lucide-react": "^0.294.0",
@@ -16,7 +17,8 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "slate": "^0.101.1"
+    "slate": "^0.101.1",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
