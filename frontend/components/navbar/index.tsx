@@ -25,6 +25,7 @@ export const Navbar = () => {
               target="_blank"
               isIcon
               className="github-button"
+              aria-label="Zoclhas's GitHub profile button"
             >
               <Github className="stroke-sand1" />
             </Button>
