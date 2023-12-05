@@ -3,5 +3,5 @@ export default async function Writings({
 }: {
   searchParams: { message?: string };
 }) {
-  return <main>, col && "flex flex-col"</main>;
+  return <main>col && "flex flex-col"</main>;
 }
