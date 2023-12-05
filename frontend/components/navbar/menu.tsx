@@ -15,12 +15,6 @@ export const Menu = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState(false);
 
-  const links = [
-    { label: "Projects", href: "/projects" },
-    { label: "Writings", href: "/writings" },
-    { label: "Contact", href: "/contact" },
-  ];
-
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
     if (typeof document !== "undefined") {

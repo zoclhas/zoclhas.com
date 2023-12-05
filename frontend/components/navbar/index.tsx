@@ -8,7 +8,7 @@ import { Menu } from "./menu";
 export const Navbar = () => {
   return (
     <nav className="relative isolate z-[1000] flex items-center justify-center px-4 py-8">
-      <header className="shadow-default z-[1001] flex max-w-5xl grow items-center justify-between gap-2 rounded-3xl bg-gradient-to-t from-gray-100/40 to-gray-100/20 p-2 backdrop-blur-2xl dark:from-gray-900/20 dark:to-gray-900/10">
+      <header className="shadow-default z-[1001] flex max-w-5xl grow items-center justify-between gap-2 rounded-3xl bg-gradient-to-t from-gray-200/40 to-gray-100/30 p-2 backdrop-blur-2xl dark:bg-gradient-to-b dark:from-gray-900/20 dark:to-gray-900/[0.6]">
         <Link
           href="/"
           className="dark:hover:text-sand5 hover:text-sand11 transition-colors"

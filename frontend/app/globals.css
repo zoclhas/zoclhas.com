@@ -19,12 +19,12 @@ html {
 .button::before {
   --wh: calc(100% + 4px);
   --offset: -2px;
-  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[2] block h-[var(--wh)] w-[var(--wh)] translate-x-[var(--offset)] translate-y-[var(--offset)] rounded-2xl bg-gradient-to-b stroke-gray-950 shadow-sm content-[''];
+  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[2] block h-[var(--wh)] w-[var(--wh)] translate-x-[var(--offset)] translate-y-[var(--offset)] rounded-2xl bg-gradient-to-t stroke-gray-950 shadow-sm content-[''];
 }
 
 .button::after {
   --wh: calc(100%);
-  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[1] block h-[var(--wh)] w-[var(--wh)] rounded-[14px] bg-gradient-to-t content-[''];
+  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[1] block h-[var(--wh)] w-[var(--wh)] rounded-[14px] bg-gradient-to-b content-[''];
 }
 
 .button:active::before,
