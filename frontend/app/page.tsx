@@ -59,6 +59,9 @@ export default async function Home() {
               </Button>
             </div>
           </div>
+          <div className="mt-8 flex items-center justify-center">
+            <Spotify />
+          </div>
         </div>
       </section>
 
@@ -80,7 +83,7 @@ export default async function Home() {
         </ul>
 
         <Link href="/writings">
-          <h2 className="mt-12 block text-xl font-medium">Latest Writings:</h2>
+          <h2 className="mt-4 block text-xl font-medium">Latest Writings:</h2>
         </Link>
         <ul className="mt-1 flex flex-col max-sm:mt-2 max-sm:gap-4">
           {posts.docs.map((post) => (

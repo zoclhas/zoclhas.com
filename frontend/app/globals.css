@@ -23,7 +23,7 @@ html {
 .button::before {
   --wh: calc(100% + 4px);
   --offset: -2px;
-  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[2] block h-[var(--wh)] w-[var(--wh)] translate-x-[var(--offset)] translate-y-[var(--offset)] rounded-2xl bg-gradient-to-t stroke-gray-950 shadow-sm content-[''];
+  @apply from-priamry-300 to-priamry-200 dark:from-priamry-700 dark:to-priamry-600 absolute inset-0 -z-[2] block h-[var(--wh)] w-[var(--wh)] translate-x-[var(--offset)] translate-y-[var(--offset)] rounded-2xl bg-gradient-to-t stroke-gray-950 shadow-md content-[''];
 }
 
 .button::after {
