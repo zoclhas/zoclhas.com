@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ThemeSwtich } from "./theme-switch";
 import { Links } from "./links";
 import { Button } from "../button";
-import { Github } from "lucide-react";
 import { Menu } from "./menu";
+import { GitHub } from "../icons";
 
 export const Navbar = () => {
   return (
@@ -27,7 +27,7 @@ export const Navbar = () => {
               className="github-button"
               aria-label="Zoclhas's GitHub profile button"
             >
-              <Github className="stroke-sand1" />
+              <GitHub />
             </Button>
           </li>
           <li className="hidden md:block">

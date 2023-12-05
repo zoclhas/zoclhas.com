@@ -44,3 +44,13 @@ html {
 html.dark .github-button {
   @apply before:from-[#1f1f1f] before:to-[#333] after:from-[#1f1f1f] after:to-[#333] active:before:from-[#141414] active:before:to-[#292929] active:after:from-[#141414] active:after:to-[#292929];
 }
+
+.twitter-button,
+html.dark .twitter-button {
+  @apply before:from-[#1c9cea] before:to-[#72c9ff] after:from-[#1c9cea] after:to-[#72c9ff] active:before:from-[#4b85a8] active:before:to-[#9cd9ff] active:after:from-[#579cc7] active:after:to-[#afe0ff];
+}
+
+.discord-button,
+html.dark .discord-button {
+  @apply before:from-[#5d6af2] before:to-[#9aa3ff] after:from-[#5d6af2] after:to-[#9aa3ff] active:before:from-[#141414] active:before:to-[#292929] active:after:from-[#141414] active:after:to-[#292929];
+}
