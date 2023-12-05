@@ -93,6 +93,7 @@ const serialize = (children) =>
               key={i}
               target="_blank"
               rel={node.fields.rel.join(" ")}
+              className="underline"
             >
               {serialize(node.children)}
             </Link>
@@ -102,7 +103,12 @@ const serialize = (children) =>
         const target = !node.newTab ? undefined : "_blank";
 
         return (
-          <Link href={escapeHTML(node.url)} key={i} target={target}>
+          <Link
+            href={escapeHTML(node.url)}
+            key={i}
+            target={target}
+            className="underline"
+          >
             {serialize(node.children)}
           </Link>
         );

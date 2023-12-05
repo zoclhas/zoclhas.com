@@ -4,6 +4,7 @@ import { NormalRenderBlocks } from "@/components/render-content";
 import { Spotify } from "@/components/spotify";
 
 import { HomeProps } from "@/payload-types";
+import Image from "next/image";
 import Link from "next/link";
 
 const getPosts = async () => {
@@ -102,6 +103,57 @@ export default async function Home() {
               </Link>
             </li>
           ))}
+        </ul>
+      </section>
+
+      <section id="projects" className="mt-16">
+        <h1 className="text-3xl font-semibold">Projects</h1>
+        <ul className="mt-1 grid gap-2 md:grid-cols-2">
+          {projects.docs.map((project) => (
+            <li key={project.id}>
+              <Link
+                href={"/projects/" + project.slug}
+                className="block flex h-full flex-col rounded-xl bg-gradient-to-b from-gray-50 to-gray-300/70 p-2 shadow-sm dark:from-gray-900 dark:to-gray-900/20"
+              >
+                <Image
+                  src={
+                    process.env.NEXT_PUBLIC_API +
+                    (project.meta.image.sizes?.card?.url ||
+                      project.meta.image.url)
+                  }
+                  alt={project.meta.image.alt}
+                  height={project.meta.image.height}
+                  width={project.meta.image.width}
+                  className="rounded-lg shadow-lg"
+                />
+                <div className="mt-4 flex grow flex-col justify-between gap-2">
+                  <div>
+                    <h2 className="text-xl font-medium underline">
+                      {project.title}
+                    </h2>
+                    <p>{project.subtitle}</p>
+                  </div>
+
+                  <ul className="flex flex-wrap gap-1">
+                    {project.stacks.map((t, i) => (
+                      <li
+                        key={i}
+                        className="flex grow items-center justify-center rounded-md bg-gradient-to-b from-gray-100 to-gray-200/70 px-4 py-2 text-center dark:from-gray-900 dark:to-gray-900/50"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Link>
+            </li>
+          ))}
+
+          <li className="md:col-span-2">
+            <Button href="/projects" className="w-full">
+              View More
+            </Button>
+          </li>
         </ul>
       </section>
     </main>
