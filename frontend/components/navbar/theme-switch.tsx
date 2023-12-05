@@ -25,7 +25,11 @@ export const ThemeSwtich = () => {
   if (!mounted) return null;
 
   return (
-    <Button isIcon onClick={() => handleSetTheme()}>
+    <Button
+      isIcon
+      onClick={() => handleSetTheme()}
+      aria-label="Switch themes button"
+    >
       {theme === "dark" ? <MoonStar /> : <Sun />}
     </Button>
   );

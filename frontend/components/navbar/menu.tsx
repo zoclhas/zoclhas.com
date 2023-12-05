@@ -70,7 +70,7 @@ export const Menu = () => {
               animate={{ opacity: 1, maxHeight: 1000 }}
               exit={{ opacity: 0, maxHeight: 0 }}
               transition={{ duration: 0.4, type: "spring" }}
-              className="shadow-default absolute inset-0 -z-[99] h-max w-full overflow-hidden rounded-3xl bg-gradient-to-t from-gray-100/40 to-gray-100/20 px-4 pb-4 pt-16 backdrop-blur-2xl dark:from-gray-900/20 dark:to-gray-900/10"
+              className="shadow-default absolute inset-0 -z-[99] h-max w-full overflow-hidden rounded-3xl bg-gradient-to-t from-gray-100/40 to-gray-100/20 px-4 pb-4 pt-20 backdrop-blur-2xl dark:from-gray-900/20 dark:to-gray-900/10"
             >
               <Links col />
               <div className="flex justify-end">
