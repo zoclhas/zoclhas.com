@@ -52,5 +52,5 @@ html.dark .twitter-button {
 
 .discord-button,
 html.dark .discord-button {
-  @apply before:from-[#5d6af2] before:to-[#9aa3ff] after:from-[#5d6af2] after:to-[#9aa3ff] active:before:from-[#141414] active:before:to-[#292929] active:after:from-[#141414] active:after:to-[#292929];
+  @apply before:from-[#5d6af2] before:to-[#9aa3ff] after:from-[#5d6af2] after:to-[#9aa3ff] active:before:from-[#5159b8] active:before:to-[#9fa7ff] active:after:from-[#5159b8] active:after:to-[#9fa7ff];
 }
