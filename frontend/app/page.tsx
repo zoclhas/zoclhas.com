@@ -29,7 +29,7 @@ export default async function Home() {
           </h1>
           <h2 className="text-center">Web Dev | Material Artist</h2>
           <div className="mt-8 flex items-center justify-between">
-            <Button href="/writings">Writings</Button>
+            <Button href="/#contact">Contact</Button>
             <div className="flex items-center gap-2">
               <Button
                 href="https://github.com/zoclhas"
@@ -155,6 +155,44 @@ export default async function Home() {
             </Button>
           </li>
         </ul>
+      </section>
+
+      <section
+        id="contact"
+        className="mt-16 items-center justify-between gap-4 sm:flex"
+      >
+        <h1 className="text-xl font-semibold">
+          You can contact me through the following ways:
+        </h1>
+        <div className="flex items-center gap-2 max-sm:mt-3">
+          <Button
+            href="https://github.com/zoclhas"
+            target="_blank"
+            isIcon
+            className="github-button"
+            aria-label="Zoclhas's GitHub profile button"
+          >
+            <GitHub />
+          </Button>
+          <Button
+            href="https://twitter.com/zoclhas"
+            target="_blank"
+            isIcon
+            className="twitter-button"
+            aria-label="Zoclhas's Twitter profile button"
+          >
+            <Twitter />
+          </Button>
+          <Button
+            href="https://discord.com/users/301347642682900481"
+            target="_blank"
+            isIcon
+            className="discord-button"
+            aria-label="Zoclhas's Discord profile button"
+          >
+            <Discord />
+          </Button>
+        </div>
       </section>
     </main>
   );
