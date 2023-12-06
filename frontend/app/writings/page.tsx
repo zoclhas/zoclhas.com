@@ -5,6 +5,12 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Writings | zoclhas",
+  description: "My thoughts here and there.",
+};
+
 const getPosts = async (page: number) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/api/posts?limit=100&page=${page}&sort=-createdAt&where[or][0][and][0][is_draft][equals]=false`,

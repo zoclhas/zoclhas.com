@@ -1,6 +1,31 @@
 import { RenderBlocks } from "@/components/render-content";
-import { Posts } from "@/payload-types";
+import { Posts, Project } from "@/payload-types";
+import { Metadata, ResolvingMetadata } from "next";
 import { redirect } from "next/navigation";
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const slug = params.slug;
+
+  const project: { docs: Project[] } = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/posts?where[or][0][and][0][slug][equals]=${slug}`,
+    { method: "GET", next: { revalidate: 60 } },
+  ).then((res) => res.json());
+  const details = project.docs[0];
+
+  return {
+    title: `${details.title} | Writings | zoclhas.com`,
+    description: `${details.updatedAt.slice(0, 10)} - ${details.subtitle}`,
+    authors: [
+      {
+        name: "zoclhas",
+        url: "https://zoclhas.com",
+      },
+    ],
+  };
+}
 
 const getPostDetail = async (slug: string) => {
   const res = await fetch(
