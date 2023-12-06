@@ -10,7 +10,6 @@ export const Links = ({ col }: { col?: boolean }) => {
   const links = [
     { label: "Projects", href: "/projects" },
     { label: "Writings", href: "/writings" },
-    { label: "Contact", href: "/contact" },
   ];
 
   return (
