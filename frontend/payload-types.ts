@@ -243,3 +243,7 @@ export interface Doc {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface UnsubError {
+  errors: Error[];
+}
