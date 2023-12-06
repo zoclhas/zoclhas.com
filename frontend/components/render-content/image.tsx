@@ -4,6 +4,7 @@ import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { ReactNode, useState, useEffect } from "react";
 import { Cross } from "@/components/icons";
+import { Button } from "../button";
 
 export const ImageLightbox = ({ node }: { node: Root }) => {
   const rootUrl = process.env.NEXT_PUBLIC_API;
@@ -99,18 +100,14 @@ export const ImageLightbox = ({ node }: { node: Root }) => {
             {node.value.alt}
           </motion.h3>
 
-          <motion.button
+          <Button
             id={id}
-            className="absolute right-4 top-4 grid items-center rounded-full bg-[rgb(var(--secondary-rgb),0.2)] p-2 backdrop-blur-md"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            isIcon
+            className="!absolute right-4 top-4 grid items-center"
             onClick={handleClose}
-            initial={{ opacity: 0, translateY: -200 }}
-            exit={{ opacity: 0, translateY: -200 }}
-            animate={{ opacity: 1, translateY: 0 }}
           >
             <Cross />
-          </motion.button>
+          </Button>
         </motion.div>
       </AnimatePresenceWrapper>
     </LayoutGroup>

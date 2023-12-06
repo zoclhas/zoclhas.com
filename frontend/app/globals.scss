@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@radix-ui/colors/sand.css";
+
 html {
   scroll-behavior: smooth;
 }
@@ -53,4 +55,62 @@ html.dark .twitter-button {
 .discord-button,
 html.dark .discord-button {
   @apply before:from-[#5d6af2] before:to-[#9aa3ff] after:from-[#5d6af2] after:to-[#9aa3ff] active:before:from-[#5159b8] active:before:to-[#9fa7ff] active:after:from-[#5159b8] active:after:to-[#9fa7ff];
+}
+
+@layer {
+  .prose {
+    max-width: none !important;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    strong,
+    em {
+      @apply text-sand12 dark:text-sand1;
+    }
+
+    a {
+      @apply underline;
+    }
+
+    blockquote {
+      border: none !important;
+      position: relative;
+    }
+
+    blockquote ::before {
+      @apply bg-priamry-500 dark:bg-priamry-800;
+      content: "";
+      display: block;
+
+      position: absolute;
+      height: 100%;
+      width: 3px;
+      border-radius: 12px;
+      inset: 0;
+    }
+
+    p {
+      code {
+        border-radius: 8px;
+        padding: 0.2rem;
+        background: var(--sand-12) !important;
+        color: var(--sand-1) !important;
+      }
+
+      code::after,
+      code::before {
+        content: "" !important;
+      }
+    }
+  }
+
+  html.dark .prose p code {
+    background: var(--sand-1) !important;
+    color: var(--sand-12) !important;
+  }
 }

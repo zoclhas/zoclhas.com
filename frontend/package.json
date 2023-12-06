@@ -17,6 +17,8 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-syntax-highlighter": "^15.5.0",
+    "sass": "^1.69.5",
     "slate": "^0.101.1",
     "tailwind-merge": "^2.0.0"
   },
@@ -25,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
