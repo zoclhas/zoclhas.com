@@ -31,6 +31,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src={`${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/script.js`}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_KEY}
+        />
+      </head>
       <body className={poppins.className}>
         <Providers>
           <Navbar />
