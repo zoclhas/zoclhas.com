@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import { Discord, GitHub, Twitter } from "@/components/icons";
+import { Discord, GitHub, Mail, Twitter } from "@/components/icons";
 import { NormalRenderBlocks } from "@/components/render-content";
 import { Spotify } from "@/components/spotify";
 
@@ -166,13 +166,13 @@ export default async function Home() {
         </h1>
         <div className="flex items-center gap-2 max-sm:mt-3">
           <Button
-            href="https://github.com/zoclhas"
+            href="mailto:hi@zoclhas.com"
             target="_blank"
             isIcon
             className="github-button"
             aria-label="Zoclhas's GitHub profile button"
           >
-            <GitHub />
+            <Mail />
           </Button>
           <Button
             href="https://twitter.com/zoclhas"
