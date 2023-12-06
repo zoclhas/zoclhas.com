@@ -202,3 +202,44 @@ export interface HomeProps {
     docs: Project[];
   };
 }
+
+export interface Posts {
+  docs: Post[];
+  totalDocs: number;
+  limit: number;
+  totalPages: number;
+  page: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: any;
+  nextPage: any;
+}
+
+export interface SignUpError {
+  errors: Error[];
+}
+
+export interface Error {
+  name: string;
+  message: string;
+  data: Daum[];
+}
+
+export interface Daum {
+  message: string;
+  field: string;
+}
+
+export interface SignUpSuccess {
+  message: string;
+  doc: Doc;
+}
+
+export interface Doc {
+  id: string;
+  email: string;
+  unsub: boolean;
+  createdAt: string;
+  updatedAt: string;
+}

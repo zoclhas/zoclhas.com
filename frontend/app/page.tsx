@@ -113,7 +113,7 @@ export default async function Home() {
             <li key={project.id}>
               <Link
                 href={"/projects/" + project.slug}
-                className="flex h-full flex-col rounded-xl bg-gradient-to-b from-gray-50 to-gray-300/70 p-2 shadow-sm dark:from-gray-900 dark:to-gray-900/20"
+                className="bg-sand3 flex h-full flex-col rounded-xl p-2 shadow-sm dark:bg-transparent dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-900/20"
               >
                 <Image
                   src={
