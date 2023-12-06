@@ -1,6 +1,11 @@
 import { Project } from "@/payload-types";
 import { redirect } from "next/navigation";
 import { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
+import { RenderBlocks } from "@/components/render-content";
+import { Button } from "@/components/button";
+import { GitHub } from "@/components/icons";
+import { ExternalLink } from "lucide-react";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -39,5 +44,56 @@ export default async function Project({
 }: {
   params: { slug: string };
 }) {
-  return <main></main>;
+  const project = await getProjectDetail(params.slug);
+
+  return (
+    <main>
+      <div className="flex gap-1">
+        {project.git_link && (
+          <Button
+            href={project.git_link}
+            target="_blank"
+            className="github-button text-sand1"
+          >
+            <GitHub /> Visit Repo
+          </Button>
+        )}
+        {project.link && (
+          <Button href={project.link} target="_blank">
+            <ExternalLink /> Visit Site
+          </Button>
+        )}
+      </div>
+
+      <Image
+        src={process.env.NEXT_PUBLIC_API + project.meta.image.url}
+        alt={project.meta.image.alt}
+        height={project.meta.image.height}
+        width={project.meta.image.width}
+        className="mt-4 aspect-video w-full rounded-2xl object-cover object-center shadow-xl"
+        loading="eager"
+      />
+
+      <h1 className="mt-4 text-4xl font-medium">{project.title}</h1>
+      <p>{project.subtitle}</p>
+
+      <div className="mt-4">
+        <h2>Technologies:</h2>
+        <ul className="mt-1 flex flex-wrap gap-1">
+          {project.stacks.map((t, i) => (
+            <li
+              key={i}
+              className="flex grow items-center justify-center rounded-md bg-gradient-to-b from-gray-100 to-gray-200/70 px-4 py-2 text-center dark:from-gray-900 dark:to-gray-900/50"
+            >
+              {t}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <article className="prose dark:prose-invert mt-4">
+        <RenderBlocks layout={project.layout} />
+      </article>
+    </main>
+  );
 }
