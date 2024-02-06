@@ -19,6 +19,7 @@ interface EmailProps {
   title: string;
   subtitle: string;
   email: string;
+  // @ts-ignore
   id: string;
 }
 

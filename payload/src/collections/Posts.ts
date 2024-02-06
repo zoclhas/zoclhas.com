@@ -89,6 +89,7 @@ const Posts: CollectionConfig = {
                 ],
               },
               limit: 9999,
+              depth: 2,
             })
             .then((res) => res.docs);
 
@@ -97,11 +98,14 @@ const Posts: CollectionConfig = {
               slug: slug,
               title: title,
               subtitle: subtitle,
+              // @ts-ignore
               email: email.email,
+              // @ts-ignore
               id: email.id,
             });
             payload.sendEmail({
               from: `${process.env.FROM_NAME} <${process.env.FROM_ADDRESS}>`,
+              // @ts-ignore
               to: email.email,
               subject: `Out now: ${title}`,
               html: html,
