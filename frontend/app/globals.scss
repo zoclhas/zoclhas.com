@@ -343,18 +343,18 @@ strong {
   ul,
   li {
     code {
-      border-radius: 8px;
-      background-color: rgb(var(--secondary-rgb), 0.15);
-      color: white;
-      padding: 0.2rem;
-      font-weight: 400;
+      border-radius: 8px !important;
+      background-color: rgb(var(--secondary-rgb), 0.15) !important;
+      color: white !important;
+      padding: 0.2rem !important;
+      font-weight: 400 !important;
     }
 
     code::after {
-      display: none;
+      display: none !important;
     }
     code::before {
-      display: none;
+      display: none !important;
     }
   }
 }
