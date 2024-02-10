@@ -45,27 +45,16 @@ export const ImageLightbox = ({ node }: { node: Root }) => {
         onClick={() => handleOpen(node.value.id)}
         aria-label="Maximise image"
       >
-        {node.value.sizes.feature.url ? (
-          <motion.img
-            width={node.value.sizes.feature.width}
-            height={node.value.sizes.feature.height}
-            src={rootUrl + node.value.sizes.feature.url}
-            alt={node.value.alt}
-            onClick={() => handleOpen(node.value.id)}
-            layoutId={node.value.id}
-            className="!my-0 aspect-video cursor-pointer rounded-xl object-cover object-center"
-          />
-        ) : (
-          <motion.img
-            width={node.value.width}
-            height={node.value.height}
-            src={rootUrl + node.value.url}
-            alt={node.value.alt}
-            onClick={() => handleOpen(node.value.id)}
-            layoutId={node.value.id}
-            className="!my-0 aspect-video cursor-pointer rounded-xl object-cover object-center"
-          />
-        )}
+        <motion.img
+          width={node.value.width}
+          height={node.value.height}
+          src={rootUrl + node.value.url}
+          alt={node.value.alt}
+          onClick={() => handleOpen(node.value.id)}
+          layoutId={node.value.id}
+          className="!my-0 w-full cursor-pointer rounded-xl object-cover object-center"
+          loading="lazy"
+        />
       </button>
 
       <AnimatePresenceWrapper isOpen={open && id.length > 5}>
