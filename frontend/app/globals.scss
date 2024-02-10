@@ -292,6 +292,8 @@ strong {
 
 .prose {
   color: var(--secondary) !important;
+  max-width: none;
+  width: 100%;
 
   h1,
   h2,
@@ -337,7 +339,9 @@ strong {
     inset: 0;
   }
 
-  p {
+  p,
+  ul,
+  li {
     code {
       border-radius: 8px;
       background-color: rgb(var(--secondary-rgb), 0.15);
