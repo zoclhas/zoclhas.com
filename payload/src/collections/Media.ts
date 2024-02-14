@@ -35,6 +35,11 @@ const Media: CollectionConfig = {
         width: 1024,
         height: 576,
       },
+      {
+        name: "gallery_card",
+        width: 1440,
+        height: 810,
+      },
     ],
   },
   fields: [
