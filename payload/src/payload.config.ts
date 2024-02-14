@@ -18,6 +18,7 @@ export default buildConfig({
     collections.NewsletterEmails,
     collections.Posts,
     collections.Projects,
+    collections.Gallery,
     collections.Media,
   ],
   globals: [About],
