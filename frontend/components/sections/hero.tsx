@@ -81,18 +81,32 @@ export const Hero = () => {
           </IconButton>
         </motion.div>
       </div>
-      <LinkButton
-        href="/writings"
-        fill
-        className="mt-4"
-        initial={{ opacity: 0, translateY: 100 }}
-        animate={{ opacity: 1, translateY: 0 }}
-        // transition={{ type: "spring", delay: 2 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        Writings
-      </LinkButton>
+      <div className="flex gap-4">
+        <LinkButton
+          href="/writings"
+          fill
+          className="mt-4"
+          initial={{ opacity: 0, translateY: 100 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          // transition={{ type: "spring", delay: 2 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Writings
+        </LinkButton>
+        <LinkButton
+          href="/gallery"
+          fill
+          className="max-xs:gap-2 mt-4"
+          initial={{ opacity: 0, translateY: 100 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          // transition={{ type: "spring", delay: 2 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Gallery
+        </LinkButton>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, translateY: 100 }}

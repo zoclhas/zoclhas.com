@@ -155,6 +155,14 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
+    gallery_card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
   };
 }
 export interface PayloadPreference {
@@ -191,6 +199,19 @@ export interface About {
   tech: string[];
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+export interface Gallery {
+  id: string;
+  image: Media;
+  alterantes?: { id: string; alterante: Media }[];
+  alt: string;
+  title: string;
+  description: {
+    [k: string]: unknown;
+  }[];
+  slug?: string;
+  updatedAt: string;
+  createdAt: string;
 }
 
 export interface HomeProps {

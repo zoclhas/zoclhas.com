@@ -1,13 +1,13 @@
 import { Project } from "@/payload-types";
 
-import type { Metadata, ResolvingMetadata } from "next";
 import { LinkButton } from "@/components/button/link-button";
-import { redirect } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
+import { NormalRenderBlocks } from "@/components/render-content";
 import { Reveal } from "@/components/reveal";
-import RenderBlocks, { NormalRenderBlocks } from "@/components/render-content";
-import { motion } from "framer-motion";
+import type { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata,
