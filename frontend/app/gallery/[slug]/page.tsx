@@ -28,6 +28,21 @@ export async function generateMetadata({
   return {
     title: `${details.title} | Zoclhas - Gallery`,
     description,
+    openGraph: {
+      title: `${details.title} | Zoclhas - Gallery`,
+      images: `${process.env.NEXT_PUBLIC_API}${
+        details.image.sizes?.gallery_card?.url || details.image.url
+      }`,
+      description,
+    },
+    twitter: {
+      title: `${details.title} | Zoclhas - Gallery`,
+      card: "summary_large_image",
+      images: `${process.env.NEXT_PUBLIC_API}${
+        details.image.sizes?.gallery_card?.url || details.image.url
+      }`,
+      description,
+    },
   };
 }
 
