@@ -1,7 +1,9 @@
 import { CollectionConfig } from "payload/types";
+import { formatSlug } from "../utils/format";
 
 const Gallery: CollectionConfig = {
   slug: "gallery",
+  access: { read: () => true },
   labels: {
     singular: "Gallery",
     plural: "Gallery",
@@ -48,6 +50,16 @@ const Gallery: CollectionConfig = {
       required: true,
       admin: {
         position: "sidebar",
+      },
+    },
+    {
+      name: "slug",
+      type: "text",
+      admin: {
+        position: "sidebar",
+      },
+      hooks: {
+        beforeValidate: [formatSlug("title")],
       },
     },
   ],

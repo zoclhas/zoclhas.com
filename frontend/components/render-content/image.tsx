@@ -4,6 +4,7 @@ import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { ReactNode, useState, useEffect } from "react";
 import { Cross } from "@/components/icons";
+import { Media } from "@/payload-types";
 
 export const ImageLightbox = ({ node }: { node: Root }) => {
   const rootUrl = process.env.NEXT_PUBLIC_API;
@@ -126,47 +127,10 @@ const AnimatePresenceWrapper = ({
 interface Root {
   children: Children[];
   type: string;
-  value: Value;
+  value: Media;
   relationTo: string;
 }
 
 interface Children {
   text: string;
-}
-
-interface Value {
-  id: string;
-  alt: string;
-  filename: string;
-  mimeType: string;
-  filesize: number;
-  width: number;
-  height: number;
-  sizes: Sizes;
-  createdAt: string;
-  updatedAt: string;
-  url: string;
-}
-
-interface Sizes {
-  card: Card;
-  feature: Feature;
-}
-
-interface Card {
-  width: number;
-  height: number;
-  mimeType: string;
-  filesize: number;
-  filename: string;
-  url: string;
-}
-
-interface Feature {
-  width: number;
-  height: number;
-  mimeType: string;
-  filesize: number;
-  filename: string;
-  url: string;
 }
