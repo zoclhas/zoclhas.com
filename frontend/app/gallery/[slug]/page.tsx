@@ -108,3 +108,14 @@ export default async function GalleryImage({
     </Reveal>
   );
 }
+
+export async function generateStaticParams() {
+  const posts: { docs: Gallery[] } = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/gallery`,
+    {
+      next: { revalidate: 60 },
+    },
+  ).then((res) => res.json());
+
+  return posts.docs.map((post) => ({ slug: post.slug }));
+}
