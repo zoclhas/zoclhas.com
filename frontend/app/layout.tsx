@@ -1,6 +1,14 @@
+import { cookies } from "next/headers";
+
 import type { Metadata } from "next";
-import {} from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/navbar";
+
+const jetBrainsMono = JetBrains_Mono({
+  fallback: ["monospace"],
+});
 
 export const metadata: Metadata = {
   title: "zoch.dev",
@@ -12,9 +20,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = cookies().get("theme");
+
   return (
-    <html lang="en">
-      <body className="">{children}</body>
+    <html className={theme?.value || "dark"} lang="en">
+      <body
+        className={cn(
+          "bg-paper text-black",
+          "dark:bg-neutral-950 dark:text-white",
+          jetBrainsMono.className,
+        )}
+      >
+        <Navbar />
+        <main className="max-w-xl px-4 min-[576px]:mx-auto">{children}</main>
+      </body>
     </html>
   );
 }
