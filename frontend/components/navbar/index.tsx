@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
 
 export const Navbar = () => {
-  const theme = cookies().get("theme")?.value || "dark";
+  const theme = cookies().get("theme")?.value || "light";
 
   return (
     <nav className="from-paper sticky top-0 max-w-xl bg-gradient-to-b px-4 min-[576px]:mx-auto dark:from-neutral-950">

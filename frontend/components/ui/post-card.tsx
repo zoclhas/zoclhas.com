@@ -27,7 +27,7 @@ export const PostCard = (props: Post) => {
           <Tooltip.Portal>
             <Tooltip.Content
               className="border border-neutral-900 bg-amber-100 p-1 text-xs dark:border-amber-100 dark:bg-neutral-900"
-              sideOffset={-1}
+              sideOffset={-1.5}
             >
               {subtitle}
             </Tooltip.Content>

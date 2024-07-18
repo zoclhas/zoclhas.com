@@ -24,7 +24,11 @@ export default function RootLayout({
   const theme = cookies().get("theme");
 
   return (
-    <html className={theme?.value || "dark"} lang="en" suppressHydrationWarning>
+    <html
+      className={theme?.value || "light"}
+      lang="en"
+      suppressHydrationWarning
+    >
       <body
         className={cn(
           "bg-paper text-black",
