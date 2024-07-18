@@ -6,7 +6,6 @@ import { useState } from "react";
 export const ThemeSwitch = ({ theme }: { theme: string }) => {
   const [_theme, setTheme] = useState(theme);
 
-  console.log(_theme);
   const toogleTheme = () => {
     const root = document.getElementsByTagName("html")[0];
 
