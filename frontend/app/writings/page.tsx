@@ -1,7 +1,10 @@
 import { PostCard } from "@/components/ui/post-card";
 import { Term } from "@/components/ui/term";
 import { Doc, Post } from "@/payload-types";
+import { CornerDownLeft } from "lucide-react";
 import { redirect } from "next/navigation";
+import { Form } from "./form";
+import { cn } from "@/lib/utils";
 
 async function getPosts(page: number) {
   const res = await fetch(
@@ -19,7 +22,7 @@ async function getPosts(page: number) {
 export default async function Writings({
   searchParams,
 }: {
-  searchParams: { page?: string; message?: string };
+  searchParams: { page?: string; message?: string; error?: string };
 }) {
   let page = searchParams.page ?? "1";
   const posts = await getPosts(Number(page));
@@ -46,7 +49,9 @@ export default async function Writings({
       if (errorMessage === "Value must be unique") {
         redirect("/writings?message=You+are+already+subscribed.");
       } else {
-        redirect(`/writings?message=${errorMessage.split(" ").join("+")}`);
+        redirect(
+          `/writings?message=${errorMessage.split(" ").join("+")}&error=true`,
+        );
       }
     }
 
@@ -55,6 +60,23 @@ export default async function Writings({
 
   return (
     <>
+      <section>
+        <Term command="./sign_up.sh" dir="writings" />
+        <form action={signUp} className="mt-0.5 flex gap-1">
+          <Form disabled={!!searchParams.message && !searchParams.error} />
+        </form>
+        {searchParams.message && (
+          <strong
+            className={cn(
+              "text-green-600 dark:text-green-400",
+              searchParams.error && "text-red-600 dark:text-red-400",
+            )}
+          >
+            {searchParams.message}
+          </strong>
+        )}
+      </section>
+
       <section className="mt-4">
         <Term command="ls -a" dir="writings" />
 
