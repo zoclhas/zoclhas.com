@@ -34,6 +34,11 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.jpg" />
+        <script
+          async
+          src={`${process.env.NEXT_PUBLIC_UMAMI_DOMAIN}/script.js`}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_KEY}
+        />
       </head>
       <body
         className={cn(
