@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar";
 
 const jetBrainsMono = JetBrains_Mono({
   fallback: ["monospace"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
