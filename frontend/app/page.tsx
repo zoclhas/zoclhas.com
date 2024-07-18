@@ -11,6 +11,7 @@ async function getHomeData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/home`, {
     next: { revalidate: 60 },
   });
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 }
@@ -147,7 +148,7 @@ export default async function Home() {
                   <span className="opacity-40">[</span>
                   <span>
                     <Icon className="inline size-4" />{" "}
-                    <span className="underline">{s.social}</span>
+                    <strong className="underline">{s.social}</strong>
                   </span>
                   <span className="opacity-40">]</span>
                   <span className="opacity-0 max-sm:hidden sm:group-hover:opacity-50">
