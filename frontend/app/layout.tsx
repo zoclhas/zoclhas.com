@@ -14,7 +14,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = meta({
   description:
-    "A undergrad computer science student, doing web dev and material stuff.",
+    "An undergrad computer science student, doing web dev and material stuff.",
   image: "https://i.zaurastudios.com/zoch.dev.logo.jpg",
   card: true,
 });
