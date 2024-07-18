@@ -12,8 +12,8 @@ main {
   min-height: calc(100vh - 56px);
 }
 
-section.default {
-  @apply flex flex-col gap-6;
+section {
+  width: 100%;
 }
 
 .gradient-blur {
