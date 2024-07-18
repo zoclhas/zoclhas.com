@@ -23,7 +23,7 @@ export default function RootLayout({
   const theme = cookies().get("theme");
 
   return (
-    <html className={theme?.value || "dark"} lang="en">
+    <html className={theme?.value || "dark"} lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "bg-paper text-black",
@@ -32,7 +32,9 @@ export default function RootLayout({
         )}
       >
         <Navbar />
-        <main className="max-w-xl px-4 min-[576px]:mx-auto">{children}</main>
+        <main className="max-w-xl px-4 text-sm min-[576px]:mx-auto">
+          {children}
+        </main>
       </body>
     </html>
   );
