@@ -89,6 +89,7 @@ export const ImageModal = ({
             alt={image.alt}
             layoutId={id}
             className="z-[1] max-h-[calc(0.75*100vh)] w-max max-w-[calc(0.9*100vw)] object-contain object-center sm:max-w-[576px]"
+            quality={100}
           />
           {text && (
             <motion.div
