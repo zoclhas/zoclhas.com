@@ -1,4 +1,5 @@
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
 import { Doc, Gallery as GalleryProp } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,18 @@ async function getImages() {
   );
 
   return res.json();
+}
+
+export async function generateMetadata() {
+  const data: Doc<GalleryProp> = await getImages();
+  const images = data.docs;
+
+  return meta({
+    title: "Gallery",
+    description: "Some pictures I take.",
+    card: true,
+    image: process.env.NEXT_PUBLIC_API + images[0].image.url!,
+  });
 }
 
 export default async function Gallery() {

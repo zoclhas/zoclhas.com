@@ -1,10 +1,15 @@
 import { PostCard } from "@/components/ui/post-card";
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
+import { cn } from "@/lib/utils";
 import { Doc, Post } from "@/payload-types";
-import { CornerDownLeft } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Form } from "./form";
-import { cn } from "@/lib/utils";
+
+export const metadata = meta({
+  title: "Writings",
+  description: "Some things I write.",
+});
 
 async function getPosts(page: number) {
   const res = await fetch(
