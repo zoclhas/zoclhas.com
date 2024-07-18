@@ -6,14 +6,17 @@ import { useState } from "react";
 export const ThemeSwitch = ({ theme }: { theme: string }) => {
   const [_theme, setTheme] = useState(theme);
 
+  console.log(_theme);
   const toogleTheme = () => {
     const root = document.getElementsByTagName("html")[0];
-    root.classList.toggle("dark");
-    if (root.classList.contains("dark")) {
+
+    if (!root.classList.contains("dark")) {
       setTheme("dark");
+      root.classList.add("dark");
       document.cookie = `theme=${"dark"}`;
     } else {
       setTheme("light");
+      root.classList.remove("dark");
       document.cookie = `theme=${"light"}`;
     }
   };
