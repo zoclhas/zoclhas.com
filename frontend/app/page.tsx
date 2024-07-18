@@ -1,11 +1,10 @@
-import { Term } from "@/components/ui/term";
-import { Fingerprint, Layers, Twitter, User } from "lucide-react";
-import Image from "next/image";
-import { HomeProps } from "@/payload-types";
 import { PostCard } from "@/components/ui/post-card";
-import React from "react";
-import Link from "next/link";
+import { Term } from "@/components/ui/term";
 import { DiscordIcon, GitHubIcon, TwitterIcon } from "@/lib/icons";
+import { HomeProps } from "@/payload-types";
+import { Fingerprint, Layers, User } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 async function getHomeData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/home`, {

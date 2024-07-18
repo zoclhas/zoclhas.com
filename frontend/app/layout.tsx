@@ -37,7 +37,7 @@ export default function RootLayout({
         )}
       >
         <Navbar />
-        <main className="max-w-xl px-4 text-sm min-[576px]:mx-auto">
+        <main className="max-w-xl px-4 py-12 text-sm min-[576px]:mx-auto md:py-24">
           {children}
         </main>
       </body>

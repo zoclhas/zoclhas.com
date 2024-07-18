@@ -1,7 +1,7 @@
 "use client";
 
 import { CornerDownLeft } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Form = ({ disabled }: { disabled: boolean }) => {
   const [input, setInput] = useState("");
