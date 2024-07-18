@@ -1,5 +1,3 @@
-"use client";
-
 import { CodeBlock } from "./code";
 import { Component as content } from "./rich-text";
 
