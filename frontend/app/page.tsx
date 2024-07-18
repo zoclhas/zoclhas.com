@@ -70,7 +70,7 @@ export default async function Home() {
               <Fingerprint className="mr-1 inline size-4" />
               About:
             </strong>
-            A undergard computer science student, doing web dev (freelancing)
+            A undergrad computer science student, doing web dev (freelancing)
             and material stuff (
             <a
               href="https://zaura.net"
