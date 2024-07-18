@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -14,10 +14,13 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = meta({
   description:
-    "A undergard computer science student, doing web dev and material stuff.",
+    "A undergrad computer science student, doing web dev and material stuff.",
   image: "https://i.zaurastudios.com/zoch.dev.logo.jpg",
   card: true,
 });
+export const viewport: Viewport = {
+  themeColor: "#fffae6",
+};
 
 export default function RootLayout({
   children,
