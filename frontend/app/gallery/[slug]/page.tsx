@@ -1,4 +1,5 @@
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
 import { ImageModal } from "@/lib/render/image";
 import { Doc, Gallery } from "@/payload-types";
 import Image from "next/image";
@@ -17,6 +18,21 @@ async function getImageDetails(slug: string) {
   }
 
   return data.docs[0];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const image = await getImageDetails(params.slug);
+
+  return meta({
+    title: `${image.title} - Gallery`,
+    description: image.alt,
+    card: true,
+    image: process.env.NEXT_PUBLIC_API + image.image.url!,
+  });
 }
 
 export default async function GallerySlug({

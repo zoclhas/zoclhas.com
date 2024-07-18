@@ -1,5 +1,11 @@
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
 import Link from "next/link";
+
+export const metadata = meta({
+  title: "Not Found",
+  description: "It is missing :(",
+});
 
 export default function NotFound() {
   return (

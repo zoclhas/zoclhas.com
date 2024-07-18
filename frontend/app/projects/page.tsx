@@ -1,7 +1,13 @@
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
 import { Doc, Project } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = meta({
+  title: "Projects",
+  description: "Previous and current projects that I've worked on.",
+});
 
 async function getProjects() {
   const res = await fetch(

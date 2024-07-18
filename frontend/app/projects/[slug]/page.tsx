@@ -1,5 +1,6 @@
 import { Term } from "@/components/ui/term";
 import { GitHubIcon } from "@/lib/icons";
+import { meta } from "@/lib/meta";
 import { RenderBlocks } from "@/lib/render";
 import { ImageModal } from "@/lib/render/image";
 import { Doc, Project } from "@/payload-types";
@@ -21,6 +22,21 @@ async function getProject(slug: string) {
   }
 
   return data.docs[0];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = await getProject(params.slug);
+
+  return meta({
+    title: `${project.title} - Projects`,
+    description: project.subtitle,
+    card: true,
+    image: process.env.NEXT_PUBLIC_API + project.meta.image.url!,
+  });
 }
 
 export default async function ProjectSlug({

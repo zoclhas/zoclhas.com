@@ -4,6 +4,7 @@ import { Doc, Post } from "@/payload-types";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { RenderBlocks } from "@/lib/render";
+import { meta } from "@/lib/meta";
 
 async function getPost(slug: string) {
   const res = await fetch(
@@ -17,6 +18,19 @@ async function getPost(slug: string) {
   }
 
   return data.docs[0];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPost(params.slug);
+
+  return meta({
+    title: `${post.title} - Writings`,
+    description: post.subtitle,
+  });
 }
 
 export default async function WritingsSlug({
