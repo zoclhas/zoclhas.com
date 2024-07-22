@@ -1,12 +1,16 @@
 "use client";
 
 import { CornerDownLeft } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Form = ({ disabled }: { disabled: boolean }) => {
   const [input, setInput] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const validRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  useEffect(() => {
+    const validRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValid(validRegEx.test(input.toLowerCase()));
+  }, [input]);
 
   return (
     <>
@@ -18,7 +22,6 @@ export const Form = ({ disabled }: { disabled: boolean }) => {
         placeholder="Enter your email..."
         onChange={(e) => {
           setInput(e.target.value);
-          setIsValid(validRegEx.test(input.toLowerCase()));
         }}
         disabled={disabled}
         required
