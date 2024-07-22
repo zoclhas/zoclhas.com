@@ -10,18 +10,24 @@ export const metadata = meta({
 export default function NotFound() {
   return (
     <section>
-      <Term
-        command={
-          <Link href="/projects" className="underline">
-            cd ..
-          </Link>
-        }
-        dir="404-not-found"
-      />
-      <strong className="mt-0.5 block">404 Not Found</strong>
-      <p>Could not find requested resource</p>
-      <Link href="/" className="underline decoration-wavy">
-        Return Home
+      <Term command="cat message.md" dir="404-not-found" />
+      <strong className="mt-0.5 block">
+        <span className="opacity-50">**</span>
+        404 Not Found
+        <span className="opacity-50">**</span>
+      </strong>
+      <p>Could not find requested resource.</p>
+      <Link href="/" className="group">
+        <span className="opacity-40">[</span>
+        <span>
+          <strong className="underline">Return Home</strong>
+        </span>
+        <span className="opacity-40">]</span>
+        <span className="opacity-0 max-sm:hidden sm:group-hover:opacity-50">
+          <span className="opacity-40">(</span>
+          <span className="underline decoration-wavy">/</span>
+          <span className="opacity-40">)</span>
+        </span>
       </Link>
     </section>
   );
