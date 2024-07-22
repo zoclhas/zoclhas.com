@@ -4,7 +4,7 @@ import { ImageModal } from "@/lib/render/image";
 import { Doc, Gallery } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 async function getImageDetails(slug: string) {
   const res = await fetch(
@@ -14,7 +14,7 @@ async function getImageDetails(slug: string) {
 
   const data: Doc<Gallery> = await res.json();
   if (data.totalDocs === 0) {
-    redirect("/projects");
+    notFound();
   }
 
   return data.docs[0];

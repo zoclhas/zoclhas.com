@@ -2,12 +2,11 @@ import { Term } from "@/components/ui/term";
 import { GitHubIcon } from "@/lib/icons";
 import { meta } from "@/lib/meta";
 import { RenderBlocks } from "@/lib/render";
-import { ImageModal } from "@/lib/render/image";
 import { Doc, Project } from "@/payload-types";
 import { Layers, LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import React from "react";
 
 async function getProject(slug: string) {
@@ -18,7 +17,7 @@ async function getProject(slug: string) {
 
   const data: Doc<Project> = await res.json();
   if (!data.totalDocs) {
-    redirect("/projects");
+    notFound();
   }
 
   return data.docs[0];

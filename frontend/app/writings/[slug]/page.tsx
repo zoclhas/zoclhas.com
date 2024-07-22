@@ -1,10 +1,10 @@
 import { Term } from "@/components/ui/term";
+import { meta } from "@/lib/meta";
+import { RenderBlocks } from "@/lib/render";
 import { formatDate } from "@/lib/utils";
 import { Doc, Post } from "@/payload-types";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { RenderBlocks } from "@/lib/render";
-import { meta } from "@/lib/meta";
+import { notFound } from "next/navigation";
 
 async function getPost(slug: string) {
   const res = await fetch(
@@ -14,7 +14,7 @@ async function getPost(slug: string) {
 
   const data: Doc<Post> = await res.json();
   if (!data.totalDocs) {
-    redirect("/writings");
+    notFound();
   }
 
   return data.docs[0];
