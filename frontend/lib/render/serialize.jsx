@@ -66,13 +66,21 @@ export const serialize = (children) =>
               .split(" ")
               .join("-")}
           >
-            {serialize(node.children)}
+            <span class="opacity-50">##</span> {serialize(node.children)}
           </h2>
         );
       case "h3":
-        return <h3 key={i}>{serialize(node.children)}</h3>;
+        return (
+          <h3 key={i}>
+            <span class="opacity-50">###</span> {serialize(node.children)}
+          </h3>
+        );
       case "h4":
-        return <h4 key={i}>{serialize(node.children)}</h4>;
+        return (
+          <h4 key={i}>
+            <span class="opacity-50">####</span> {serialize(node.children)}
+          </h4>
+        );
       case "h5":
         return <h5 key={i}>{serialize(node.children)}</h5>;
       case "h6":
