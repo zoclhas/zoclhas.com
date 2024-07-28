@@ -58,7 +58,7 @@ export default async function GallerySlug({
       <section>
         <Term command="glow image.md" dir={image.slug!} />
         <article className="mt-0.5">
-          <ImageModal image={image.image} />
+          <ImageModal image={image.image} gallery />
           <h1 className="text-2xl md:text-3xl">
             <span className="opacity-50">#</span> {image.title}
           </h1>
@@ -73,22 +73,7 @@ export default async function GallerySlug({
               <ul className="mt-4 flex flex-col gap-2">
                 {image.alterantes.map((img) => (
                   <li key={img.id}>
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_API}${
-                        img.alterante.sizes?.gallery_card?.url ||
-                        img.alterante.url
-                      }`}
-                      alt={img.alterante.alt}
-                      height={
-                        img.alterante.sizes?.gallery_card?.height ||
-                        img.alterante.height
-                      }
-                      width={
-                        img.alterante.sizes?.gallery_card?.width ||
-                        img.alterante.width
-                      }
-                      quality={100}
-                    />
+                    <ImageModal image={img.alterante} gallery />
                   </li>
                 ))}
               </ul>

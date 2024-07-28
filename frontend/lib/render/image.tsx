@@ -12,11 +12,13 @@ export const ImageModal = ({
   text,
   imageClassName,
   buttonClassName,
+  gallery,
 }: {
   image: Media;
   text?: string;
   imageClassName?: string;
   buttonClassName?: string;
+  gallery?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const [id, setId] = useState<string>("");
@@ -58,10 +60,22 @@ export const ImageModal = ({
         className={`block ${buttonClassName}`}
       >
         <MotionImage
-          src={`${process.env.NEXT_PUBLIC_API}${image.sizes?.feature?.url || image.url}`}
+          src={`${process.env.NEXT_PUBLIC_API}${gallery ? image.sizes?.gallery_card?.url : image.sizes?.feature?.url || image.url}`}
           alt={image.alt}
-          width={image.sizes?.feature?.width || image.width || 1920}
-          height={image.sizes?.feature?.height || image.height || 1080}
+          width={
+            (gallery
+              ? image.sizes?.gallery_card?.width
+              : image.sizes?.feature?.width) ||
+            image.width ||
+            1920
+          }
+          height={
+            (gallery
+              ? image.sizes?.gallery_card?.height
+              : image.sizes?.feature?.height) ||
+            image.height ||
+            1920
+          }
           className={`object-cover object-center ${imageClassName}`}
           loading="lazy"
           quality={100}
