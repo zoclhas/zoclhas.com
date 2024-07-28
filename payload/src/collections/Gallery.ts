@@ -15,7 +15,7 @@ const Gallery: CollectionConfig = {
     {
       name: "image",
       type: "relationship",
-      relationTo: "media",
+      relationTo: "gallery-media",
       required: true,
     },
     {
@@ -47,7 +47,6 @@ const Gallery: CollectionConfig = {
     {
       name: "description",
       type: "richText",
-      required: true,
       admin: {
         position: "sidebar",
       },

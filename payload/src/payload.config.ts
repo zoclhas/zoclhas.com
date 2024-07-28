@@ -20,6 +20,7 @@ export default buildConfig({
     collections.Projects,
     collections.Gallery,
     collections.Media,
+    collections.GalleryMedia,
   ],
   globals: [About],
   editor: slateEditor({
