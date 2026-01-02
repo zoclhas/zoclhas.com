@@ -26,9 +26,9 @@ async function getProject(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = await getProject(params.slug);
+  const project = await getProject((await params).slug);
 
   return meta({
     title: `${project.title} - Projects`,
@@ -41,9 +41,9 @@ export async function generateMetadata({
 export default async function ProjectSlug({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = await getProject(params.slug);
+  const project = await getProject((await params).slug);
 
   return (
     <>

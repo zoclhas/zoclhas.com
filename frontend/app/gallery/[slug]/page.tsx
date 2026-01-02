@@ -23,9 +23,10 @@ async function getImageDetails(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const image = await getImageDetails(params.slug);
+  const p = await params;
+  const image = await getImageDetails(p.slug);
 
   return meta({
     title: `${image.title} - Gallery`,
@@ -38,9 +39,9 @@ export async function generateMetadata({
 export default async function GallerySlug({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const image = await getImageDetails(params.slug);
+  const image = await getImageDetails((await params).slug);
 
   return (
     <>

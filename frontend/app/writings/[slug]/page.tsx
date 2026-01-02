@@ -23,9 +23,9 @@ async function getPost(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  const post = await getPost((await params).slug);
 
   return meta({
     title: `${post.title} - Writings`,
@@ -36,11 +36,11 @@ export async function generateMetadata({
 export default async function WritingsSlug({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  const post = await getPost((await params).slug);
 
-  const views: ViewProps = await getViews(params.slug, post.createdAt);
+  const views: ViewProps = await getViews((await params).slug, post.createdAt);
   const showViews = views.length > 0 && views[0].y && views[0].y > 0;
 
   return (

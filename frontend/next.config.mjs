@@ -20,6 +20,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "payload.zoclhas.com",
       },
+      {
+        protocol: "https",
+        hostname: "payload.zoch.dev",
+      },
     ],
   },
 };
