@@ -6,7 +6,7 @@ export const Navbar = () => {
   const theme = cookies().get("theme")?.value || "light";
 
   return (
-    <nav className="from-paper sticky top-0 max-w-xl bg-gradient-to-b px-4 min-[576px]:mx-auto dark:from-neutral-950">
+    <nav className="from-paper sticky top-0 z-[1000] max-w-xl bg-gradient-to-b px-4 min-[576px]:mx-auto dark:from-neutral-950">
       <header className="flex items-center justify-between gap-4 py-4">
         <Link
           href="/"
